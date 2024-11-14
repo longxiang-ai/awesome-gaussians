@@ -8,12 +8,15 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 添加写入权限
     
     steps:
     - name: 检出代码
       uses: actions/checkout@v3
       with:
-        fetch-depth: 0  # 获取完整历史记录
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
       
     - name: 设置Python
       uses: actions/setup-python@v4
@@ -37,14 +40,10 @@ jobs:
         
     - name: 提交更改
       run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git pull origin ${{ github.ref }} --rebase  # 先拉取并rebase远程更改
+        git fetch origin
+        git reset --hard origin/master
         git add data/ README.md
         git commit -m "自动更新: $(date +'%Y-%m-%d')" || exit 0
-        
-    - name: 推送更改
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        git push origin master
