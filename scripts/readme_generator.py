@@ -65,7 +65,6 @@ class ReadmeGenerator:
     def format_paper_entry(self, paper: Dict) -> str:
         """格式化单个论文条目"""
         try:
-            # 提取arXiv ID
             arxiv_id = paper["arxiv_url"].split("/")[-1]
             
             # 基础信息
@@ -77,11 +76,20 @@ class ReadmeGenerator:
                 authors = authors[:3] + ["等"]
             entry += f'  作者: {", ".join(authors)}  \n'
             
-            # 添加链接
+            # 添加链接和引用数
             links = []
-            links.append(f'[📄 论文](https://arxiv.org/pdf/{arxiv_id}.pdf)')
+            # 使用shields.io美化PDF链接
+            links.append(f'[![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/{arxiv_id}.pdf)')
+            
             if paper["github_url"]:
-                links.append(f'[💻 代码]({paper["github_url"]})')
+                # 从GitHub URL中提取owner和repo
+                parts = paper["github_url"].split('github.com/')[-1].split('/')
+                if len(parts) >= 2:
+                    owner, repo = parts[0], parts[1]
+                    # 只使用shields.io显示stars，同时作为链接
+                    links.append(f'[![Stars](https://img.shields.io/github/stars/{owner}/{repo}?style=social)]({paper["github_url"]})')
+            if paper["semantic_url"]:
+                links.append(f'[📚 引用数: {paper["citations"]}]({paper["semantic_url"]})')
             entry += f'  链接: {" | ".join(links)}  \n'
             
             # 添加摘要预览（限制长度）
