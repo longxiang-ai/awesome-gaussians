@@ -1,0 +1,707 @@
+2024-11-14 14:21:14,966 - arxiv_crawler - INFO - 成功处理论文: 4D Gaussian Splatting in the Wild with Uncertainty-Aware Regularization
+2024-11-14 14:21:14,966 - arxiv_crawler - INFO - 成功处理论文: Towards More Accurate Fake Detection on Images Generated from Advanced Generative and Neural Rendering Models
+2024-11-14 14:21:14,966 - arxiv_crawler - INFO - 成功处理论文: BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis
+2024-11-14 14:21:14,966 - arxiv_crawler - INFO - 成功处理论文: Biomass phenotyping of oilseed rape through UAV multi-view oblique imaging with 3DGS and SAM model
+2024-11-14 14:21:14,966 - arxiv_crawler - INFO - 成功处理论文: DG-SLAM: Robust Dynamic Gaussian Splatting SLAM with Hybrid Pose Optimization
+2024-11-14 14:21:15,581 - arxiv_crawler - INFO - 成功处理论文: MBA-SLAM: Motion Blur Aware Dense Visual SLAM with Radiance Fields Representation
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: GaussianCut: Interactive segmentation via graph cut for 3D Gaussian Splatting
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: HiCoM: Hierarchical Coherent Motion for Streamable Dynamic Scene with 3D Gaussian Splatting
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: GUS-IR: Gaussian Splatting with Unified Shading for Inverse Rendering
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: A Hierarchical Compression Technique for 3D Gaussian Splatting Compression
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: Adaptive and Temporally Consistent Gaussian Surfels for Multi-view Dynamic Reconstruction
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: SplatFormer: Point Transformer for Robust 3D Gaussian Splatting
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: Through the Curved Cover: Synthesizing Cover Aberrated Scenes with Refractive Field
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: AI-Driven Stylization of 3D Environments
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: GaussianSpa: An "Optimizing-Sparsifying" Simplification Framework for Compact and High-Quality 3D Gaussian Splatting
+2024-11-14 14:21:15,582 - arxiv_crawler - INFO - 成功处理论文: PEP-GS: Perceptually-Enhanced Precise Structured 3D Gaussians for View-Adaptive Rendering
+2024-11-14 14:21:15,583 - arxiv_crawler - INFO - 成功处理论文: ProEdit: Simple Progression is All You Need for High-Quality 3D Scene Editing
+2024-11-14 14:21:15,583 - arxiv_crawler - INFO - 成功处理论文: MVSplat360: Feed-Forward 360 Scene Synthesis from Sparse Views
+2024-11-14 14:21:15,583 - arxiv_crawler - INFO - 成功处理论文: GS2Pose: Two-stage 6D Object Pose Estimation Guided by Gaussian Splatting
+2024-11-14 14:21:16,211 - arxiv_crawler - INFO - 成功处理论文: 3DGS-CD: 3D Gaussian Splatting-based Change Detection for Physical Object Rearrangement
+2024-11-14 14:21:16,826 - arxiv_crawler - INFO - 成功处理论文: Structure Consistent Gaussian Splatting with Matching Prior for Few-shot Novel View Synthesis
+2024-11-14 14:21:16,826 - arxiv_crawler - INFO - 成功处理论文: Object and Contact Point Tracking in Demonstrations Using 3D Gaussian Splatting
+2024-11-14 14:21:16,826 - arxiv_crawler - INFO - 成功处理论文: HFGaussian: Learning Generalizable Gaussian Human with Integrated Human Features
+2024-11-14 14:21:16,826 - arxiv_crawler - INFO - 成功处理论文: LVI-GS: Tightly-coupled LiDAR-Visual-Inertial SLAM using 3D Gaussian Splatting
+2024-11-14 14:21:16,826 - arxiv_crawler - INFO - 成功处理论文: Modeling Uncertainty in 3D Gaussian Splatting through Continuous Semantic Splatting
+2024-11-14 14:21:16,826 - arxiv_crawler - INFO - 成功处理论文: SplatOverflow: Asynchronous Hardware Troubleshooting
+2024-11-14 14:21:16,827 - arxiv_crawler - INFO - 成功处理论文: FewViewGS: Gaussian Splatting with Few View Matching and Multi-stage Training
+2024-11-14 14:21:16,827 - arxiv_crawler - INFO - 成功处理论文: GVKF: Gaussian Voxel Kernel Functions for Highly Efficient Surface Reconstruction in Open Scenes
+2024-11-14 14:21:16,827 - arxiv_crawler - INFO - 成功处理论文: Real-Time Spatio-Temporal Reconstruction of Dynamic Endoscopic Scenes with 4D Gaussian Splatting
+2024-11-14 14:21:16,827 - arxiv_crawler - INFO - 成功处理论文: CityGaussianV2: Efficient and Geometrically Accurate Reconstruction for Large-Scale Scenes
+2024-11-14 14:21:16,827 - arxiv_crawler - INFO - 成功处理论文: PCoTTA: Continual Test-Time Adaptation for Multi-Task Point Cloud Understanding
+2024-11-14 14:21:16,827 - arxiv_crawler - INFO - 成功处理论文: Aquatic-GS: A Hybrid 3D Representation for Underwater Scenes
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: Self-Ensembling Gaussian Splatting for Few-shot Novel View Synthesis
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: URAvatar: Universal Relightable Gaussian Codec Avatars
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: No Pose, No Problem: Surprisingly Simple 3D Gaussian Splats from Sparse Unposed Images
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: GaussianMarker: Uncertainty-Aware Copyright Protection of 3D Gaussian Splatting
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: ELMGS: Enhancing memory and computation scaLability through coMpression for 3D Gaussian Splatting
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: Epipolar-Free 3D Gaussian Splatting for Generalizable Novel View Synthesis
+2024-11-14 14:21:17,447 - arxiv_crawler - INFO - 成功处理论文: Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images
+2024-11-14 14:21:17,448 - arxiv_crawler - INFO - 成功处理论文: PF3plat: Pose-Free Feed-Forward 3D Gaussian Splatting
+2024-11-14 14:21:17,448 - arxiv_crawler - INFO - 成功处理论文: FreeGaussian: Guidance-free Controllable 3D Gaussian Splats with Flow Derivatives
+2024-11-14 14:21:17,448 - arxiv_crawler - INFO - 成功处理论文: ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting
+2024-11-14 14:21:18,055 - arxiv_crawler - INFO - 成功处理论文: MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps
+2024-11-14 14:21:18,055 - arxiv_crawler - INFO - 成功处理论文: Grid4D: 4D Decomposed Hash Encoding for High-fidelity Dynamic Gaussian Splatting
+2024-11-14 14:21:18,055 - arxiv_crawler - INFO - 成功处理论文: LoDAvatar: Hierarchical Embedding and Adaptive Levels of Detail with Gaussian Splatting for Enhanced Human Avatars
+2024-11-14 14:21:18,055 - arxiv_crawler - INFO - 成功处理论文: CompGS: Unleashing 2D Compositionality for Compositional Text-to-3D via Dynamically Optimizing 3D Gaussians
+2024-11-14 14:21:18,677 - arxiv_crawler - INFO - 成功处理论文: ODGS: 3D Scene Reconstruction from Omnidirectional Images with 3D Gaussian Splattings
+2024-11-14 14:21:18,677 - arxiv_crawler - INFO - 成功处理论文: Normal-GS: 3D Gaussian Splatting with Normal-Involved Rendering
+2024-11-14 14:21:18,677 - arxiv_crawler - INFO - 成功处理论文: Neural Fields in Robotics: A Survey
+2024-11-14 14:21:18,677 - arxiv_crawler - INFO - 成功处理论文: SCube: Instant Large-Scale Scene Reconstruction using VoxSplats
+2024-11-14 14:21:18,678 - arxiv_crawler - INFO - 成功处理论文: DiffGS: Functional Gaussian Splatting Diffusion
+2024-11-14 14:21:18,678 - arxiv_crawler - INFO - 成功处理论文: Robotic Learning in your Backyard: A Neural Simulator from Open Source Components
+2024-11-14 14:21:19,334 - arxiv_crawler - INFO - 成功处理论文: Content-Aware Radiance Fields: Aligning Model Complexity with Scene Intricacy Through Learned Bitwidth Quantization
+2024-11-14 14:21:19,335 - arxiv_crawler - INFO - 成功处理论文: ArCSEM: Artistic Colorization of SEM Images via Gaussian Splatting
+2024-11-14 14:21:19,972 - arxiv_crawler - INFO - 成功处理论文: PixelGaussian: Generalizable 3D Gaussian Reconstruction from Arbitrary Views
+2024-11-14 14:21:19,972 - arxiv_crawler - INFO - 成功处理论文: 3D-Adapter: Geometry-Consistent Multi-View Diffusion for High-Quality 3D Generation
+2024-11-14 14:21:19,972 - arxiv_crawler - INFO - 成功处理论文: Sort-free Gaussian Splatting via Weighted Sum Rendering
+2024-11-14 14:21:19,973 - arxiv_crawler - INFO - 成功处理论文: Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling
+2024-11-14 14:21:19,973 - arxiv_crawler - INFO - 成功处理论文: Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis
+2024-11-14 14:21:19,973 - arxiv_crawler - INFO - 成功处理论文: VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points
+2024-11-14 14:21:19,973 - arxiv_crawler - INFO - 成功处理论文: PLGS: Robust Panoptic Lifting with 3D Gaussian Splatting
+2024-11-14 14:21:19,973 - arxiv_crawler - INFO - 成功处理论文: AG-SLAM: Active Gaussian Splatting SLAM
+2024-11-14 14:21:19,973 - arxiv_crawler - INFO - 成功处理论文: SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes
+2024-11-14 14:21:20,598 - arxiv_crawler - INFO - 成功处理论文: E-3DGS: Gaussian Splatting with Exposure and Motion Events
+2024-11-14 14:21:20,598 - arxiv_crawler - INFO - 成功处理论文: Multi-Layer Gaussian Splatting for Immersive Anatomy Visualization
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: MvDrag3D: Drag-based Creative 3D Editing via Multi-view Generation-Reconstruction Priors
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: 3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: MSGField: A Unified Scene Representation Integrating Motion, Semantics, and Geometry for Robotic Manipulation
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: LucidFusion: Generating 3D Gaussians with Arbitrary Unposed Images
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: Fully Explicit Dynamic Gaussian Splatting
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: LUDVIG: Learning-free Uplifting of 2D Visual features to Gaussian Splatting scenes
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: Neural Signed Distance Function Inference through Splatting 3D Gaussians Pulled on Zero-Level Set
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: DaRePlane: Direction-aware Representations for Dynamic Scene Reconstruction
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: DepthSplat: Connecting Gaussian Splatting and Depth
+2024-11-14 14:21:20,599 - arxiv_crawler - INFO - 成功处理论文: Differentiable Robot Rendering
+2024-11-14 14:21:20,600 - arxiv_crawler - INFO - 成功处理论文: MEGA: Memory-Efficient 4D Gaussian Splatting for Dynamic Scenes
+2024-11-14 14:21:20,600 - arxiv_crawler - INFO - 成功处理论文: DN-4DGS: Denoised Deformable Network with Temporal-Spatial Aggregation for Dynamic Scene Rendering
+2024-11-14 14:21:20,600 - arxiv_crawler - INFO - 成功处理论文: L3DG: Latent 3D Gaussian Diffusion
+2024-11-14 14:21:20,600 - arxiv_crawler - INFO - 成功处理论文: GlossyGS: Inverse Rendering of Glossy Objects with 3D Gaussian Splatting
+2024-11-14 14:21:21,230 - arxiv_crawler - INFO - 成功处理论文: Hybrid bundle-adjusting 3D Gaussians for view consistent rendering with pose optimization
+2024-11-14 14:21:21,885 - arxiv_crawler - INFO - 成功处理论文: UniG: Modelling Unitary 3D Gaussians for View-consistent 3D Reconstruction
+2024-11-14 14:21:21,886 - arxiv_crawler - INFO - 成功处理论文: Long-LRM: Long-sequence Large Reconstruction Model for Wide-coverage Gaussian Splats
+2024-11-14 14:21:21,886 - arxiv_crawler - INFO - 成功处理论文: 3D Gaussian Splatting in Robotics: A Survey
+2024-11-14 14:21:21,886 - arxiv_crawler - INFO - 成功处理论文: SplatPose+: Real-time Image-Based Pose-Agnostic 3D Anomaly Detection
+2024-11-14 14:21:21,886 - arxiv_crawler - INFO - 成功处理论文: LoGS: Visual Localization via Gaussian Splatting with Fewer Training Images
+2024-11-14 14:21:21,886 - arxiv_crawler - INFO - 成功处理论文: GS^3: Efficient Relighting with Triple Gaussian Splatting
+2024-11-14 14:21:21,886 - arxiv_crawler - INFO - 成功处理论文: MCGS: Multiview Consistency Enhancement for Sparse-View 3D Gaussian Radiance Fields
+2024-11-14 14:21:21,886 - arxiv_crawler - INFO - 成功处理论文: GSORB-SLAM: Gaussian Splatting SLAM benefits from ORB features and Transmittance information
+2024-11-14 14:21:21,886 - arxiv_crawler - INFO - 成功处理论文: Scalable Indoor Novel-View Synthesis using Drone-Captured 360 Imagery with 3D Gaussian Splatting
+2024-11-14 14:21:22,504 - arxiv_crawler - INFO - 成功处理论文: Few-shot Novel View Synthesis using Depth Aware 3D Gaussian Splatting
+2024-11-14 14:21:22,504 - arxiv_crawler - INFO - 成功处理论文: 4-LEGS: 4D Language Embedded Gaussian Splatting
+2024-11-14 14:21:22,504 - arxiv_crawler - INFO - 成功处理论文: 4DStyleGaussian: Zero-shot 4D Style Transfer with Gaussian Splatting
+2024-11-14 14:21:22,504 - arxiv_crawler - INFO - 成功处理论文: Gaussian Splatting Visual MPC for Granular Media Manipulation
+2024-11-14 14:21:22,504 - arxiv_crawler - INFO - 成功处理论文: Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors
+2024-11-14 14:21:22,504 - arxiv_crawler - INFO - 成功处理论文: SurgicalGS: Dynamic 3D Gaussian Splatting for Accurate Robotic-Assisted Surgical Scene Reconstruction
+2024-11-14 14:21:22,509 - arxiv_crawler - INFO - 成功保存100篇论文到data/papers_2024-11-14.json
+2024-11-14 14:24:24,033 - arxiv_crawler - INFO - 成功处理论文: 4D Gaussian Splatting in the Wild with Uncertainty-Aware Regularization
+2024-11-14 14:24:24,033 - arxiv_crawler - INFO - 成功处理论文: Towards More Accurate Fake Detection on Images Generated from Advanced Generative and Neural Rendering Models
+2024-11-14 14:24:24,033 - arxiv_crawler - INFO - 成功处理论文: BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis
+2024-11-14 14:24:24,033 - arxiv_crawler - INFO - 成功处理论文: Biomass phenotyping of oilseed rape through UAV multi-view oblique imaging with 3DGS and SAM model
+2024-11-14 14:24:24,033 - arxiv_crawler - INFO - 成功处理论文: DG-SLAM: Robust Dynamic Gaussian Splatting SLAM with Hybrid Pose Optimization
+2024-11-14 14:24:24,723 - arxiv_crawler - INFO - 成功处理论文: MBA-SLAM: Motion Blur Aware Dense Visual SLAM with Radiance Fields Representation
+2024-11-14 14:24:24,723 - arxiv_crawler - INFO - 成功处理论文: Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation
+2024-11-14 14:24:24,723 - arxiv_crawler - INFO - 成功处理论文: GaussianCut: Interactive segmentation via graph cut for 3D Gaussian Splatting
+2024-11-14 14:24:24,724 - arxiv_crawler - INFO - 成功处理论文: HiCoM: Hierarchical Coherent Motion for Streamable Dynamic Scene with 3D Gaussian Splatting
+2024-11-14 14:24:24,724 - arxiv_crawler - INFO - 成功处理论文: GUS-IR: Gaussian Splatting with Unified Shading for Inverse Rendering
+2024-11-14 14:24:24,724 - arxiv_crawler - INFO - 成功处理论文: A Hierarchical Compression Technique for 3D Gaussian Splatting Compression
+2024-11-14 14:24:24,724 - arxiv_crawler - INFO - 成功处理论文: Adaptive and Temporally Consistent Gaussian Surfels for Multi-view Dynamic Reconstruction
+2024-11-14 14:24:24,724 - arxiv_crawler - INFO - 成功处理论文: SplatFormer: Point Transformer for Robust 3D Gaussian Splatting
+2024-11-14 14:24:24,724 - arxiv_crawler - INFO - 成功处理论文: Through the Curved Cover: Synthesizing Cover Aberrated Scenes with Refractive Field
+2024-11-14 14:24:24,725 - arxiv_crawler - INFO - 成功处理论文: AI-Driven Stylization of 3D Environments
+2024-11-14 14:24:24,725 - arxiv_crawler - INFO - 成功处理论文: GaussianSpa: An "Optimizing-Sparsifying" Simplification Framework for Compact and High-Quality 3D Gaussian Splatting
+2024-11-14 14:24:24,725 - arxiv_crawler - INFO - 成功处理论文: PEP-GS: Perceptually-Enhanced Precise Structured 3D Gaussians for View-Adaptive Rendering
+2024-11-14 14:24:24,725 - arxiv_crawler - INFO - 成功处理论文: ProEdit: Simple Progression is All You Need for High-Quality 3D Scene Editing
+2024-11-14 14:24:24,725 - arxiv_crawler - INFO - 成功处理论文: MVSplat360: Feed-Forward 360 Scene Synthesis from Sparse Views
+2024-11-14 14:24:24,725 - arxiv_crawler - INFO - 成功处理论文: GS2Pose: Two-stage 6D Object Pose Estimation Guided by Gaussian Splatting
+2024-11-14 14:24:25,388 - arxiv_crawler - INFO - 成功处理论文: 3DGS-CD: 3D Gaussian Splatting-based Change Detection for Physical Object Rearrangement
+2024-11-14 14:24:26,032 - arxiv_crawler - INFO - 成功处理论文: Structure Consistent Gaussian Splatting with Matching Prior for Few-shot Novel View Synthesis
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: Object and Contact Point Tracking in Demonstrations Using 3D Gaussian Splatting
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: HFGaussian: Learning Generalizable Gaussian Human with Integrated Human Features
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: LVI-GS: Tightly-coupled LiDAR-Visual-Inertial SLAM using 3D Gaussian Splatting
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: Modeling Uncertainty in 3D Gaussian Splatting through Continuous Semantic Splatting
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: SplatOverflow: Asynchronous Hardware Troubleshooting
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: FewViewGS: Gaussian Splatting with Few View Matching and Multi-stage Training
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: GVKF: Gaussian Voxel Kernel Functions for Highly Efficient Surface Reconstruction in Open Scenes
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: Real-Time Spatio-Temporal Reconstruction of Dynamic Endoscopic Scenes with 4D Gaussian Splatting
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: CityGaussianV2: Efficient and Geometrically Accurate Reconstruction for Large-Scale Scenes
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: PCoTTA: Continual Test-Time Adaptation for Multi-Task Point Cloud Understanding
+2024-11-14 14:24:26,033 - arxiv_crawler - INFO - 成功处理论文: Aquatic-GS: A Hybrid 3D Representation for Underwater Scenes
+2024-11-14 14:24:26,629 - arxiv_crawler - INFO - 成功处理论文: Self-Ensembling Gaussian Splatting for Few-shot Novel View Synthesis
+2024-11-14 14:24:26,629 - arxiv_crawler - INFO - 成功处理论文: URAvatar: Universal Relightable Gaussian Codec Avatars
+2024-11-14 14:24:26,629 - arxiv_crawler - INFO - 成功处理论文: No Pose, No Problem: Surprisingly Simple 3D Gaussian Splats from Sparse Unposed Images
+2024-11-14 14:24:26,629 - arxiv_crawler - INFO - 成功处理论文: GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering
+2024-11-14 14:24:26,629 - arxiv_crawler - INFO - 成功处理论文: GaussianMarker: Uncertainty-Aware Copyright Protection of 3D Gaussian Splatting
+2024-11-14 14:24:26,630 - arxiv_crawler - INFO - 成功处理论文: GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring
+2024-11-14 14:24:26,630 - arxiv_crawler - INFO - 成功处理论文: ELMGS: Enhancing memory and computation scaLability through coMpression for 3D Gaussian Splatting
+2024-11-14 14:24:26,630 - arxiv_crawler - INFO - 成功处理论文: Epipolar-Free 3D Gaussian Splatting for Generalizable Novel View Synthesis
+2024-11-14 14:24:26,630 - arxiv_crawler - INFO - 成功处理论文: Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images
+2024-11-14 14:24:26,630 - arxiv_crawler - INFO - 成功处理论文: PF3plat: Pose-Free Feed-Forward 3D Gaussian Splatting
+2024-11-14 14:24:26,630 - arxiv_crawler - INFO - 成功处理论文: FreeGaussian: Guidance-free Controllable 3D Gaussian Splats with Flow Derivatives
+2024-11-14 14:24:26,631 - arxiv_crawler - INFO - 成功处理论文: ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting
+2024-11-14 14:24:27,264 - arxiv_crawler - INFO - 成功处理论文: MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps
+2024-11-14 14:24:27,264 - arxiv_crawler - INFO - 成功处理论文: Grid4D: 4D Decomposed Hash Encoding for High-fidelity Dynamic Gaussian Splatting
+2024-11-14 14:24:27,264 - arxiv_crawler - INFO - 成功处理论文: LoDAvatar: Hierarchical Embedding and Adaptive Levels of Detail with Gaussian Splatting for Enhanced Human Avatars
+2024-11-14 14:24:27,264 - arxiv_crawler - INFO - 成功处理论文: CompGS: Unleashing 2D Compositionality for Compositional Text-to-3D via Dynamically Optimizing 3D Gaussians
+2024-11-14 14:24:27,905 - arxiv_crawler - INFO - 成功处理论文: ODGS: 3D Scene Reconstruction from Omnidirectional Images with 3D Gaussian Splattings
+2024-11-14 14:24:27,905 - arxiv_crawler - INFO - 成功处理论文: Normal-GS: 3D Gaussian Splatting with Normal-Involved Rendering
+2024-11-14 14:24:27,905 - arxiv_crawler - INFO - 成功处理论文: Neural Fields in Robotics: A Survey
+2024-11-14 14:24:27,905 - arxiv_crawler - INFO - 成功处理论文: SCube: Instant Large-Scale Scene Reconstruction using VoxSplats
+2024-11-14 14:24:27,905 - arxiv_crawler - INFO - 成功处理论文: DiffGS: Functional Gaussian Splatting Diffusion
+2024-11-14 14:24:27,905 - arxiv_crawler - INFO - 成功处理论文: Robotic Learning in your Backyard: A Neural Simulator from Open Source Components
+2024-11-14 14:24:28,525 - arxiv_crawler - INFO - 成功处理论文: Content-Aware Radiance Fields: Aligning Model Complexity with Scene Intricacy Through Learned Bitwidth Quantization
+2024-11-14 14:24:28,526 - arxiv_crawler - INFO - 成功处理论文: ArCSEM: Artistic Colorization of SEM Images via Gaussian Splatting
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: PixelGaussian: Generalizable 3D Gaussian Reconstruction from Arbitrary Views
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: 3D-Adapter: Geometry-Consistent Multi-View Diffusion for High-Quality 3D Generation
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: Sort-free Gaussian Splatting via Weighted Sum Rendering
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: PLGS: Robust Panoptic Lifting with 3D Gaussian Splatting
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: AG-SLAM: Active Gaussian Splatting SLAM
+2024-11-14 14:24:29,145 - arxiv_crawler - INFO - 成功处理论文: SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes
+2024-11-14 14:24:29,768 - arxiv_crawler - INFO - 成功处理论文: E-3DGS: Gaussian Splatting with Exposure and Motion Events
+2024-11-14 14:24:29,769 - arxiv_crawler - INFO - 成功处理论文: Multi-Layer Gaussian Splatting for Immersive Anatomy Visualization
+2024-11-14 14:24:29,769 - arxiv_crawler - INFO - 成功处理论文: MvDrag3D: Drag-based Creative 3D Editing via Multi-view Generation-Reconstruction Priors
+2024-11-14 14:24:29,769 - arxiv_crawler - INFO - 成功处理论文: 3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors
+2024-11-14 14:24:29,769 - arxiv_crawler - INFO - 成功处理论文: MSGField: A Unified Scene Representation Integrating Motion, Semantics, and Geometry for Robotic Manipulation
+2024-11-14 14:24:29,769 - arxiv_crawler - INFO - 成功处理论文: LucidFusion: Generating 3D Gaussians with Arbitrary Unposed Images
+2024-11-14 14:24:29,769 - arxiv_crawler - INFO - 成功处理论文: Fully Explicit Dynamic Gaussian Splatting
+2024-11-14 14:24:29,770 - arxiv_crawler - INFO - 成功处理论文: EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting
+2024-11-14 14:24:29,770 - arxiv_crawler - INFO - 成功处理论文: GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting
+2024-11-14 14:24:29,770 - arxiv_crawler - INFO - 成功处理论文: LUDVIG: Learning-free Uplifting of 2D Visual features to Gaussian Splatting scenes
+2024-11-14 14:24:29,770 - arxiv_crawler - INFO - 成功处理论文: Neural Signed Distance Function Inference through Splatting 3D Gaussians Pulled on Zero-Level Set
+2024-11-14 14:24:29,770 - arxiv_crawler - INFO - 成功处理论文: DaRePlane: Direction-aware Representations for Dynamic Scene Reconstruction
+2024-11-14 14:24:29,770 - arxiv_crawler - INFO - 成功处理论文: DepthSplat: Connecting Gaussian Splatting and Depth
+2024-11-14 14:24:29,770 - arxiv_crawler - INFO - 成功处理论文: Differentiable Robot Rendering
+2024-11-14 14:24:29,771 - arxiv_crawler - INFO - 成功处理论文: MEGA: Memory-Efficient 4D Gaussian Splatting for Dynamic Scenes
+2024-11-14 14:24:29,771 - arxiv_crawler - INFO - 成功处理论文: DN-4DGS: Denoised Deformable Network with Temporal-Spatial Aggregation for Dynamic Scene Rendering
+2024-11-14 14:24:29,771 - arxiv_crawler - INFO - 成功处理论文: L3DG: Latent 3D Gaussian Diffusion
+2024-11-14 14:24:29,771 - arxiv_crawler - INFO - 成功处理论文: GlossyGS: Inverse Rendering of Glossy Objects with 3D Gaussian Splatting
+2024-11-14 14:24:30,394 - arxiv_crawler - INFO - 成功处理论文: Hybrid bundle-adjusting 3D Gaussians for view consistent rendering with pose optimization
+2024-11-14 14:24:31,034 - arxiv_crawler - INFO - 成功处理论文: UniG: Modelling Unitary 3D Gaussians for View-consistent 3D Reconstruction
+2024-11-14 14:24:31,034 - arxiv_crawler - INFO - 成功处理论文: Long-LRM: Long-sequence Large Reconstruction Model for Wide-coverage Gaussian Splats
+2024-11-14 14:24:31,034 - arxiv_crawler - INFO - 成功处理论文: 3D Gaussian Splatting in Robotics: A Survey
+2024-11-14 14:24:31,034 - arxiv_crawler - INFO - 成功处理论文: SplatPose+: Real-time Image-Based Pose-Agnostic 3D Anomaly Detection
+2024-11-14 14:24:31,034 - arxiv_crawler - INFO - 成功处理论文: LoGS: Visual Localization via Gaussian Splatting with Fewer Training Images
+2024-11-14 14:24:31,034 - arxiv_crawler - INFO - 成功处理论文: GS^3: Efficient Relighting with Triple Gaussian Splatting
+2024-11-14 14:24:31,034 - arxiv_crawler - INFO - 成功处理论文: MCGS: Multiview Consistency Enhancement for Sparse-View 3D Gaussian Radiance Fields
+2024-11-14 14:24:31,034 - arxiv_crawler - INFO - 成功处理论文: GSORB-SLAM: Gaussian Splatting SLAM benefits from ORB features and Transmittance information
+2024-11-14 14:24:31,035 - arxiv_crawler - INFO - 成功处理论文: Scalable Indoor Novel-View Synthesis using Drone-Captured 360 Imagery with 3D Gaussian Splatting
+2024-11-14 14:24:31,626 - arxiv_crawler - INFO - 成功处理论文: Few-shot Novel View Synthesis using Depth Aware 3D Gaussian Splatting
+2024-11-14 14:24:31,627 - arxiv_crawler - INFO - 成功处理论文: 4-LEGS: 4D Language Embedded Gaussian Splatting
+2024-11-14 14:24:31,627 - arxiv_crawler - INFO - 成功处理论文: 4DStyleGaussian: Zero-shot 4D Style Transfer with Gaussian Splatting
+2024-11-14 14:24:31,627 - arxiv_crawler - INFO - 成功处理论文: Gaussian Splatting Visual MPC for Granular Media Manipulation
+2024-11-14 14:24:31,627 - arxiv_crawler - INFO - 成功处理论文: Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors
+2024-11-14 14:24:31,627 - arxiv_crawler - INFO - 成功处理论文: SurgicalGS: Dynamic 3D Gaussian Splatting for Accurate Robotic-Assisted Surgical Scene Reconstruction
+2024-11-14 14:24:31,630 - arxiv_crawler - INFO - 成功保存100篇论文到data/papers_2024-11-14.json
+2024-11-14 14:25:24,226 - arxiv_crawler - INFO - 成功处理论文: 4D Gaussian Splatting in the Wild with Uncertainty-Aware Regularization
+2024-11-14 14:25:24,227 - arxiv_crawler - INFO - 成功处理论文: Towards More Accurate Fake Detection on Images Generated from Advanced Generative and Neural Rendering Models
+2024-11-14 14:25:24,227 - arxiv_crawler - INFO - 成功处理论文: BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis
+2024-11-14 14:25:24,227 - arxiv_crawler - INFO - 成功处理论文: Biomass phenotyping of oilseed rape through UAV multi-view oblique imaging with 3DGS and SAM model
+2024-11-14 14:25:24,227 - arxiv_crawler - INFO - 成功处理论文: DG-SLAM: Robust Dynamic Gaussian Splatting SLAM with Hybrid Pose Optimization
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: MBA-SLAM: Motion Blur Aware Dense Visual SLAM with Radiance Fields Representation
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: GaussianCut: Interactive segmentation via graph cut for 3D Gaussian Splatting
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: HiCoM: Hierarchical Coherent Motion for Streamable Dynamic Scene with 3D Gaussian Splatting
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: GUS-IR: Gaussian Splatting with Unified Shading for Inverse Rendering
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: A Hierarchical Compression Technique for 3D Gaussian Splatting Compression
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: Adaptive and Temporally Consistent Gaussian Surfels for Multi-view Dynamic Reconstruction
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: SplatFormer: Point Transformer for Robust 3D Gaussian Splatting
+2024-11-14 14:25:25,018 - arxiv_crawler - INFO - 成功处理论文: Through the Curved Cover: Synthesizing Cover Aberrated Scenes with Refractive Field
+2024-11-14 14:25:25,019 - arxiv_crawler - INFO - 成功处理论文: AI-Driven Stylization of 3D Environments
+2024-11-14 14:25:25,019 - arxiv_crawler - INFO - 成功处理论文: GaussianSpa: An "Optimizing-Sparsifying" Simplification Framework for Compact and High-Quality 3D Gaussian Splatting
+2024-11-14 14:25:25,019 - arxiv_crawler - INFO - 成功处理论文: PEP-GS: Perceptually-Enhanced Precise Structured 3D Gaussians for View-Adaptive Rendering
+2024-11-14 14:25:25,019 - arxiv_crawler - INFO - 成功处理论文: ProEdit: Simple Progression is All You Need for High-Quality 3D Scene Editing
+2024-11-14 14:25:25,019 - arxiv_crawler - INFO - 成功处理论文: MVSplat360: Feed-Forward 360 Scene Synthesis from Sparse Views
+2024-11-14 14:25:25,019 - arxiv_crawler - INFO - 成功处理论文: GS2Pose: Two-stage 6D Object Pose Estimation Guided by Gaussian Splatting
+2024-11-14 14:25:25,655 - arxiv_crawler - INFO - 成功处理论文: 3DGS-CD: 3D Gaussian Splatting-based Change Detection for Physical Object Rearrangement
+2024-11-14 14:25:26,276 - arxiv_crawler - INFO - 成功处理论文: Structure Consistent Gaussian Splatting with Matching Prior for Few-shot Novel View Synthesis
+2024-11-14 14:25:26,276 - arxiv_crawler - INFO - 成功处理论文: Object and Contact Point Tracking in Demonstrations Using 3D Gaussian Splatting
+2024-11-14 14:25:26,276 - arxiv_crawler - INFO - 成功处理论文: HFGaussian: Learning Generalizable Gaussian Human with Integrated Human Features
+2024-11-14 14:25:26,276 - arxiv_crawler - INFO - 成功处理论文: LVI-GS: Tightly-coupled LiDAR-Visual-Inertial SLAM using 3D Gaussian Splatting
+2024-11-14 14:25:26,276 - arxiv_crawler - INFO - 成功处理论文: Modeling Uncertainty in 3D Gaussian Splatting through Continuous Semantic Splatting
+2024-11-14 14:25:26,276 - arxiv_crawler - INFO - 成功处理论文: SplatOverflow: Asynchronous Hardware Troubleshooting
+2024-11-14 14:25:26,276 - arxiv_crawler - INFO - 成功处理论文: FewViewGS: Gaussian Splatting with Few View Matching and Multi-stage Training
+2024-11-14 14:25:26,276 - arxiv_crawler - INFO - 成功处理论文: GVKF: Gaussian Voxel Kernel Functions for Highly Efficient Surface Reconstruction in Open Scenes
+2024-11-14 14:25:26,277 - arxiv_crawler - INFO - 成功处理论文: Real-Time Spatio-Temporal Reconstruction of Dynamic Endoscopic Scenes with 4D Gaussian Splatting
+2024-11-14 14:25:26,277 - arxiv_crawler - INFO - 成功处理论文: CityGaussianV2: Efficient and Geometrically Accurate Reconstruction for Large-Scale Scenes
+2024-11-14 14:25:26,277 - arxiv_crawler - INFO - 成功处理论文: PCoTTA: Continual Test-Time Adaptation for Multi-Task Point Cloud Understanding
+2024-11-14 14:25:26,277 - arxiv_crawler - INFO - 成功处理论文: Aquatic-GS: A Hybrid 3D Representation for Underwater Scenes
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: Self-Ensembling Gaussian Splatting for Few-shot Novel View Synthesis
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: URAvatar: Universal Relightable Gaussian Codec Avatars
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: No Pose, No Problem: Surprisingly Simple 3D Gaussian Splats from Sparse Unposed Images
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: GaussianMarker: Uncertainty-Aware Copyright Protection of 3D Gaussian Splatting
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: ELMGS: Enhancing memory and computation scaLability through coMpression for 3D Gaussian Splatting
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: Epipolar-Free 3D Gaussian Splatting for Generalizable Novel View Synthesis
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: PF3plat: Pose-Free Feed-Forward 3D Gaussian Splatting
+2024-11-14 14:25:26,923 - arxiv_crawler - INFO - 成功处理论文: FreeGaussian: Guidance-free Controllable 3D Gaussian Splats with Flow Derivatives
+2024-11-14 14:25:26,924 - arxiv_crawler - INFO - 成功处理论文: ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting
+2024-11-14 14:25:27,562 - arxiv_crawler - INFO - 成功处理论文: MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps
+2024-11-14 14:25:27,562 - arxiv_crawler - INFO - 成功处理论文: Grid4D: 4D Decomposed Hash Encoding for High-fidelity Dynamic Gaussian Splatting
+2024-11-14 14:25:27,562 - arxiv_crawler - INFO - 成功处理论文: LoDAvatar: Hierarchical Embedding and Adaptive Levels of Detail with Gaussian Splatting for Enhanced Human Avatars
+2024-11-14 14:25:27,562 - arxiv_crawler - INFO - 成功处理论文: CompGS: Unleashing 2D Compositionality for Compositional Text-to-3D via Dynamically Optimizing 3D Gaussians
+2024-11-14 14:25:28,165 - arxiv_crawler - INFO - 成功处理论文: ODGS: 3D Scene Reconstruction from Omnidirectional Images with 3D Gaussian Splattings
+2024-11-14 14:25:28,166 - arxiv_crawler - INFO - 成功处理论文: Normal-GS: 3D Gaussian Splatting with Normal-Involved Rendering
+2024-11-14 14:25:28,166 - arxiv_crawler - INFO - 成功处理论文: Neural Fields in Robotics: A Survey
+2024-11-14 14:25:28,166 - arxiv_crawler - INFO - 成功处理论文: SCube: Instant Large-Scale Scene Reconstruction using VoxSplats
+2024-11-14 14:25:28,166 - arxiv_crawler - INFO - 成功处理论文: DiffGS: Functional Gaussian Splatting Diffusion
+2024-11-14 14:25:28,166 - arxiv_crawler - INFO - 成功处理论文: Robotic Learning in your Backyard: A Neural Simulator from Open Source Components
+2024-11-14 14:25:28,888 - arxiv_crawler - INFO - 成功处理论文: Content-Aware Radiance Fields: Aligning Model Complexity with Scene Intricacy Through Learned Bitwidth Quantization
+2024-11-14 14:25:28,888 - arxiv_crawler - INFO - 成功处理论文: ArCSEM: Artistic Colorization of SEM Images via Gaussian Splatting
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: PixelGaussian: Generalizable 3D Gaussian Reconstruction from Arbitrary Views
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: 3D-Adapter: Geometry-Consistent Multi-View Diffusion for High-Quality 3D Generation
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: Sort-free Gaussian Splatting via Weighted Sum Rendering
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: PLGS: Robust Panoptic Lifting with 3D Gaussian Splatting
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: AG-SLAM: Active Gaussian Splatting SLAM
+2024-11-14 14:25:29,515 - arxiv_crawler - INFO - 成功处理论文: SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes
+2024-11-14 14:25:30,155 - arxiv_crawler - INFO - 成功处理论文: E-3DGS: Gaussian Splatting with Exposure and Motion Events
+2024-11-14 14:25:30,155 - arxiv_crawler - INFO - 成功处理论文: Multi-Layer Gaussian Splatting for Immersive Anatomy Visualization
+2024-11-14 14:25:30,155 - arxiv_crawler - INFO - 成功处理论文: MvDrag3D: Drag-based Creative 3D Editing via Multi-view Generation-Reconstruction Priors
+2024-11-14 14:25:30,155 - arxiv_crawler - INFO - 成功处理论文: 3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors
+2024-11-14 14:25:30,155 - arxiv_crawler - INFO - 成功处理论文: MSGField: A Unified Scene Representation Integrating Motion, Semantics, and Geometry for Robotic Manipulation
+2024-11-14 14:25:30,155 - arxiv_crawler - INFO - 成功处理论文: LucidFusion: Generating 3D Gaussians with Arbitrary Unposed Images
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: Fully Explicit Dynamic Gaussian Splatting
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: LUDVIG: Learning-free Uplifting of 2D Visual features to Gaussian Splatting scenes
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: Neural Signed Distance Function Inference through Splatting 3D Gaussians Pulled on Zero-Level Set
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: DaRePlane: Direction-aware Representations for Dynamic Scene Reconstruction
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: DepthSplat: Connecting Gaussian Splatting and Depth
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: Differentiable Robot Rendering
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: MEGA: Memory-Efficient 4D Gaussian Splatting for Dynamic Scenes
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: DN-4DGS: Denoised Deformable Network with Temporal-Spatial Aggregation for Dynamic Scene Rendering
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: L3DG: Latent 3D Gaussian Diffusion
+2024-11-14 14:25:30,156 - arxiv_crawler - INFO - 成功处理论文: GlossyGS: Inverse Rendering of Glossy Objects with 3D Gaussian Splatting
+2024-11-14 14:25:30,787 - arxiv_crawler - INFO - 成功处理论文: Hybrid bundle-adjusting 3D Gaussians for view consistent rendering with pose optimization
+2024-11-14 14:25:31,456 - arxiv_crawler - INFO - 成功处理论文: UniG: Modelling Unitary 3D Gaussians for View-consistent 3D Reconstruction
+2024-11-14 14:25:31,456 - arxiv_crawler - INFO - 成功处理论文: Long-LRM: Long-sequence Large Reconstruction Model for Wide-coverage Gaussian Splats
+2024-11-14 14:25:31,456 - arxiv_crawler - INFO - 成功处理论文: 3D Gaussian Splatting in Robotics: A Survey
+2024-11-14 14:25:31,456 - arxiv_crawler - INFO - 成功处理论文: SplatPose+: Real-time Image-Based Pose-Agnostic 3D Anomaly Detection
+2024-11-14 14:25:31,456 - arxiv_crawler - INFO - 成功处理论文: LoGS: Visual Localization via Gaussian Splatting with Fewer Training Images
+2024-11-14 14:25:31,456 - arxiv_crawler - INFO - 成功处理论文: GS^3: Efficient Relighting with Triple Gaussian Splatting
+2024-11-14 14:25:31,456 - arxiv_crawler - INFO - 成功处理论文: MCGS: Multiview Consistency Enhancement for Sparse-View 3D Gaussian Radiance Fields
+2024-11-14 14:25:31,456 - arxiv_crawler - INFO - 成功处理论文: GSORB-SLAM: Gaussian Splatting SLAM benefits from ORB features and Transmittance information
+2024-11-14 14:25:31,457 - arxiv_crawler - INFO - 成功处理论文: Scalable Indoor Novel-View Synthesis using Drone-Captured 360 Imagery with 3D Gaussian Splatting
+2024-11-14 14:25:32,061 - arxiv_crawler - INFO - 成功处理论文: Few-shot Novel View Synthesis using Depth Aware 3D Gaussian Splatting
+2024-11-14 14:25:32,061 - arxiv_crawler - INFO - 成功处理论文: 4-LEGS: 4D Language Embedded Gaussian Splatting
+2024-11-14 14:25:32,061 - arxiv_crawler - INFO - 成功处理论文: 4DStyleGaussian: Zero-shot 4D Style Transfer with Gaussian Splatting
+2024-11-14 14:25:32,061 - arxiv_crawler - INFO - 成功处理论文: Gaussian Splatting Visual MPC for Granular Media Manipulation
+2024-11-14 14:25:32,061 - arxiv_crawler - INFO - 成功处理论文: Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors
+2024-11-14 14:25:32,061 - arxiv_crawler - INFO - 成功处理论文: SurgicalGS: Dynamic 3D Gaussian Splatting for Accurate Robotic-Assisted Surgical Scene Reconstruction
+2024-11-14 14:25:32,065 - arxiv_crawler - INFO - 成功保存100篇论文到data/papers_2024-11-14.json
+2024-11-14 14:26:36,619 - arxiv_crawler - INFO - 成功处理论文: 4D Gaussian Splatting in the Wild with Uncertainty-Aware Regularization
+2024-11-14 14:26:36,619 - arxiv_crawler - INFO - 成功处理论文: Towards More Accurate Fake Detection on Images Generated from Advanced Generative and Neural Rendering Models
+2024-11-14 14:26:36,620 - arxiv_crawler - INFO - 成功处理论文: BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis
+2024-11-14 14:26:36,620 - arxiv_crawler - INFO - 成功处理论文: Biomass phenotyping of oilseed rape through UAV multi-view oblique imaging with 3DGS and SAM model
+2024-11-14 14:26:36,620 - arxiv_crawler - INFO - 成功处理论文: DG-SLAM: Robust Dynamic Gaussian Splatting SLAM with Hybrid Pose Optimization
+2024-11-14 14:26:37,251 - arxiv_crawler - INFO - 成功处理论文: MBA-SLAM: Motion Blur Aware Dense Visual SLAM with Radiance Fields Representation
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: GaussianCut: Interactive segmentation via graph cut for 3D Gaussian Splatting
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: HiCoM: Hierarchical Coherent Motion for Streamable Dynamic Scene with 3D Gaussian Splatting
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: GUS-IR: Gaussian Splatting with Unified Shading for Inverse Rendering
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: A Hierarchical Compression Technique for 3D Gaussian Splatting Compression
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: Adaptive and Temporally Consistent Gaussian Surfels for Multi-view Dynamic Reconstruction
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: SplatFormer: Point Transformer for Robust 3D Gaussian Splatting
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: Through the Curved Cover: Synthesizing Cover Aberrated Scenes with Refractive Field
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: AI-Driven Stylization of 3D Environments
+2024-11-14 14:26:37,252 - arxiv_crawler - INFO - 成功处理论文: GaussianSpa: An "Optimizing-Sparsifying" Simplification Framework for Compact and High-Quality 3D Gaussian Splatting
+2024-11-14 14:26:37,253 - arxiv_crawler - INFO - 成功处理论文: PEP-GS: Perceptually-Enhanced Precise Structured 3D Gaussians for View-Adaptive Rendering
+2024-11-14 14:26:37,253 - arxiv_crawler - INFO - 成功处理论文: ProEdit: Simple Progression is All You Need for High-Quality 3D Scene Editing
+2024-11-14 14:26:37,253 - arxiv_crawler - INFO - 成功处理论文: MVSplat360: Feed-Forward 360 Scene Synthesis from Sparse Views
+2024-11-14 14:26:37,253 - arxiv_crawler - INFO - 成功处理论文: GS2Pose: Two-stage 6D Object Pose Estimation Guided by Gaussian Splatting
+2024-11-14 14:26:37,880 - arxiv_crawler - INFO - 成功处理论文: 3DGS-CD: 3D Gaussian Splatting-based Change Detection for Physical Object Rearrangement
+2024-11-14 14:26:38,523 - arxiv_crawler - INFO - 成功处理论文: Structure Consistent Gaussian Splatting with Matching Prior for Few-shot Novel View Synthesis
+2024-11-14 14:26:38,523 - arxiv_crawler - INFO - 成功处理论文: Object and Contact Point Tracking in Demonstrations Using 3D Gaussian Splatting
+2024-11-14 14:26:38,523 - arxiv_crawler - INFO - 成功处理论文: HFGaussian: Learning Generalizable Gaussian Human with Integrated Human Features
+2024-11-14 14:26:38,523 - arxiv_crawler - INFO - 成功处理论文: LVI-GS: Tightly-coupled LiDAR-Visual-Inertial SLAM using 3D Gaussian Splatting
+2024-11-14 14:26:38,523 - arxiv_crawler - INFO - 成功处理论文: Modeling Uncertainty in 3D Gaussian Splatting through Continuous Semantic Splatting
+2024-11-14 14:26:38,524 - arxiv_crawler - INFO - 成功处理论文: SplatOverflow: Asynchronous Hardware Troubleshooting
+2024-11-14 14:26:38,524 - arxiv_crawler - INFO - 成功处理论文: FewViewGS: Gaussian Splatting with Few View Matching and Multi-stage Training
+2024-11-14 14:26:38,524 - arxiv_crawler - INFO - 成功处理论文: GVKF: Gaussian Voxel Kernel Functions for Highly Efficient Surface Reconstruction in Open Scenes
+2024-11-14 14:26:38,524 - arxiv_crawler - INFO - 成功处理论文: Real-Time Spatio-Temporal Reconstruction of Dynamic Endoscopic Scenes with 4D Gaussian Splatting
+2024-11-14 14:26:38,524 - arxiv_crawler - INFO - 成功处理论文: CityGaussianV2: Efficient and Geometrically Accurate Reconstruction for Large-Scale Scenes
+2024-11-14 14:26:38,524 - arxiv_crawler - INFO - 成功处理论文: PCoTTA: Continual Test-Time Adaptation for Multi-Task Point Cloud Understanding
+2024-11-14 14:26:38,524 - arxiv_crawler - INFO - 成功处理论文: Aquatic-GS: A Hybrid 3D Representation for Underwater Scenes
+2024-11-14 14:26:39,156 - arxiv_crawler - INFO - 成功处理论文: Self-Ensembling Gaussian Splatting for Few-shot Novel View Synthesis
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: URAvatar: Universal Relightable Gaussian Codec Avatars
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: No Pose, No Problem: Surprisingly Simple 3D Gaussian Splats from Sparse Unposed Images
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: GaussianMarker: Uncertainty-Aware Copyright Protection of 3D Gaussian Splatting
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: ELMGS: Enhancing memory and computation scaLability through coMpression for 3D Gaussian Splatting
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: Epipolar-Free 3D Gaussian Splatting for Generalizable Novel View Synthesis
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: PF3plat: Pose-Free Feed-Forward 3D Gaussian Splatting
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: FreeGaussian: Guidance-free Controllable 3D Gaussian Splats with Flow Derivatives
+2024-11-14 14:26:39,157 - arxiv_crawler - INFO - 成功处理论文: ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting
+2024-11-14 14:26:39,753 - arxiv_crawler - INFO - 成功处理论文: MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps
+2024-11-14 14:26:39,753 - arxiv_crawler - INFO - 成功处理论文: Grid4D: 4D Decomposed Hash Encoding for High-fidelity Dynamic Gaussian Splatting
+2024-11-14 14:26:39,753 - arxiv_crawler - INFO - 成功处理论文: LoDAvatar: Hierarchical Embedding and Adaptive Levels of Detail with Gaussian Splatting for Enhanced Human Avatars
+2024-11-14 14:26:39,753 - arxiv_crawler - INFO - 成功处理论文: CompGS: Unleashing 2D Compositionality for Compositional Text-to-3D via Dynamically Optimizing 3D Gaussians
+2024-11-14 14:26:40,382 - arxiv_crawler - INFO - 成功处理论文: ODGS: 3D Scene Reconstruction from Omnidirectional Images with 3D Gaussian Splattings
+2024-11-14 14:26:40,382 - arxiv_crawler - INFO - 成功处理论文: Normal-GS: 3D Gaussian Splatting with Normal-Involved Rendering
+2024-11-14 14:26:40,382 - arxiv_crawler - INFO - 成功处理论文: Neural Fields in Robotics: A Survey
+2024-11-14 14:26:40,382 - arxiv_crawler - INFO - 成功处理论文: SCube: Instant Large-Scale Scene Reconstruction using VoxSplats
+2024-11-14 14:26:40,382 - arxiv_crawler - INFO - 成功处理论文: DiffGS: Functional Gaussian Splatting Diffusion
+2024-11-14 14:26:40,382 - arxiv_crawler - INFO - 成功处理论文: Robotic Learning in your Backyard: A Neural Simulator from Open Source Components
+2024-11-14 14:26:41,001 - arxiv_crawler - INFO - 成功处理论文: Content-Aware Radiance Fields: Aligning Model Complexity with Scene Intricacy Through Learned Bitwidth Quantization
+2024-11-14 14:26:41,001 - arxiv_crawler - INFO - 成功处理论文: ArCSEM: Artistic Colorization of SEM Images via Gaussian Splatting
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: PixelGaussian: Generalizable 3D Gaussian Reconstruction from Arbitrary Views
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: 3D-Adapter: Geometry-Consistent Multi-View Diffusion for High-Quality 3D Generation
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: Sort-free Gaussian Splatting via Weighted Sum Rendering
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: PLGS: Robust Panoptic Lifting with 3D Gaussian Splatting
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: AG-SLAM: Active Gaussian Splatting SLAM
+2024-11-14 14:26:41,625 - arxiv_crawler - INFO - 成功处理论文: SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes
+2024-11-14 14:26:42,235 - arxiv_crawler - INFO - 成功处理论文: E-3DGS: Gaussian Splatting with Exposure and Motion Events
+2024-11-14 14:26:42,235 - arxiv_crawler - INFO - 成功处理论文: Multi-Layer Gaussian Splatting for Immersive Anatomy Visualization
+2024-11-14 14:26:42,235 - arxiv_crawler - INFO - 成功处理论文: MvDrag3D: Drag-based Creative 3D Editing via Multi-view Generation-Reconstruction Priors
+2024-11-14 14:26:42,235 - arxiv_crawler - INFO - 成功处理论文: 3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors
+2024-11-14 14:26:42,235 - arxiv_crawler - INFO - 成功处理论文: MSGField: A Unified Scene Representation Integrating Motion, Semantics, and Geometry for Robotic Manipulation
+2024-11-14 14:26:42,235 - arxiv_crawler - INFO - 成功处理论文: LucidFusion: Generating 3D Gaussians with Arbitrary Unposed Images
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: Fully Explicit Dynamic Gaussian Splatting
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: LUDVIG: Learning-free Uplifting of 2D Visual features to Gaussian Splatting scenes
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: Neural Signed Distance Function Inference through Splatting 3D Gaussians Pulled on Zero-Level Set
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: DaRePlane: Direction-aware Representations for Dynamic Scene Reconstruction
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: DepthSplat: Connecting Gaussian Splatting and Depth
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: Differentiable Robot Rendering
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: MEGA: Memory-Efficient 4D Gaussian Splatting for Dynamic Scenes
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: DN-4DGS: Denoised Deformable Network with Temporal-Spatial Aggregation for Dynamic Scene Rendering
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: L3DG: Latent 3D Gaussian Diffusion
+2024-11-14 14:26:42,236 - arxiv_crawler - INFO - 成功处理论文: GlossyGS: Inverse Rendering of Glossy Objects with 3D Gaussian Splatting
+2024-11-14 14:26:42,894 - arxiv_crawler - INFO - 成功处理论文: Hybrid bundle-adjusting 3D Gaussians for view consistent rendering with pose optimization
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: UniG: Modelling Unitary 3D Gaussians for View-consistent 3D Reconstruction
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: Long-LRM: Long-sequence Large Reconstruction Model for Wide-coverage Gaussian Splats
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: 3D Gaussian Splatting in Robotics: A Survey
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: SplatPose+: Real-time Image-Based Pose-Agnostic 3D Anomaly Detection
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: LoGS: Visual Localization via Gaussian Splatting with Fewer Training Images
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: GS^3: Efficient Relighting with Triple Gaussian Splatting
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: MCGS: Multiview Consistency Enhancement for Sparse-View 3D Gaussian Radiance Fields
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: GSORB-SLAM: Gaussian Splatting SLAM benefits from ORB features and Transmittance information
+2024-11-14 14:26:43,507 - arxiv_crawler - INFO - 成功处理论文: Scalable Indoor Novel-View Synthesis using Drone-Captured 360 Imagery with 3D Gaussian Splatting
+2024-11-14 14:26:44,159 - arxiv_crawler - INFO - 成功处理论文: Few-shot Novel View Synthesis using Depth Aware 3D Gaussian Splatting
+2024-11-14 14:26:44,159 - arxiv_crawler - INFO - 成功处理论文: 4-LEGS: 4D Language Embedded Gaussian Splatting
+2024-11-14 14:26:44,159 - arxiv_crawler - INFO - 成功处理论文: 4DStyleGaussian: Zero-shot 4D Style Transfer with Gaussian Splatting
+2024-11-14 14:26:44,159 - arxiv_crawler - INFO - 成功处理论文: Gaussian Splatting Visual MPC for Granular Media Manipulation
+2024-11-14 14:26:44,159 - arxiv_crawler - INFO - 成功处理论文: Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors
+2024-11-14 14:26:44,159 - arxiv_crawler - INFO - 成功处理论文: SurgicalGS: Dynamic 3D Gaussian Splatting for Accurate Robotic-Assisted Surgical Scene Reconstruction
+2024-11-14 14:26:44,163 - arxiv_crawler - INFO - 成功保存100篇论文到data/papers_2024-11-14.json
+2024-11-14 14:28:27,896 - arxiv_crawler - INFO - 成功处理论文: 4D Gaussian Splatting in the Wild with Uncertainty-Aware Regularization
+2024-11-14 14:28:27,896 - arxiv_crawler - INFO - 成功处理论文: Towards More Accurate Fake Detection on Images Generated from Advanced Generative and Neural Rendering Models
+2024-11-14 14:28:27,896 - arxiv_crawler - INFO - 成功处理论文: BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis
+2024-11-14 14:28:27,896 - arxiv_crawler - INFO - 成功处理论文: Biomass phenotyping of oilseed rape through UAV multi-view oblique imaging with 3DGS and SAM model
+2024-11-14 14:28:27,896 - arxiv_crawler - INFO - 成功处理论文: DG-SLAM: Robust Dynamic Gaussian Splatting SLAM with Hybrid Pose Optimization
+2024-11-14 14:28:29,126 - arxiv_crawler - INFO - 成功处理论文: MBA-SLAM: Motion Blur Aware Dense Visual SLAM with Radiance Fields Representation
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: GaussianCut: Interactive segmentation via graph cut for 3D Gaussian Splatting
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: HiCoM: Hierarchical Coherent Motion for Streamable Dynamic Scene with 3D Gaussian Splatting
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: GUS-IR: Gaussian Splatting with Unified Shading for Inverse Rendering
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: A Hierarchical Compression Technique for 3D Gaussian Splatting Compression
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: Adaptive and Temporally Consistent Gaussian Surfels for Multi-view Dynamic Reconstruction
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: SplatFormer: Point Transformer for Robust 3D Gaussian Splatting
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: Through the Curved Cover: Synthesizing Cover Aberrated Scenes with Refractive Field
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: AI-Driven Stylization of 3D Environments
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: GaussianSpa: An "Optimizing-Sparsifying" Simplification Framework for Compact and High-Quality 3D Gaussian Splatting
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: PEP-GS: Perceptually-Enhanced Precise Structured 3D Gaussians for View-Adaptive Rendering
+2024-11-14 14:28:29,127 - arxiv_crawler - INFO - 成功处理论文: ProEdit: Simple Progression is All You Need for High-Quality 3D Scene Editing
+2024-11-14 14:28:29,128 - arxiv_crawler - INFO - 成功处理论文: MVSplat360: Feed-Forward 360 Scene Synthesis from Sparse Views
+2024-11-14 14:28:29,128 - arxiv_crawler - INFO - 成功处理论文: GS2Pose: Two-stage 6D Object Pose Estimation Guided by Gaussian Splatting
+2024-11-14 14:28:30,310 - arxiv_crawler - INFO - 成功处理论文: 3DGS-CD: 3D Gaussian Splatting-based Change Detection for Physical Object Rearrangement
+2024-11-14 14:28:31,481 - arxiv_crawler - INFO - 成功处理论文: Structure Consistent Gaussian Splatting with Matching Prior for Few-shot Novel View Synthesis
+2024-11-14 14:28:31,481 - arxiv_crawler - INFO - 成功处理论文: Object and Contact Point Tracking in Demonstrations Using 3D Gaussian Splatting
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: HFGaussian: Learning Generalizable Gaussian Human with Integrated Human Features
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: LVI-GS: Tightly-coupled LiDAR-Visual-Inertial SLAM using 3D Gaussian Splatting
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: Modeling Uncertainty in 3D Gaussian Splatting through Continuous Semantic Splatting
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: SplatOverflow: Asynchronous Hardware Troubleshooting
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: FewViewGS: Gaussian Splatting with Few View Matching and Multi-stage Training
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: GVKF: Gaussian Voxel Kernel Functions for Highly Efficient Surface Reconstruction in Open Scenes
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: Real-Time Spatio-Temporal Reconstruction of Dynamic Endoscopic Scenes with 4D Gaussian Splatting
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: CityGaussianV2: Efficient and Geometrically Accurate Reconstruction for Large-Scale Scenes
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: PCoTTA: Continual Test-Time Adaptation for Multi-Task Point Cloud Understanding
+2024-11-14 14:28:31,482 - arxiv_crawler - INFO - 成功处理论文: Aquatic-GS: A Hybrid 3D Representation for Underwater Scenes
+2024-11-14 14:28:32,709 - arxiv_crawler - INFO - 成功处理论文: Self-Ensembling Gaussian Splatting for Few-shot Novel View Synthesis
+2024-11-14 14:28:32,709 - arxiv_crawler - INFO - 成功处理论文: URAvatar: Universal Relightable Gaussian Codec Avatars
+2024-11-14 14:28:32,709 - arxiv_crawler - INFO - 成功处理论文: No Pose, No Problem: Surprisingly Simple 3D Gaussian Splats from Sparse Unposed Images
+2024-11-14 14:28:32,709 - arxiv_crawler - INFO - 成功处理论文: GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering
+2024-11-14 14:28:32,709 - arxiv_crawler - INFO - 成功处理论文: GaussianMarker: Uncertainty-Aware Copyright Protection of 3D Gaussian Splatting
+2024-11-14 14:28:32,710 - arxiv_crawler - INFO - 成功处理论文: GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring
+2024-11-14 14:28:32,710 - arxiv_crawler - INFO - 成功处理论文: ELMGS: Enhancing memory and computation scaLability through coMpression for 3D Gaussian Splatting
+2024-11-14 14:28:32,710 - arxiv_crawler - INFO - 成功处理论文: Epipolar-Free 3D Gaussian Splatting for Generalizable Novel View Synthesis
+2024-11-14 14:28:32,710 - arxiv_crawler - INFO - 成功处理论文: Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images
+2024-11-14 14:28:32,710 - arxiv_crawler - INFO - 成功处理论文: PF3plat: Pose-Free Feed-Forward 3D Gaussian Splatting
+2024-11-14 14:28:32,710 - arxiv_crawler - INFO - 成功处理论文: FreeGaussian: Guidance-free Controllable 3D Gaussian Splats with Flow Derivatives
+2024-11-14 14:28:32,710 - arxiv_crawler - INFO - 成功处理论文: ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting
+2024-11-14 14:28:33,914 - arxiv_crawler - INFO - 成功处理论文: MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps
+2024-11-14 14:28:33,914 - arxiv_crawler - INFO - 成功处理论文: Grid4D: 4D Decomposed Hash Encoding for High-fidelity Dynamic Gaussian Splatting
+2024-11-14 14:28:33,914 - arxiv_crawler - INFO - 成功处理论文: LoDAvatar: Hierarchical Embedding and Adaptive Levels of Detail with Gaussian Splatting for Enhanced Human Avatars
+2024-11-14 14:28:33,914 - arxiv_crawler - INFO - 成功处理论文: CompGS: Unleashing 2D Compositionality for Compositional Text-to-3D via Dynamically Optimizing 3D Gaussians
+2024-11-14 14:28:35,143 - arxiv_crawler - INFO - 成功处理论文: ODGS: 3D Scene Reconstruction from Omnidirectional Images with 3D Gaussian Splattings
+2024-11-14 14:28:35,143 - arxiv_crawler - INFO - 成功处理论文: Normal-GS: 3D Gaussian Splatting with Normal-Involved Rendering
+2024-11-14 14:28:35,143 - arxiv_crawler - INFO - 成功处理论文: Neural Fields in Robotics: A Survey
+2024-11-14 14:28:35,143 - arxiv_crawler - INFO - 成功处理论文: SCube: Instant Large-Scale Scene Reconstruction using VoxSplats
+2024-11-14 14:28:35,143 - arxiv_crawler - INFO - 成功处理论文: DiffGS: Functional Gaussian Splatting Diffusion
+2024-11-14 14:28:35,143 - arxiv_crawler - INFO - 成功处理论文: Robotic Learning in your Backyard: A Neural Simulator from Open Source Components
+2024-11-14 14:28:36,343 - arxiv_crawler - INFO - 成功处理论文: Content-Aware Radiance Fields: Aligning Model Complexity with Scene Intricacy Through Learned Bitwidth Quantization
+2024-11-14 14:28:36,343 - arxiv_crawler - INFO - 成功处理论文: ArCSEM: Artistic Colorization of SEM Images via Gaussian Splatting
+2024-11-14 14:28:37,525 - arxiv_crawler - INFO - 成功处理论文: PixelGaussian: Generalizable 3D Gaussian Reconstruction from Arbitrary Views
+2024-11-14 14:28:37,525 - arxiv_crawler - INFO - 成功处理论文: 3D-Adapter: Geometry-Consistent Multi-View Diffusion for High-Quality 3D Generation
+2024-11-14 14:28:37,526 - arxiv_crawler - INFO - 成功处理论文: Sort-free Gaussian Splatting via Weighted Sum Rendering
+2024-11-14 14:28:37,526 - arxiv_crawler - INFO - 成功处理论文: Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling
+2024-11-14 14:28:37,526 - arxiv_crawler - INFO - 成功处理论文: Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis
+2024-11-14 14:28:37,526 - arxiv_crawler - INFO - 成功处理论文: VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points
+2024-11-14 14:28:37,526 - arxiv_crawler - INFO - 成功处理论文: PLGS: Robust Panoptic Lifting with 3D Gaussian Splatting
+2024-11-14 14:28:37,526 - arxiv_crawler - INFO - 成功处理论文: AG-SLAM: Active Gaussian Splatting SLAM
+2024-11-14 14:28:37,526 - arxiv_crawler - INFO - 成功处理论文: SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: E-3DGS: Gaussian Splatting with Exposure and Motion Events
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: Multi-Layer Gaussian Splatting for Immersive Anatomy Visualization
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: MvDrag3D: Drag-based Creative 3D Editing via Multi-view Generation-Reconstruction Priors
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: 3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: MSGField: A Unified Scene Representation Integrating Motion, Semantics, and Geometry for Robotic Manipulation
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: LucidFusion: Generating 3D Gaussians with Arbitrary Unposed Images
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: Fully Explicit Dynamic Gaussian Splatting
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: LUDVIG: Learning-free Uplifting of 2D Visual features to Gaussian Splatting scenes
+2024-11-14 14:28:38,717 - arxiv_crawler - INFO - 成功处理论文: Neural Signed Distance Function Inference through Splatting 3D Gaussians Pulled on Zero-Level Set
+2024-11-14 14:28:38,718 - arxiv_crawler - INFO - 成功处理论文: DaRePlane: Direction-aware Representations for Dynamic Scene Reconstruction
+2024-11-14 14:28:38,718 - arxiv_crawler - INFO - 成功处理论文: DepthSplat: Connecting Gaussian Splatting and Depth
+2024-11-14 14:28:38,718 - arxiv_crawler - INFO - 成功处理论文: Differentiable Robot Rendering
+2024-11-14 14:28:38,718 - arxiv_crawler - INFO - 成功处理论文: MEGA: Memory-Efficient 4D Gaussian Splatting for Dynamic Scenes
+2024-11-14 14:28:38,718 - arxiv_crawler - INFO - 成功处理论文: DN-4DGS: Denoised Deformable Network with Temporal-Spatial Aggregation for Dynamic Scene Rendering
+2024-11-14 14:28:38,718 - arxiv_crawler - INFO - 成功处理论文: L3DG: Latent 3D Gaussian Diffusion
+2024-11-14 14:28:38,718 - arxiv_crawler - INFO - 成功处理论文: GlossyGS: Inverse Rendering of Glossy Objects with 3D Gaussian Splatting
+2024-11-14 14:28:39,911 - arxiv_crawler - INFO - 成功处理论文: Hybrid bundle-adjusting 3D Gaussians for view consistent rendering with pose optimization
+2024-11-14 14:28:41,131 - arxiv_crawler - INFO - 成功处理论文: UniG: Modelling Unitary 3D Gaussians for View-consistent 3D Reconstruction
+2024-11-14 14:28:41,131 - arxiv_crawler - INFO - 成功处理论文: Long-LRM: Long-sequence Large Reconstruction Model for Wide-coverage Gaussian Splats
+2024-11-14 14:28:41,131 - arxiv_crawler - INFO - 成功处理论文: 3D Gaussian Splatting in Robotics: A Survey
+2024-11-14 14:28:41,131 - arxiv_crawler - INFO - 成功处理论文: SplatPose+: Real-time Image-Based Pose-Agnostic 3D Anomaly Detection
+2024-11-14 14:28:41,131 - arxiv_crawler - INFO - 成功处理论文: LoGS: Visual Localization via Gaussian Splatting with Fewer Training Images
+2024-11-14 14:28:41,131 - arxiv_crawler - INFO - 成功处理论文: GS^3: Efficient Relighting with Triple Gaussian Splatting
+2024-11-14 14:28:41,131 - arxiv_crawler - INFO - 成功处理论文: MCGS: Multiview Consistency Enhancement for Sparse-View 3D Gaussian Radiance Fields
+2024-11-14 14:28:41,132 - arxiv_crawler - INFO - 成功处理论文: GSORB-SLAM: Gaussian Splatting SLAM benefits from ORB features and Transmittance information
+2024-11-14 14:28:41,132 - arxiv_crawler - INFO - 成功处理论文: Scalable Indoor Novel-View Synthesis using Drone-Captured 360 Imagery with 3D Gaussian Splatting
+2024-11-14 14:28:42,325 - arxiv_crawler - INFO - 成功处理论文: Few-shot Novel View Synthesis using Depth Aware 3D Gaussian Splatting
+2024-11-14 14:28:42,326 - arxiv_crawler - INFO - 成功处理论文: 4-LEGS: 4D Language Embedded Gaussian Splatting
+2024-11-14 14:28:42,326 - arxiv_crawler - INFO - 成功处理论文: 4DStyleGaussian: Zero-shot 4D Style Transfer with Gaussian Splatting
+2024-11-14 14:28:42,326 - arxiv_crawler - INFO - 成功处理论文: Gaussian Splatting Visual MPC for Granular Media Manipulation
+2024-11-14 14:28:42,326 - arxiv_crawler - INFO - 成功处理论文: Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors
+2024-11-14 14:28:42,326 - arxiv_crawler - INFO - 成功处理论文: SurgicalGS: Dynamic 3D Gaussian Splatting for Accurate Robotic-Assisted Surgical Scene Reconstruction
+2024-11-14 14:28:42,330 - arxiv_crawler - INFO - 成功保存100篇论文到data/papers_2024-11-14.json
+2024-11-14 14:30:23,240 - arxiv_crawler - INFO - 成功处理论文: 4D Gaussian Splatting in the Wild with Uncertainty-Aware Regularization
+2024-11-14 14:30:23,240 - arxiv_crawler - INFO - 成功处理论文: Towards More Accurate Fake Detection on Images Generated from Advanced Generative and Neural Rendering Models
+2024-11-14 14:30:23,240 - arxiv_crawler - INFO - 成功处理论文: BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis
+2024-11-14 14:30:23,240 - arxiv_crawler - INFO - 成功处理论文: Biomass phenotyping of oilseed rape through UAV multi-view oblique imaging with 3DGS and SAM model
+2024-11-14 14:30:23,240 - arxiv_crawler - INFO - 成功处理论文: DG-SLAM: Robust Dynamic Gaussian Splatting SLAM with Hybrid Pose Optimization
+2024-11-14 14:30:24,413 - arxiv_crawler - INFO - 成功处理论文: MBA-SLAM: Motion Blur Aware Dense Visual SLAM with Radiance Fields Representation
+2024-11-14 14:30:24,413 - arxiv_crawler - INFO - 成功处理论文: Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation
+2024-11-14 14:30:24,413 - arxiv_crawler - INFO - 成功处理论文: GaussianCut: Interactive segmentation via graph cut for 3D Gaussian Splatting
+2024-11-14 14:30:24,413 - arxiv_crawler - INFO - 成功处理论文: HiCoM: Hierarchical Coherent Motion for Streamable Dynamic Scene with 3D Gaussian Splatting
+2024-11-14 14:30:24,413 - arxiv_crawler - INFO - 成功处理论文: GUS-IR: Gaussian Splatting with Unified Shading for Inverse Rendering
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: A Hierarchical Compression Technique for 3D Gaussian Splatting Compression
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: Adaptive and Temporally Consistent Gaussian Surfels for Multi-view Dynamic Reconstruction
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: SplatFormer: Point Transformer for Robust 3D Gaussian Splatting
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: Through the Curved Cover: Synthesizing Cover Aberrated Scenes with Refractive Field
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: AI-Driven Stylization of 3D Environments
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: GaussianSpa: An "Optimizing-Sparsifying" Simplification Framework for Compact and High-Quality 3D Gaussian Splatting
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: PEP-GS: Perceptually-Enhanced Precise Structured 3D Gaussians for View-Adaptive Rendering
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: ProEdit: Simple Progression is All You Need for High-Quality 3D Scene Editing
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: MVSplat360: Feed-Forward 360 Scene Synthesis from Sparse Views
+2024-11-14 14:30:24,414 - arxiv_crawler - INFO - 成功处理论文: GS2Pose: Two-stage 6D Object Pose Estimation Guided by Gaussian Splatting
+2024-11-14 14:30:25,601 - arxiv_crawler - INFO - 成功处理论文: 3DGS-CD: 3D Gaussian Splatting-based Change Detection for Physical Object Rearrangement
+2024-11-14 14:30:26,795 - arxiv_crawler - INFO - 成功处理论文: Structure Consistent Gaussian Splatting with Matching Prior for Few-shot Novel View Synthesis
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: Object and Contact Point Tracking in Demonstrations Using 3D Gaussian Splatting
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: HFGaussian: Learning Generalizable Gaussian Human with Integrated Human Features
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: LVI-GS: Tightly-coupled LiDAR-Visual-Inertial SLAM using 3D Gaussian Splatting
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: Modeling Uncertainty in 3D Gaussian Splatting through Continuous Semantic Splatting
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: SplatOverflow: Asynchronous Hardware Troubleshooting
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: FewViewGS: Gaussian Splatting with Few View Matching and Multi-stage Training
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: GVKF: Gaussian Voxel Kernel Functions for Highly Efficient Surface Reconstruction in Open Scenes
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: Real-Time Spatio-Temporal Reconstruction of Dynamic Endoscopic Scenes with 4D Gaussian Splatting
+2024-11-14 14:30:26,796 - arxiv_crawler - INFO - 成功处理论文: CityGaussianV2: Efficient and Geometrically Accurate Reconstruction for Large-Scale Scenes
+2024-11-14 14:30:26,797 - arxiv_crawler - INFO - 成功处理论文: PCoTTA: Continual Test-Time Adaptation for Multi-Task Point Cloud Understanding
+2024-11-14 14:30:26,797 - arxiv_crawler - INFO - 成功处理论文: Aquatic-GS: A Hybrid 3D Representation for Underwater Scenes
+2024-11-14 14:30:28,007 - arxiv_crawler - INFO - 成功处理论文: Self-Ensembling Gaussian Splatting for Few-shot Novel View Synthesis
+2024-11-14 14:30:28,007 - arxiv_crawler - INFO - 成功处理论文: URAvatar: Universal Relightable Gaussian Codec Avatars
+2024-11-14 14:30:28,008 - arxiv_crawler - INFO - 成功处理论文: No Pose, No Problem: Surprisingly Simple 3D Gaussian Splats from Sparse Unposed Images
+2024-11-14 14:30:28,008 - arxiv_crawler - INFO - 成功处理论文: GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering
+2024-11-14 14:30:28,008 - arxiv_crawler - INFO - 成功处理论文: GaussianMarker: Uncertainty-Aware Copyright Protection of 3D Gaussian Splatting
+2024-11-14 14:30:28,008 - arxiv_crawler - INFO - 成功处理论文: GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring
+2024-11-14 14:30:28,008 - arxiv_crawler - INFO - 成功处理论文: ELMGS: Enhancing memory and computation scaLability through coMpression for 3D Gaussian Splatting
+2024-11-14 14:30:28,008 - arxiv_crawler - INFO - 成功处理论文: Epipolar-Free 3D Gaussian Splatting for Generalizable Novel View Synthesis
+2024-11-14 14:30:28,008 - arxiv_crawler - INFO - 成功处理论文: Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images
+2024-11-14 14:30:28,009 - arxiv_crawler - INFO - 成功处理论文: PF3plat: Pose-Free Feed-Forward 3D Gaussian Splatting
+2024-11-14 14:30:28,009 - arxiv_crawler - INFO - 成功处理论文: FreeGaussian: Guidance-free Controllable 3D Gaussian Splats with Flow Derivatives
+2024-11-14 14:30:28,009 - arxiv_crawler - INFO - 成功处理论文: ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting
+2024-11-14 14:30:29,188 - arxiv_crawler - INFO - 成功处理论文: MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps
+2024-11-14 14:30:29,188 - arxiv_crawler - INFO - 成功处理论文: Grid4D: 4D Decomposed Hash Encoding for High-fidelity Dynamic Gaussian Splatting
+2024-11-14 14:30:29,188 - arxiv_crawler - INFO - 成功处理论文: LoDAvatar: Hierarchical Embedding and Adaptive Levels of Detail with Gaussian Splatting for Enhanced Human Avatars
+2024-11-14 14:30:29,188 - arxiv_crawler - INFO - 成功处理论文: CompGS: Unleashing 2D Compositionality for Compositional Text-to-3D via Dynamically Optimizing 3D Gaussians
+2024-11-14 14:30:30,365 - arxiv_crawler - INFO - 成功处理论文: ODGS: 3D Scene Reconstruction from Omnidirectional Images with 3D Gaussian Splattings
+2024-11-14 14:30:30,365 - arxiv_crawler - INFO - 成功处理论文: Normal-GS: 3D Gaussian Splatting with Normal-Involved Rendering
+2024-11-14 14:30:30,366 - arxiv_crawler - INFO - 成功处理论文: Neural Fields in Robotics: A Survey
+2024-11-14 14:30:30,366 - arxiv_crawler - INFO - 成功处理论文: SCube: Instant Large-Scale Scene Reconstruction using VoxSplats
+2024-11-14 14:30:30,366 - arxiv_crawler - INFO - 成功处理论文: DiffGS: Functional Gaussian Splatting Diffusion
+2024-11-14 14:30:30,366 - arxiv_crawler - INFO - 成功处理论文: Robotic Learning in your Backyard: A Neural Simulator from Open Source Components
+2024-11-14 14:30:31,555 - arxiv_crawler - INFO - 成功处理论文: Content-Aware Radiance Fields: Aligning Model Complexity with Scene Intricacy Through Learned Bitwidth Quantization
+2024-11-14 14:30:31,555 - arxiv_crawler - INFO - 成功处理论文: ArCSEM: Artistic Colorization of SEM Images via Gaussian Splatting
+2024-11-14 14:30:32,745 - arxiv_crawler - INFO - 成功处理论文: PixelGaussian: Generalizable 3D Gaussian Reconstruction from Arbitrary Views
+2024-11-14 14:30:32,745 - arxiv_crawler - INFO - 成功处理论文: 3D-Adapter: Geometry-Consistent Multi-View Diffusion for High-Quality 3D Generation
+2024-11-14 14:30:32,746 - arxiv_crawler - INFO - 成功处理论文: Sort-free Gaussian Splatting via Weighted Sum Rendering
+2024-11-14 14:30:32,746 - arxiv_crawler - INFO - 成功处理论文: Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling
+2024-11-14 14:30:32,746 - arxiv_crawler - INFO - 成功处理论文: Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis
+2024-11-14 14:30:32,746 - arxiv_crawler - INFO - 成功处理论文: VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points
+2024-11-14 14:30:32,746 - arxiv_crawler - INFO - 成功处理论文: PLGS: Robust Panoptic Lifting with 3D Gaussian Splatting
+2024-11-14 14:30:32,746 - arxiv_crawler - INFO - 成功处理论文: AG-SLAM: Active Gaussian Splatting SLAM
+2024-11-14 14:30:32,746 - arxiv_crawler - INFO - 成功处理论文: SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: E-3DGS: Gaussian Splatting with Exposure and Motion Events
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: Multi-Layer Gaussian Splatting for Immersive Anatomy Visualization
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: MvDrag3D: Drag-based Creative 3D Editing via Multi-view Generation-Reconstruction Priors
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: 3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: MSGField: A Unified Scene Representation Integrating Motion, Semantics, and Geometry for Robotic Manipulation
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: LucidFusion: Generating 3D Gaussians with Arbitrary Unposed Images
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: Fully Explicit Dynamic Gaussian Splatting
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: LUDVIG: Learning-free Uplifting of 2D Visual features to Gaussian Splatting scenes
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: Neural Signed Distance Function Inference through Splatting 3D Gaussians Pulled on Zero-Level Set
+2024-11-14 14:30:33,927 - arxiv_crawler - INFO - 成功处理论文: DaRePlane: Direction-aware Representations for Dynamic Scene Reconstruction
+2024-11-14 14:30:33,928 - arxiv_crawler - INFO - 成功处理论文: DepthSplat: Connecting Gaussian Splatting and Depth
+2024-11-14 14:30:33,928 - arxiv_crawler - INFO - 成功处理论文: Differentiable Robot Rendering
+2024-11-14 14:30:33,928 - arxiv_crawler - INFO - 成功处理论文: MEGA: Memory-Efficient 4D Gaussian Splatting for Dynamic Scenes
+2024-11-14 14:30:33,928 - arxiv_crawler - INFO - 成功处理论文: DN-4DGS: Denoised Deformable Network with Temporal-Spatial Aggregation for Dynamic Scene Rendering
+2024-11-14 14:30:33,928 - arxiv_crawler - INFO - 成功处理论文: L3DG: Latent 3D Gaussian Diffusion
+2024-11-14 14:30:33,928 - arxiv_crawler - INFO - 成功处理论文: GlossyGS: Inverse Rendering of Glossy Objects with 3D Gaussian Splatting
+2024-11-14 14:30:35,116 - arxiv_crawler - INFO - 成功处理论文: Hybrid bundle-adjusting 3D Gaussians for view consistent rendering with pose optimization
+2024-11-14 14:30:36,429 - arxiv_crawler - INFO - 成功处理论文: UniG: Modelling Unitary 3D Gaussians for View-consistent 3D Reconstruction
+2024-11-14 14:30:36,429 - arxiv_crawler - INFO - 成功处理论文: Long-LRM: Long-sequence Large Reconstruction Model for Wide-coverage Gaussian Splats
+2024-11-14 14:30:36,430 - arxiv_crawler - INFO - 成功处理论文: 3D Gaussian Splatting in Robotics: A Survey
+2024-11-14 14:30:36,430 - arxiv_crawler - INFO - 成功处理论文: SplatPose+: Real-time Image-Based Pose-Agnostic 3D Anomaly Detection
+2024-11-14 14:30:36,430 - arxiv_crawler - INFO - 成功处理论文: LoGS: Visual Localization via Gaussian Splatting with Fewer Training Images
+2024-11-14 14:30:36,430 - arxiv_crawler - INFO - 成功处理论文: GS^3: Efficient Relighting with Triple Gaussian Splatting
+2024-11-14 14:30:36,430 - arxiv_crawler - INFO - 成功处理论文: MCGS: Multiview Consistency Enhancement for Sparse-View 3D Gaussian Radiance Fields
+2024-11-14 14:30:36,430 - arxiv_crawler - INFO - 成功处理论文: GSORB-SLAM: Gaussian Splatting SLAM benefits from ORB features and Transmittance information
+2024-11-14 14:30:36,430 - arxiv_crawler - INFO - 成功处理论文: Scalable Indoor Novel-View Synthesis using Drone-Captured 360 Imagery with 3D Gaussian Splatting
+2024-11-14 14:30:37,654 - arxiv_crawler - INFO - 成功处理论文: Few-shot Novel View Synthesis using Depth Aware 3D Gaussian Splatting
+2024-11-14 14:30:37,654 - arxiv_crawler - INFO - 成功处理论文: 4-LEGS: 4D Language Embedded Gaussian Splatting
+2024-11-14 14:30:37,654 - arxiv_crawler - INFO - 成功处理论文: 4DStyleGaussian: Zero-shot 4D Style Transfer with Gaussian Splatting
+2024-11-14 14:30:37,654 - arxiv_crawler - INFO - 成功处理论文: Gaussian Splatting Visual MPC for Granular Media Manipulation
+2024-11-14 14:30:37,654 - arxiv_crawler - INFO - 成功处理论文: Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors
+2024-11-14 14:30:37,654 - arxiv_crawler - INFO - 成功处理论文: SurgicalGS: Dynamic 3D Gaussian Splatting for Accurate Robotic-Assisted Surgical Scene Reconstruction
+2024-11-14 14:30:37,657 - arxiv_crawler - INFO - 成功保存100篇论文到data/papers_2024-11-14.json
+2024-11-14 14:31:37,793 - arxiv_crawler - INFO - 成功处理论文: 4D Gaussian Splatting in the Wild with Uncertainty-Aware Regularization
+2024-11-14 14:31:37,793 - arxiv_crawler - INFO - 成功处理论文: Towards More Accurate Fake Detection on Images Generated from Advanced Generative and Neural Rendering Models
+2024-11-14 14:31:37,793 - arxiv_crawler - INFO - 成功处理论文: BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis
+2024-11-14 14:31:37,793 - arxiv_crawler - INFO - 成功处理论文: Biomass phenotyping of oilseed rape through UAV multi-view oblique imaging with 3DGS and SAM model
+2024-11-14 14:31:37,793 - arxiv_crawler - INFO - 成功处理论文: DG-SLAM: Robust Dynamic Gaussian Splatting SLAM with Hybrid Pose Optimization
+2024-11-14 14:31:38,994 - arxiv_crawler - INFO - 成功处理论文: MBA-SLAM: Motion Blur Aware Dense Visual SLAM with Radiance Fields Representation
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: GaussianCut: Interactive segmentation via graph cut for 3D Gaussian Splatting
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: HiCoM: Hierarchical Coherent Motion for Streamable Dynamic Scene with 3D Gaussian Splatting
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: GUS-IR: Gaussian Splatting with Unified Shading for Inverse Rendering
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: A Hierarchical Compression Technique for 3D Gaussian Splatting Compression
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: Adaptive and Temporally Consistent Gaussian Surfels for Multi-view Dynamic Reconstruction
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: SplatFormer: Point Transformer for Robust 3D Gaussian Splatting
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: Through the Curved Cover: Synthesizing Cover Aberrated Scenes with Refractive Field
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: AI-Driven Stylization of 3D Environments
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: GaussianSpa: An "Optimizing-Sparsifying" Simplification Framework for Compact and High-Quality 3D Gaussian Splatting
+2024-11-14 14:31:38,995 - arxiv_crawler - INFO - 成功处理论文: PEP-GS: Perceptually-Enhanced Precise Structured 3D Gaussians for View-Adaptive Rendering
+2024-11-14 14:31:38,996 - arxiv_crawler - INFO - 成功处理论文: ProEdit: Simple Progression is All You Need for High-Quality 3D Scene Editing
+2024-11-14 14:31:38,996 - arxiv_crawler - INFO - 成功处理论文: MVSplat360: Feed-Forward 360 Scene Synthesis from Sparse Views
+2024-11-14 14:31:38,996 - arxiv_crawler - INFO - 成功处理论文: GS2Pose: Two-stage 6D Object Pose Estimation Guided by Gaussian Splatting
+2024-11-14 14:31:40,238 - arxiv_crawler - INFO - 成功处理论文: 3DGS-CD: 3D Gaussian Splatting-based Change Detection for Physical Object Rearrangement
+2024-11-14 14:31:41,443 - arxiv_crawler - INFO - 成功处理论文: Structure Consistent Gaussian Splatting with Matching Prior for Few-shot Novel View Synthesis
+2024-11-14 14:31:41,443 - arxiv_crawler - INFO - 成功处理论文: Object and Contact Point Tracking in Demonstrations Using 3D Gaussian Splatting
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: HFGaussian: Learning Generalizable Gaussian Human with Integrated Human Features
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: LVI-GS: Tightly-coupled LiDAR-Visual-Inertial SLAM using 3D Gaussian Splatting
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: Modeling Uncertainty in 3D Gaussian Splatting through Continuous Semantic Splatting
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: SplatOverflow: Asynchronous Hardware Troubleshooting
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: FewViewGS: Gaussian Splatting with Few View Matching and Multi-stage Training
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: GVKF: Gaussian Voxel Kernel Functions for Highly Efficient Surface Reconstruction in Open Scenes
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: Real-Time Spatio-Temporal Reconstruction of Dynamic Endoscopic Scenes with 4D Gaussian Splatting
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: CityGaussianV2: Efficient and Geometrically Accurate Reconstruction for Large-Scale Scenes
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: PCoTTA: Continual Test-Time Adaptation for Multi-Task Point Cloud Understanding
+2024-11-14 14:31:41,444 - arxiv_crawler - INFO - 成功处理论文: Aquatic-GS: A Hybrid 3D Representation for Underwater Scenes
+2024-11-14 14:31:42,678 - arxiv_crawler - INFO - 成功处理论文: Self-Ensembling Gaussian Splatting for Few-shot Novel View Synthesis
+2024-11-14 14:31:42,678 - arxiv_crawler - INFO - 成功处理论文: URAvatar: Universal Relightable Gaussian Codec Avatars
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: No Pose, No Problem: Surprisingly Simple 3D Gaussian Splats from Sparse Unposed Images
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: GaussianMarker: Uncertainty-Aware Copyright Protection of 3D Gaussian Splatting
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: ELMGS: Enhancing memory and computation scaLability through coMpression for 3D Gaussian Splatting
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: Epipolar-Free 3D Gaussian Splatting for Generalizable Novel View Synthesis
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: Geometry Cloak: Preventing TGS-based 3D Reconstruction from Copyrighted Images
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: PF3plat: Pose-Free Feed-Forward 3D Gaussian Splatting
+2024-11-14 14:31:42,679 - arxiv_crawler - INFO - 成功处理论文: FreeGaussian: Guidance-free Controllable 3D Gaussian Splats with Flow Derivatives
+2024-11-14 14:31:42,680 - arxiv_crawler - INFO - 成功处理论文: ActiveSplat: High-Fidelity Scene Reconstruction through Active Gaussian Splatting
+2024-11-14 14:31:43,871 - arxiv_crawler - INFO - 成功处理论文: MVSDet: Multi-View Indoor 3D Object Detection via Efficient Plane Sweeps
+2024-11-14 14:31:43,872 - arxiv_crawler - INFO - 成功处理论文: Grid4D: 4D Decomposed Hash Encoding for High-fidelity Dynamic Gaussian Splatting
+2024-11-14 14:31:43,872 - arxiv_crawler - INFO - 成功处理论文: LoDAvatar: Hierarchical Embedding and Adaptive Levels of Detail with Gaussian Splatting for Enhanced Human Avatars
+2024-11-14 14:31:43,872 - arxiv_crawler - INFO - 成功处理论文: CompGS: Unleashing 2D Compositionality for Compositional Text-to-3D via Dynamically Optimizing 3D Gaussians
+2024-11-14 14:31:45,042 - arxiv_crawler - INFO - 成功处理论文: ODGS: 3D Scene Reconstruction from Omnidirectional Images with 3D Gaussian Splattings
+2024-11-14 14:31:45,042 - arxiv_crawler - INFO - 成功处理论文: Normal-GS: 3D Gaussian Splatting with Normal-Involved Rendering
+2024-11-14 14:31:45,042 - arxiv_crawler - INFO - 成功处理论文: Neural Fields in Robotics: A Survey
+2024-11-14 14:31:45,043 - arxiv_crawler - INFO - 成功处理论文: SCube: Instant Large-Scale Scene Reconstruction using VoxSplats
+2024-11-14 14:31:45,043 - arxiv_crawler - INFO - 成功处理论文: DiffGS: Functional Gaussian Splatting Diffusion
+2024-11-14 14:31:45,043 - arxiv_crawler - INFO - 成功处理论文: Robotic Learning in your Backyard: A Neural Simulator from Open Source Components
+2024-11-14 14:31:46,303 - arxiv_crawler - INFO - 成功处理论文: Content-Aware Radiance Fields: Aligning Model Complexity with Scene Intricacy Through Learned Bitwidth Quantization
+2024-11-14 14:31:46,303 - arxiv_crawler - INFO - 成功处理论文: ArCSEM: Artistic Colorization of SEM Images via Gaussian Splatting
+2024-11-14 14:31:47,534 - arxiv_crawler - INFO - 成功处理论文: PixelGaussian: Generalizable 3D Gaussian Reconstruction from Arbitrary Views
+2024-11-14 14:31:47,535 - arxiv_crawler - INFO - 成功处理论文: 3D-Adapter: Geometry-Consistent Multi-View Diffusion for High-Quality 3D Generation
+2024-11-14 14:31:47,535 - arxiv_crawler - INFO - 成功处理论文: Sort-free Gaussian Splatting via Weighted Sum Rendering
+2024-11-14 14:31:47,535 - arxiv_crawler - INFO - 成功处理论文: Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling
+2024-11-14 14:31:47,535 - arxiv_crawler - INFO - 成功处理论文: Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis
+2024-11-14 14:31:47,535 - arxiv_crawler - INFO - 成功处理论文: VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points
+2024-11-14 14:31:47,535 - arxiv_crawler - INFO - 成功处理论文: PLGS: Robust Panoptic Lifting with 3D Gaussian Splatting
+2024-11-14 14:31:47,535 - arxiv_crawler - INFO - 成功处理论文: AG-SLAM: Active Gaussian Splatting SLAM
+2024-11-14 14:31:47,535 - arxiv_crawler - INFO - 成功处理论文: SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes
+2024-11-14 14:31:48,758 - arxiv_crawler - INFO - 成功处理论文: E-3DGS: Gaussian Splatting with Exposure and Motion Events
+2024-11-14 14:31:48,758 - arxiv_crawler - INFO - 成功处理论文: Multi-Layer Gaussian Splatting for Immersive Anatomy Visualization
+2024-11-14 14:31:48,758 - arxiv_crawler - INFO - 成功处理论文: MvDrag3D: Drag-based Creative 3D Editing via Multi-view Generation-Reconstruction Priors
+2024-11-14 14:31:48,758 - arxiv_crawler - INFO - 成功处理论文: 3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors
+2024-11-14 14:31:48,758 - arxiv_crawler - INFO - 成功处理论文: MSGField: A Unified Scene Representation Integrating Motion, Semantics, and Geometry for Robotic Manipulation
+2024-11-14 14:31:48,758 - arxiv_crawler - INFO - 成功处理论文: LucidFusion: Generating 3D Gaussians with Arbitrary Unposed Images
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: Fully Explicit Dynamic Gaussian Splatting
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: LUDVIG: Learning-free Uplifting of 2D Visual features to Gaussian Splatting scenes
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: Neural Signed Distance Function Inference through Splatting 3D Gaussians Pulled on Zero-Level Set
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: DaRePlane: Direction-aware Representations for Dynamic Scene Reconstruction
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: DepthSplat: Connecting Gaussian Splatting and Depth
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: Differentiable Robot Rendering
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: MEGA: Memory-Efficient 4D Gaussian Splatting for Dynamic Scenes
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: DN-4DGS: Denoised Deformable Network with Temporal-Spatial Aggregation for Dynamic Scene Rendering
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: L3DG: Latent 3D Gaussian Diffusion
+2024-11-14 14:31:48,759 - arxiv_crawler - INFO - 成功处理论文: GlossyGS: Inverse Rendering of Glossy Objects with 3D Gaussian Splatting
+2024-11-14 14:31:49,986 - arxiv_crawler - INFO - 成功处理论文: Hybrid bundle-adjusting 3D Gaussians for view consistent rendering with pose optimization
+2024-11-14 14:31:51,252 - arxiv_crawler - INFO - 成功处理论文: UniG: Modelling Unitary 3D Gaussians for View-consistent 3D Reconstruction
+2024-11-14 14:31:51,253 - arxiv_crawler - INFO - 成功处理论文: Long-LRM: Long-sequence Large Reconstruction Model for Wide-coverage Gaussian Splats
+2024-11-14 14:31:51,253 - arxiv_crawler - INFO - 成功处理论文: 3D Gaussian Splatting in Robotics: A Survey
+2024-11-14 14:31:51,253 - arxiv_crawler - INFO - 成功处理论文: SplatPose+: Real-time Image-Based Pose-Agnostic 3D Anomaly Detection
+2024-11-14 14:31:51,253 - arxiv_crawler - INFO - 成功处理论文: LoGS: Visual Localization via Gaussian Splatting with Fewer Training Images
+2024-11-14 14:31:51,253 - arxiv_crawler - INFO - 成功处理论文: GS^3: Efficient Relighting with Triple Gaussian Splatting
+2024-11-14 14:31:51,253 - arxiv_crawler - INFO - 成功处理论文: MCGS: Multiview Consistency Enhancement for Sparse-View 3D Gaussian Radiance Fields
+2024-11-14 14:31:51,253 - arxiv_crawler - INFO - 成功处理论文: GSORB-SLAM: Gaussian Splatting SLAM benefits from ORB features and Transmittance information
+2024-11-14 14:31:51,253 - arxiv_crawler - INFO - 成功处理论文: Scalable Indoor Novel-View Synthesis using Drone-Captured 360 Imagery with 3D Gaussian Splatting
+2024-11-14 14:31:52,442 - arxiv_crawler - INFO - 成功处理论文: Few-shot Novel View Synthesis using Depth Aware 3D Gaussian Splatting
+2024-11-14 14:31:52,442 - arxiv_crawler - INFO - 成功处理论文: 4-LEGS: 4D Language Embedded Gaussian Splatting
+2024-11-14 14:31:52,442 - arxiv_crawler - INFO - 成功处理论文: 4DStyleGaussian: Zero-shot 4D Style Transfer with Gaussian Splatting
+2024-11-14 14:31:52,442 - arxiv_crawler - INFO - 成功处理论文: Gaussian Splatting Visual MPC for Granular Media Manipulation
+2024-11-14 14:31:52,442 - arxiv_crawler - INFO - 成功处理论文: Enhancing Single Image to 3D Generation using Gaussian Splatting and Hybrid Diffusion Priors
+2024-11-14 14:31:52,442 - arxiv_crawler - INFO - 成功处理论文: SurgicalGS: Dynamic 3D Gaussian Splatting for Accurate Robotic-Assisted Surgical Scene Reconstruction
+2024-11-14 14:31:52,446 - arxiv_crawler - INFO - 成功保存100篇论文到data/papers_2024-11-14.json

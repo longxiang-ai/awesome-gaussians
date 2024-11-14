@@ -1,0 +1,11 @@
+2024-11-14 14:31:52,472 - readme_generator - INFO - 成功读取模板文件，大小: 1367 字节
+2024-11-14 14:31:52,472 - readme_generator - INFO - 开始生成README...
+2024-11-14 14:31:52,472 - readme_generator - INFO - 找到最新数据文件: data/papers_2024-11-14.json
+2024-11-14 14:31:52,473 - readme_generator - INFO - 成功从data/papers_2024-11-14.json加载100篇论文
+2024-11-14 14:31:52,473 - readme_generator - INFO - 加载了 100 篇论文
+2024-11-14 14:31:52,476 - readme_generator - INFO - 按月份分组: ['2024年11月', '2024年10月']
+2024-11-14 14:31:52,476 - readme_generator - INFO - 处理 2024年11月 的 32 篇论文
+2024-11-14 14:31:52,476 - readme_generator - INFO - 处理 2024年10月 的 68 篇论文
+2024-11-14 14:31:52,476 - readme_generator - INFO - 生成的论文部分大小: 47859 字节
+2024-11-14 14:31:52,476 - readme_generator - INFO - 正在写入README文件: README.md
+2024-11-14 14:31:52,476 - readme_generator - INFO - README.md 已成功生成，文件大小: 52250 字节

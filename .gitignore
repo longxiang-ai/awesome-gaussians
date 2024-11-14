@@ -1,0 +1,7 @@
+# 环境变量文件
+.env
+.env.local
+.env.*
+
+# 但是可以提交环境变量示例文件
+!.env.example 
