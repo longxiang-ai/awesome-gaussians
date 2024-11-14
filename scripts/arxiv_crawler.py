@@ -159,7 +159,7 @@ class ArxivCrawler:
             self.logger.error(f"获取引用数时出错: {e}")
             return 0, ''
 
-    def search_papers(self, max_results: int = 100) -> List[Paper]:
+    def search_papers(self, max_results: int = 300) -> List[Paper]:
         """搜索arXiv上的论文"""
         try:
             client = arxiv.Client()
