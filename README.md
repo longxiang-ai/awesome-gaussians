@@ -2,7 +2,7 @@
 
 这个仓库收集了与 Gaussian Splatting 相关的最新研究论文、项目和资源。内容每日自动更新。
 
-> 最后更新时间: 2024-11-15 00:48:41
+> 最后更新时间: 2024-11-16 00:47:07
 
 ## 目录
 
@@ -16,6 +16,11 @@
 > 🔄 每日更新
 
 ### 2024年11月
+- **[DyGASR: Dynamic Generalized Exponential Splatting with Surface Alignment for Accelerated 3D Mesh Reconstruction](https://arxiv.org/abs/2411.09156v1)**  
+  作者: Shengchao Zhao, Yundong Li  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.09156v1.pdf)  
+  摘要: Recent advancements in 3D Gaussian Splatting (3DGS), which lead to high-quality novel view synthesis and accelerated rendering, have remarkably improved the quality of radiance field reconstruction. H...  
+  关键词: gaussian splatting, 3d gaussian  
 - **[4D Gaussian Splatting in the Wild with Uncertainty-Aware Regularization](https://arxiv.org/abs/2411.08879v1)**  
   作者: Mijeong Kim, Jongwoo Lim, Bohyung Han  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.08879v1.pdf)  
@@ -46,9 +51,9 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.08279v1.pdf) | [![Stars](https://img.shields.io/github/stars/WU-CVGL/MBA-SLAM?style=social)](https://github.com/WU-CVGL/MBA-SLAM)  
   摘要: Emerging 3D scene representations, such as Neural Radiance Fields (NeRF) and 3D Gaussian Splatting (3DGS), have demonstrated their effectiveness in Simultaneous Localization and Mapping (SLAM) for pho...  
   关键词: gaussian splatting, 3d gaussian, nerf  
-- **[Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation](https://arxiv.org/abs/2411.07579v2)**  
+- **[Projecting Gaussian Ellipsoids While Avoiding Affine Projection Approximation](https://arxiv.org/abs/2411.07579v3)**  
   作者: Han Qi, Tao Cai, Xiyue Han  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.07579v2.pdf)  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.07579v3.pdf)  
   摘要: Recently, 3D Gaussian Splatting has dominated novel-view synthesis with its real-time rendering speed and state-of-the-art rendering quality. However, during the rendering process, the use of the Jaco...  
   关键词: gaussian splatting, 3d gaussian, real-time rendering  
 - **[GaussianCut: Interactive segmentation via graph cut for 3D Gaussian Splatting](https://arxiv.org/abs/2411.07555v1)**  
@@ -2198,9 +2203,9 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2406.07329v3.pdf)  
   摘要: Radiance field methods represent the state of the art in reconstructing complex scenes from multi-view photos. However, these reconstructions often suffer from one or both of the following limitations...  
   关键词: gaussian splatting, 3d gaussian  
-- **[GaussianCity: Generative Gaussian Splatting for Unbounded 3D City Generation](https://arxiv.org/abs/2406.06526v1)**  
+- **[GaussianCity: Generative Gaussian Splatting for Unbounded 3D City Generation](https://arxiv.org/abs/2406.06526v2)**  
   作者: Haozhe Xie, Zhaoxi Chen, Fangzhou Hong, 等  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2406.06526v1.pdf)  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2406.06526v2.pdf)  
   摘要: 3D city generation with NeRF-based methods shows promising generation results but is computationally inefficient. Recently 3D Gaussian Splatting (3D-GS) has emerged as a highly efficient alternative f...  
   关键词: gaussian splatting, 3d gaussian, nerf  
 - **[PGSR: Planar-based Gaussian Splatting for Efficient and High-Fidelity Surface Reconstruction](https://arxiv.org/abs/2406.06521v1)**  
