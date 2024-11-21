@@ -2,7 +2,7 @@
 
 这个仓库收集了与 Gaussian Splatting 相关的最新研究论文、项目和资源。内容每日自动更新。
 
-> 最后更新时间: 2024-11-20 00:47:41
+> 最后更新时间: 2024-11-21 00:47:42
 
 ## 目录
 
@@ -16,16 +16,61 @@
 > 🔄 每日更新
 
 ### 2024年11月
+- **[PR-ENDO: Physically Based Relightable Gaussian Splatting for Endoscopy](https://arxiv.org/abs/2411.12510v1)**  
+  作者: Joanna Kaleta, Weronika Smolak-Dyżewska, Dawid Malarz, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12510v1.pdf)  
+  摘要: Endoscopic procedures are crucial for colorectal cancer diagnosis, and three-dimensional reconstruction of the environment for real-time novel-view synthesis can significantly enhance diagnosis. We pr...  
+  关键词: gaussian splatting, 3d gaussian  
+- **[SCIGS: 3D Gaussians Splatting from a Snapshot Compressive Image](https://arxiv.org/abs/2411.12471v1)**  
+  作者: Zixu Wang, Hao Yang, Yu Guo, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12471v1.pdf)  
+  摘要: Snapshot Compressive Imaging (SCI) offers a possibility for capturing information in high-speed dynamic scenes, requiring efficient reconstruction method to recover scene information. Despite promisin...  
+  关键词: nerf  
+- **[GaussianPretrain: A Simple Unified 3D Gaussian Representation for Visual Pre-training in Autonomous Driving](https://arxiv.org/abs/2411.12452v1)**  
+  作者: Shaoqing Xu, Fang Li, Shengyin Jiang, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12452v1.pdf) | [![Stars](https://img.shields.io/github/stars/Public-BOTs/GaussianPretrain?style=social)](https://github.com/Public-BOTs/GaussianPretrain)  
+  摘要: Self-supervised learning has made substantial strides in image processing, while visual pre-training for autonomous driving is still in its infancy. Existing methods often focus on learning geometric ...  
+  关键词: 3d gaussian, nerf  
+- **[Beyond Gaussians: Fast and High-Fidelity 3D Splatting with Linear Kernels](https://arxiv.org/abs/2411.12440v1)**  
+  作者: Haodong Chen, Runnan Chen, Qiang Qu, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12440v1.pdf)  
+  摘要: Recent advancements in 3D Gaussian Splatting (3DGS) have substantially improved novel view synthesis, enabling high-quality reconstruction and real-time rendering. However, blurring artifacts, such as...  
+  关键词: gaussian splatting, 3d gaussian, real-time rendering  
+- **[LiV-GS: LiDAR-Vision Integration for 3D Gaussian Splatting SLAM in Outdoor Environments](https://arxiv.org/abs/2411.12185v1)**  
+  作者: Renxiang Xiao, Wei Liu, Yushuai Chen, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12185v1.pdf)  
+  摘要: We present LiV-GS, a LiDAR-visual SLAM system in outdoor environments that leverages 3D Gaussian as a differentiable spatial representation. Notably, LiV-GS is the first method that directly aligns di...  
+  关键词: 3d gaussian  
+- **[Sketch-guided Cage-based 3D Gaussian Splatting Deformation](https://arxiv.org/abs/2411.12168v1)**  
+  作者: Tianhao Xie, Noam Aigerman, Eugene Belilovsky, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12168v1.pdf)  
+  摘要: 3D Gaussian Splatting (GS) is one of the most promising novel 3D representations that has received great interest in computer graphics and computer vision. While various systems have introduced editin...  
+  关键词: gaussian splatting, 3d gaussian  
+- **[FruitNinja: 3D Object Interior Texture Generation with Gaussian Splatting](https://arxiv.org/abs/2411.12089v1)**  
+  作者: Fangyu Wu, Yuhao Chen  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12089v1.pdf)  
+  摘要: In the real world, objects reveal internal textures when sliced or cut, yet this behavior is not well-studied in 3D generation tasks today. For example, slicing a virtual 3D watermelon should reveal f...  
+  关键词: gaussian splatting, 3d gaussian  
 - **[RoboGSim: A Real2Sim2Real Robotic Gaussian Splatting Simulator](https://arxiv.org/abs/2411.11839v1)**  
   作者: Xinhai Li, Jialin Li, Ziheng Zhang, 等  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.11839v1.pdf)  
   摘要: Efficient acquisition of real-world embodied data has been increasingly critical. However, large-scale demonstrations captured by remote operation tend to take extremely high costs and fail to scale u...  
+  关键词: gaussian splatting, 3d gaussian  
+- **[TimeFormer: Capturing Temporal Relationships of Deformable 3D Gaussians for Robust Reconstruction](https://arxiv.org/abs/2411.11941v1)**  
+  作者: DaDong Jiang, Zhihui Ke, Xiaobo Zhou, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.11941v1.pdf)  
+  摘要: Dynamic scene reconstruction is a long-term challenge in 3D vision. Recent methods extend 3D Gaussian Splatting to dynamic scenes via additional deformation fields and apply explicit constraints like ...  
   关键词: gaussian splatting, 3d gaussian  
 - **[GPS-Gaussian+: Generalizable Pixel-wise 3D Gaussian Splatting for Real-Time Human-Scene Rendering from Sparse Views](https://arxiv.org/abs/2411.11363v1)**  
   作者: Boyao Zhou, Shunyuan Zheng, Hanzhang Tu, 等  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.11363v1.pdf)  
   摘要: Differentiable rendering techniques have recently shown promising results for free-viewpoint video synthesis of characters. However, such methods, either Gaussian Splatting or neural implicit renderin...  
   关键词: gaussian splatting, real-time rendering  
+- **[DeSiRe-GS: 4D Street Gaussians for Static-Dynamic Decomposition and Surface Reconstruction for Urban Driving Scenes](https://arxiv.org/abs/2411.11921v1)**  
+  作者: Chensheng Peng, Chengwei Zhang, Yixiao Wang, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.11921v1.pdf) | [![Stars](https://img.shields.io/github/stars/chengweialan/DeSiRe-GS?style=social)](https://github.com/chengweialan/DeSiRe-GS)  
+  摘要: We present DeSiRe-GS, a self-supervised gaussian splatting representation, enabling effective static-dynamic decomposition and high-fidelity surface reconstruction in complex driving scenarios. Our ap...  
+  关键词: gaussian splatting, 3d gaussian  
 - **[VeGaS: Video Gaussian Splatting](https://arxiv.org/abs/2411.11024v1)**  
   作者: Weronika Smolak-Dyżewska, Dawid Malarz, Kornel Howil, 等  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.11024v1.pdf) | [![Stars](https://img.shields.io/github/stars/gmum/VeGaS?style=social)](https://github.com/gmum/VeGaS)  
@@ -41,6 +86,10 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.10722v1.pdf)  
   摘要: We introduce Dynamic Gaussian Splatting SLAM (DGS-SLAM), the first dynamic SLAM framework built on the foundation of Gaussian Splatting. While recent advancements in dense SLAM have leveraged Gaussian...  
   关键词: gaussian splatting, 3d gaussian  
+- **[SPARS3R: Semantic Prior Alignment and Regularization for Sparse 3D Reconstruction](https://arxiv.org/abs/2411.12592v1)**  
+  作者: Yutao Tang, Yuxiang Guo, Deming Li, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12592v1.pdf)  
+  摘要: Recent efforts in Gaussian-Splat-based Novel View Synthesis can achieve photorealistic rendering; however, such capability is limited in sparse-view scenarios due to sparse initialization and over-fit...  
 - **[The Oxford Spires Dataset: Benchmarking Large-Scale LiDAR-Visual Localisation, Reconstruction and Radiance Field Methods](https://arxiv.org/abs/2411.10546v1)**  
   作者: Yifu Tao, Miguel Ángel Muñoz-Bañón, Lintong Zhang, 等  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.10546v1.pdf)  
@@ -1537,16 +1586,16 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2408.10041v2.pdf)  
   摘要: Recent advancements in photo-realistic novel view synthesis have been significantly driven by Gaussian Splatting (3DGS). Nevertheless, the explicit nature of 3DGS data entails considerable storage req...  
   关键词: gaussian splatting  
-- **[SG-GS: Photo-realistic Animatable Human Avatars with Semantically-Guided Gaussian Splatting](https://arxiv.org/abs/2408.09665v1)**  
+- **[Topology-aware Human Avatars with Semantically-guided Gaussian Splatting](https://arxiv.org/abs/2408.09665v2)**  
   作者: Haoyu Zhao, Chen Yang, Hao Wang, 等  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2408.09665v1.pdf)  
-  摘要: Reconstructing photo-realistic animatable human avatars from monocular videos remains challenging in computer vision and graphics. Recently, methods using 3D Gaussians to represent the human body have...  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2408.09665v2.pdf)  
+  摘要: Reconstructing photo-realistic and topology-aware animatable human avatars from monocular videos remains challenging in computer vision and graphics. Recently, methods using 3D Gaussians to represent ...  
   关键词: 3d gaussian, real-time rendering  
-- **[CHASE: 3D-Consistent Human Avatars with Sparse Inputs via Gaussian Splatting and Contrastive Learning](https://arxiv.org/abs/2408.09663v2)**  
+- **[3D-Consistent Human Avatars with Sparse Inputs via Gaussian Splatting and Contrastive Learning](https://arxiv.org/abs/2408.09663v3)**  
   作者: Haoyu Zhao, Hao Wang, Chen Yang, 等  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2408.09663v2.pdf)  
-  摘要: Recent advancements in human avatar synthesis have utilized radiance fields to reconstruct photo-realistic animatable human avatars. However, both NeRFs-based and 3DGS-based methods struggle with main...  
-  关键词: nerf  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2408.09663v3.pdf)  
+  摘要: Existing approaches for human avatar generation--both NeRF-based and 3D Gaussian Splatting (3DGS) based--struggle with maintaining 3D consistency and exhibit degraded detail reconstruction, particular...  
+  关键词: gaussian splatting, 3d gaussian, nerf  
 - **[Gaussian in the Dark: Real-Time View Synthesis From Inconsistent Dark Images Using Gaussian Splatting](https://arxiv.org/abs/2408.09130v2)**  
   作者: Sheng Ye, Zhen-Hui Dong, Yubin Hu, 等  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2408.09130v2.pdf)  
@@ -2462,10 +2511,10 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2405.20104v2.pdf)  
   摘要: Generalizable perception is one of the pillars of high-level autonomy in space robotics. Estimating the structure and motion of unknown objects in dynamic environments is fundamental for such autonomo...  
   关键词: gaussian splatting, 3d gaussian, 3d reconstruction  
-- **[PLA4D: Pixel-Level Alignments for Text-to-4D Gaussian Splatting](https://arxiv.org/abs/2405.19957v3)**  
-  作者: Qiaowei Miao, Yawei Luo, Yi Yang  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2405.19957v3.pdf)  
-  摘要: As text-conditioned diffusion models (DMs) achieve breakthroughs in image, video, and 3D generation, the research community's focus has shifted to the more challenging task of text-to-4D synthesis, wh...  
+- **[PLA4D: Pixel-Level Alignments for Text-to-4D Gaussian Splatting](https://arxiv.org/abs/2405.19957v4)**  
+  作者: Qiaowei Miao, JinSheng Quan, Kehan Li, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2405.19957v4.pdf)  
+  摘要: Previous text-to-4D methods have leveraged multiple Score Distillation Sampling (SDS) techniques, combining motion priors from video-based diffusion models (DMs) with geometric priors from multiview D...  
   关键词: gaussian splatting  
 - **[GaussianPrediction: Dynamic 3D Gaussian Prediction for Motion Extrapolation and Free View Synthesis](https://arxiv.org/abs/2405.19745v1)**  
   作者: Boming Zhao, Yuan Li, Ziyu Sun, 等  
