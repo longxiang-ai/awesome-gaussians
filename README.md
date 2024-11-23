@@ -2,7 +2,7 @@
 
 这个仓库收集了与 Gaussian Splatting 相关的最新研究论文、项目和资源。内容每日自动更新。
 
-> 最后更新时间: 2024-11-22 00:49:02
+> 最后更新时间: 2024-11-23 00:47:01
 
 ## 目录
 
@@ -16,6 +16,26 @@
 > 🔄 每日更新
 
 ### 2024年11月
+- **[Unleashing the Potential of Multi-modal Foundation Models and Video Diffusion for 4D Dynamic Physical Scene Simulation](https://arxiv.org/abs/2411.14423v1)**  
+  作者: Zhuoman Liu, Weicai Ye, Yan Luximon, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.14423v1.pdf)  
+  摘要: Realistic simulation of dynamic scenes requires accurately capturing diverse material properties and modeling complex object interactions grounded in physical principles. However, existing methods are...  
+  关键词: 3d gaussian  
+- **[Baking Gaussian Splatting into Diffusion Denoiser for Fast and Scalable Single-stage Image-to-3D Generation](https://arxiv.org/abs/2411.14384v1)**  
+  作者: Yuanhao Cai, He Zhang, Kai Zhang, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.14384v1.pdf)  
+  摘要: Existing feed-forward image-to-3D methods mainly rely on 2D multi-view diffusion models that cannot guarantee 3D consistency. These methods easily collapse when changing the prompt view direction and ...  
+  关键词: 3d gaussian  
+- **[SplatR : Experience Goal Visual Rearrangement with 3D Gaussian Splatting and Dense Feature Matching](https://arxiv.org/abs/2411.14322v1)**  
+  作者: Arjun P S, Andrew Melnik, Gora Chand Nandi  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.14322v1.pdf)  
+  摘要: Experience Goal Visual Rearrangement task stands as a foundational challenge within Embodied AI, requiring an agent to construct a robust world model that accurately captures the goal state. The agent...  
+  关键词: gaussian splatting, 3d gaussian  
+- **[FAST-Splat: Fast, Ambiguity-Free Semantics Transfer in Gaussian Splatting](https://arxiv.org/abs/2411.13753v1)**  
+  作者: Ola Shorinwa, Jiankai Sun, Mac Schwager  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.13753v1.pdf)  
+  摘要: We present FAST-Splat for fast, ambiguity-free semantic Gaussian Splatting, which seeks to address the main limitations of existing semantic Gaussian Splatting methods, namely: slow training and rende...  
+  关键词: gaussian splatting  
 - **[Generating 3D-Consistent Videos from Unposed Internet Photos](https://arxiv.org/abs/2411.13549v1)**  
   作者: Gene Chou, Kai Zhang, Sai Bi, 等  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.13549v1.pdf)  
@@ -26,6 +46,11 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12981v1.pdf)  
   摘要: Gaze estimation encounters generalization challenges when dealing with out-of-distribution data. To address this problem, recent methods use neural radiance fields (NeRF) to generate augmented data. H...  
   关键词: gaussian splatting, 3d gaussian, nerf  
+- **[Video2BEV: Transforming Drone Videos to BEVs for Video-based Geo-localization](https://arxiv.org/abs/2411.13610v1)**  
+  作者: Hao Ju, Zhedong Zheng  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.13610v1.pdf)  
+  摘要: Existing approaches to drone visual geo-localization predominantly adopt the image-based setting, where a single drone-view snapshot is matched with images from other platforms. Such task formulation,...  
+  关键词: gaussian splatting  
 - **[PR-ENDO: Physically Based Relightable Gaussian Splatting for Endoscopy](https://arxiv.org/abs/2411.12510v1)**  
   作者: Joanna Kaleta, Weronika Smolak-Dyżewska, Dawid Malarz, 等  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12510v1.pdf)  
@@ -65,9 +90,9 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12168v1.pdf)  
   摘要: 3D Gaussian Splatting (GS) is one of the most promising novel 3D representations that has received great interest in computer graphics and computer vision. While various systems have introduced editin...  
   关键词: gaussian splatting, 3d gaussian  
-- **[FruitNinja: 3D Object Interior Texture Generation with Gaussian Splatting](https://arxiv.org/abs/2411.12089v1)**  
+- **[FruitNinja: 3D Object Interior Texture Generation with Gaussian Splatting](https://arxiv.org/abs/2411.12089v2)**  
   作者: Fangyu Wu, Yuhao Chen  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12089v1.pdf)  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.12089v2.pdf)  
   摘要: In the real world, objects reveal internal textures when sliced or cut, yet this behavior is not well-studied in 3D generation tasks today. For example, slicing a virtual 3D watermelon should reveal f...  
   关键词: gaussian splatting, 3d gaussian  
 - **[RoboGSim: A Real2Sim2Real Robotic Gaussian Splatting Simulator](https://arxiv.org/abs/2411.11839v1)**  
@@ -2765,11 +2790,11 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2405.14455v2.pdf)  
   摘要: Editing objects within a scene is a critical functionality required across a broad spectrum of applications in computer vision and graphics. As 3D Gaussian Splatting (3DGS) emerges as a frontier in sc...  
   关键词: gaussian splatting, 3d gaussian  
-- **[RoGS: Large Scale Road Surface Reconstruction based on 2D Gaussian Splatting](https://arxiv.org/abs/2405.14342v2)**  
-  作者: Zhiheng Feng, Wenhua Wu, Hesheng Wang  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2405.14342v2.pdf)  
-  摘要: Road surface reconstruction plays a crucial role in autonomous driving, which can be used for road lane perception and autolabeling tasks. Recently, mesh-based road surface reconstruction algorithms s...  
-  关键词: gaussian splatting, 3d gaussian  
+- **[RoGs: Large Scale Road Surface Reconstruction with Meshgrid Gaussian](https://arxiv.org/abs/2405.14342v3)**  
+  作者: Zhiheng Feng, Wenhua Wu, Tianchen Deng, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2405.14342v3.pdf)  
+  摘要: Road surface reconstruction plays a crucial role in autonomous driving, which can be used for road lane perception and autolabeling. Recently, mesh-based road surface reconstruction algorithms have sh...  
+  关键词: 3d gaussian  
 - **[D-MiSo: Editing Dynamic 3D Scenes using Multi-Gaussians Soup](https://arxiv.org/abs/2405.14276v2)**  
   作者: Joanna Waczyńska, Piotr Borycki, Joanna Kaleta, 等  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2405.14276v2.pdf)  
