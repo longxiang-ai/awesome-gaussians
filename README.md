@@ -2,7 +2,7 @@
 
 这个仓库收集了与 Gaussian Splatting 相关的最新研究论文、项目和资源。内容每日自动更新。
 
-> 最后更新时间: 2024-11-28 00:49:44
+> 最后更新时间: 2024-11-29 00:49:45
 
 ## 目录
 
@@ -16,6 +16,51 @@
 > 🔄 每日更新
 
 ### 2024年11月
+- **[Textured Gaussians for Enhanced 3D Scene Appearance Modeling](https://arxiv.org/abs/2411.18625v1)**  
+  作者: Brian Chao, Hung-Yu Tseng, Lorenzo Porzi, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.18625v1.pdf)  
+  摘要: 3D Gaussian Splatting (3DGS) has recently emerged as a state-of-the-art 3D reconstruction and rendering technique due to its high-quality results and fast training and rendering time. However, pixels ...  
+  关键词: gaussian splatting, 3d gaussian, 3d reconstruction  
+- **[CAT4D: Create Anything in 4D with Multi-View Video Diffusion Models](https://arxiv.org/abs/2411.18613v1)**  
+  作者: Rundi Wu, Ruiqi Gao, Ben Poole, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.18613v1.pdf)  
+  摘要: We present CAT4D, a method for creating 4D (dynamic 3D) scenes from monocular video. CAT4D leverages a multi-view video diffusion model trained on a diverse combination of datasets to enable novel vie...  
+  关键词: 3d gaussian  
+- **[PhyCAGE: Physically Plausible Compositional 3D Asset Generation from a Single Image](https://arxiv.org/abs/2411.18548v1)**  
+  作者: Han Yan, Mingrui Zhang, Yang Li, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.18548v1.pdf)  
+  摘要: We present PhyCAGE, the first approach for physically plausible compositional 3D asset generation from a single image. Given an input image, we first generate consistent multi-view images for componen...  
+  关键词: gaussian splatting, 3d gaussian  
+- **[HEMGS: A Hybrid Entropy Model for 3D Gaussian Splatting Data Compression](https://arxiv.org/abs/2411.18473v1)**  
+  作者: Lei Liu, Zhenghao Chen, Dong Xu  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.18473v1.pdf)  
+  摘要: Fast progress in 3D Gaussian Splatting (3DGS) has made 3D Gaussians popular for 3D modeling and image rendering, but this creates big challenges in data storage and transmission. To obtain a highly co...  
+  关键词: gaussian splatting, 3d gaussian  
+- **[Neural Surface Priors for Editable Gaussian Splatting](https://arxiv.org/abs/2411.18311v1)**  
+  作者: Jakub Szymkowiak, Weronika Jakubowska, Dawid Malarz, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.18311v1.pdf) | [![Stars](https://img.shields.io/github/stars/WJakubowska/NeuralSurfacePriors?style=social)](https://github.com/WJakubowska/NeuralSurfacePriors)  
+  摘要: In computer graphics, there is a need to recover easily modifiable representations of 3D geometry and appearance from image data. We introduce a novel method for this task using 3D Gaussian Splatting,...  
+  关键词: gaussian splatting, 3d gaussian  
+- **[Make-It-Animatable: An Efficient Framework for Authoring Animation-Ready 3D Characters](https://arxiv.org/abs/2411.18197v1)**  
+  作者: Zhiyang Guo, Jinxu Xiang, Kai Ma, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.18197v1.pdf)  
+  摘要: 3D characters are essential to modern creative industries, but making them animatable often demands extensive manual work in tasks like rigging and skinning. Existing automatic rigging tools face seve...  
+  关键词: 3d gaussian  
+- **[SmileSplat: Generalizable Gaussian Splats for Unconstrained Sparse Images](https://arxiv.org/abs/2411.18072v1)**  
+  作者: Yanyan Li, Yixin Fang, Federico Tombari, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.18072v1.pdf)  
+  摘要: Sparse Multi-view Images can be Learned to predict explicit radiance fields via Generalizable Gaussian Splatting approaches, which can achieve wider application prospects in real-life when ground-trut...  
+  关键词: gaussian splatting  
+- **[GLS: Geometry-aware 3D Language Gaussian Splatting](https://arxiv.org/abs/2411.18066v1)**  
+  作者: Jiaxiong Qiu, Liu Liu, Zhizhong Su, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.18066v1.pdf) | [![Stars](https://img.shields.io/github/stars/JiaxiongQ/GLS?style=social)](https://github.com/JiaxiongQ/GLS)  
+  摘要: Recently, 3D Gaussian Splatting (3DGS) has achieved significant performance on indoor surface reconstruction and open-vocabulary segmentation. This paper presents GLS, a unified framework of surface r...  
+  关键词: gaussian splatting, 3d gaussian  
+- **[HI-SLAM2: Geometry-Aware Gaussian SLAM for Fast Monocular Scene Reconstruction](https://arxiv.org/abs/2411.17982v1)**  
+  作者: Wei Zhang, Qing Cheng, David Skuddis, 等  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.17982v1.pdf)  
+  摘要: We present HI-SLAM2, a geometry-aware Gaussian SLAM system that achieves fast and accurate monocular scene reconstruction using only RGB input. Existing Neural SLAM or 3DGS-based SLAM methods often tr...  
+  关键词: gaussian splatting, 3d gaussian  
 - **[DROID-Splat: Combining end-to-end SLAM with 3D Gaussian Splatting](https://arxiv.org/abs/2411.17660v1)**  
   作者: Christian Homeyer, Leon Begiristain, Christoph Schnörr  
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.17660v1.pdf) | [![Stars](https://img.shields.io/github/stars/ChenHoy/DROID-Splat?style=social)](https://github.com/ChenHoy/DROID-Splat)  
@@ -31,9 +76,9 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.17423v1.pdf)  
   摘要: Recent advances in generative models have enabled high-quality 3D character reconstruction from multi-modal. However, animating these generated characters remains a challenging task, especially for co...  
   关键词: 3d gaussian  
-- **[SelfSplat: Pose-Free and 3D Prior-Free Generalizable 3D Gaussian Splatting](https://arxiv.org/abs/2411.17190v1)**  
+- **[SelfSplat: Pose-Free and 3D Prior-Free Generalizable 3D Gaussian Splatting](https://arxiv.org/abs/2411.17190v2)**  
   作者: Gyeongjin Kang, Jisang Yoo, Jihyeon Park, 等  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.17190v1.pdf)  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2411.17190v2.pdf)  
   摘要: We propose SelfSplat, a novel 3D Gaussian Splatting model designed to perform pose-free and 3D prior-free generalizable 3D reconstruction from unposed multi-view images. These settings are inherently ...  
   关键词: gaussian splatting, 3d gaussian, 3d reconstruction  
 - **[PhysMotion: Physics-Grounded Dynamics From a Single Image](https://arxiv.org/abs/2411.17189v1)**  
@@ -1126,10 +1171,10 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2409.20111v1.pdf)  
   摘要: 3D Gaussian Splatting algorithms excel in novel view rendering applications and have been adapted to extend the capabilities of traditional SLAM systems. However, current Gaussian Splatting SLAM metho...  
   关键词: gaussian splatting, 3d gaussian  
-- **[RNG: Relightable Neural Gaussians](https://arxiv.org/abs/2409.19702v3)**  
+- **[RNG: Relightable Neural Gaussians](https://arxiv.org/abs/2409.19702v4)**  
   作者: Jiahui Fan, Fujun Luan, Jian Yang, 等  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2409.19702v3.pdf)  
-  摘要: 3D Gaussian Splatting (3DGS) has shown its impressive power in novel view synthesis. However, creating relightable 3D assets, especially for objects with ill-defined shapes (e.g., fur), is still a cha...  
+  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/2409.19702v4.pdf)  
+  摘要: 3D Gaussian Splatting (3DGS) has shown impressive results for the novel view synthesis task, where lighting is assumed to be fixed. However, creating relightable 3D assets, especially for objects with...  
   关键词: gaussian splatting, 3d gaussian  
 - **[G3R: Gradient Guided Generalizable Reconstruction](https://arxiv.org/abs/2409.19405v1)**  
   作者: Yun Chen, Jingkang Wang, Ze Yang, 等  
@@ -5019,65 +5064,6 @@
   链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/0811.1530v1.pdf)  
   摘要: The local theory of the critical lines of 2D and 3D Gaussian fields that underline the cosmic structures is presented. In the context of cosmological matter distribution the subset of critical lines o...  
   关键词: 3d gaussian  
-
-### 2006年05月
-- **[Non-Perturbative U(1) Gauge Theory at Finite Temperature](https://arxiv.org/abs/0605019v3)**  
-  作者: Bernd A. Berg, Alexei Bazavov  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/0605019v3.pdf)  
-  摘要: For compact U(1) lattice gauge theory (LGT) we have performed a finite size scaling analysis on $N_{\tau} N_s^3$ lattices for $N_{\tau}$ fixed by extrapolating spatial volumes of size $N_s\le 18$ to $...  
-  关键词: 3d gaussian  
-- **[Statistical properties of pinning fields in the 3d-Gaussian RFIM](https://arxiv.org/abs/0605340v1)**  
-  作者: Xavier Illa, Eduard Vives  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/0605340v1.pdf)  
-  摘要: We have defined pinning fields as those random fields that keep some of the magnetic moments unreversed in the region of negative external applied field during the demagnetizing process. An analysis o...  
-
-### 2005年03月
-- **[Factorization Properties in the 3D Edwards-Anderson Model](https://arxiv.org/abs/0503155v2)**  
-  作者: Pierluigi Contucci, Cristian Giardina  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/0503155v2.pdf)  
-  摘要: Starting from the study of a linear combination of multi-overlaps which can be rigorously shown to vanish for large systems we numerically analyze the factorization properties of the link-overlaps mul...  
-  关键词: 3d gaussian  
-
-### 2004年10月
-- **[3D Continuum radiative transfer in complex dust configurations around young stellar objects and active nuclei II. 3D Structure of the dense molecular cloud core Rho Oph D](https://arxiv.org/abs/0410635v2)**  
-  作者: J. Steinacker, A. Bacmann, Th. Henning, 等  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/0410635v2.pdf)  
-  摘要: Constraints on the density and thermal 3D structure of the dense molecular cloud core Rho Oph D are derived from a detailed 3D radiative transfer modeling. Two ISOCAM images at 7 and 15 micron are fit...  
-  关键词: 3d gaussian  
-
-### 2004年03月
-- **[Spanning avalanches in the three-dimensional Gaussian Random Field Ising Model with metastable dynamics: field dependence and geometrical properties](https://arxiv.org/abs/0403754v1)**  
-  作者: Francisco-Jose Perez-Reche, Eduard Vives  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/0403754v1.pdf)  
-  摘要: Spanning avalanches in the 3D Gaussian Random Field Ising Model (3D-GRFIM) with metastable dynamics at T=0 have been studied. Statistical analysis of the field values for which avalanches occur has en...  
-  关键词: 3d gaussian  
-
-### 2002年06月
-- **[Finite Size Scaling analysis of the avalanches in the 3d Gaussian Random Field Ising Model with metastable dynamics](https://arxiv.org/abs/0206075v3)**  
-  作者: F. J. Perez-Reche, Eduard Vives  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/0206075v3.pdf)  
-  摘要: A numerical study is presented of the 3d Gaussian Random Field Ising Model at T=0 driven by an external field. Standard synchronous relaxation dynamics is employed to obtain the magnetization versus f...  
-  关键词: 3d gaussian  
-
-### 2001年07月
-- **[The three-dimensional random field Ising magnet: interfaces, scaling, and the nature of states](https://arxiv.org/abs/0107489v1)**  
-  作者: A. Alan Middleton, Daniel S. Fisher  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/0107489v1.pdf)  
-  摘要: The nature of the zero temperature ordering transition in the 3D Gaussian random field Ising magnet is studied numerically, aided by scaling analyses. In the ferromagnetic phase the scaling of the rou...  
-  关键词: 3d gaussian  
-
-### 1998年08月
-- **[Tunneling of a Massless Field through a 3D Gaussian Barrier](https://arxiv.org/abs/9808009v2)**  
-  作者: G. Modanese  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/9808009v2.pdf)  
-  摘要: We propose a method for the approximate computation of the Green function of a scalar massless field Phi subjected to potential barriers of given size and shape in spacetime. This technique is applied...  
-  关键词: 3d gaussian  
-
-### 1996年06月
-- **[Equilibrium and off-equilibrium simulations of the 4d Gaussian spin glass](https://arxiv.org/abs/9606051v2)**  
-  作者: Giorgio Parisi, Federico Ricci-Tersenghi, Juan J. Ruiz-Lorenzo  
-  链接: [![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/9606051v2.pdf)  
-  摘要: In this paper we study the on and off-equilibrium properties of the four dimensional Gaussian spin glass. In the static case we determine with more precision that in previous simulations both the crit...  
 
 
 
