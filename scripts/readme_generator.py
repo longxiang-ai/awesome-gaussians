@@ -53,6 +53,7 @@ class ReadmeGenerator:
 
         # Add configuration options
         self.show_latest_papers = False  # Default to not show latest papers section
+        self.show_abstracts = False  # Default to not show abstracts
 
     def load_latest_papers(self) -> List[Dict]:
         """加载最新的论文数据"""
@@ -144,9 +145,13 @@ class ReadmeGenerator:
             
             entry += f'  Links: {" | ".join(links)}  \n'
             
-            # Add abstract with collapsible HTML
-            abstract = paper["abstract"]
-            entry += f'  <details><summary>Abstract</summary>\n\n  {abstract}\n  </details>  \n'
+            # Only add abstract if enabled
+            if self.show_abstracts:
+                abstract = paper["abstract"]
+                words = abstract.split()
+                if len(words) > 150:
+                    abstract = ' '.join(words[:150]) + "..."
+                entry += f'  <details><summary>Abstract</summary>\n\n  {abstract}\n  </details>  \n'
             
             # Add keywords (use existing keywords or extract from abstract/title)
             if paper["keywords"]:
@@ -191,10 +196,26 @@ class ReadmeGenerator:
     def generate_categorized_sections(self, categorized_papers: Dict[str, List[Dict]]) -> str:
         """Generate sections for each category"""
         sections = "## Categorized Papers\n\n"
+        
+        # Sort papers by date in each category
         for category in sorted(categorized_papers.keys()):
             if categorized_papers[category]:  # Only show categories with papers
+                # Sort papers by date (newest first)
+                sorted_papers = sorted(
+                    categorized_papers[category],
+                    key=lambda x: x["published_date"],
+                    reverse=True
+                )
+                
+                # Only show the latest 10 papers in each category
+                papers_to_show = sorted_papers[:10]
+                total_papers = len(sorted_papers)
+                
                 sections += f"### {category}\n\n"
-                for paper in categorized_papers[category]:
+                if total_papers > 50:
+                    sections += f"*Showing the latest 50 out of {total_papers} papers*\n\n"
+                
+                for paper in papers_to_show:
                     sections += self.format_paper_entry(paper)
                 sections += "\n"
         return sections
@@ -283,11 +304,14 @@ def main():
     parser = argparse.ArgumentParser(description='README Generator')
     parser.add_argument('--show-latest', action='store_true',
                       help='Show latest papers section in chronological order')
+    parser.add_argument('--show-abstracts', action='store_true',
+                      help='Include paper abstracts in the output')
     args = parser.parse_args()
 
     try:
         generator = ReadmeGenerator()
-        generator.show_latest_papers = args.show_latest  # Set from command line argument
+        generator.show_latest_papers = args.show_latest
+        generator.show_abstracts = args.show_abstracts
         success = generator.generate_readme()
         if not success:
             sys.exit(1)
