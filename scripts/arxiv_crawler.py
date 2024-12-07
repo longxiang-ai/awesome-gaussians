@@ -47,6 +47,25 @@ class ArxivCrawler:
         self.fetch_citations = fetch_citations
         self.semantic_api_url = "https://api.semanticscholar.org/v1/paper/arXiv:"
 
+        # Load keywords configuration
+        try:
+            keywords_path = self.output_dir / "keywords.json"
+            if not keywords_path.exists():
+                self.logger.error(f"Keywords file not found: {keywords_path}")
+                raise FileNotFoundError(f"Keywords file not found: {keywords_path}")
+            
+            with open(keywords_path, "r", encoding="utf-8") as f:
+                keywords_data = json.load(f)
+                self.common_keywords = keywords_data["common_keywords"]["keywords"]
+                self.category_keywords = {
+                    category: info["keywords"] 
+                    for category, info in keywords_data["categories"].items()
+                }
+                self.logger.info(f"Successfully loaded keywords configuration")
+        except Exception as e:
+            self.logger.error(f"Failed to load keywords configuration: {e}")
+            raise
+
     def _find_github_url(self, text: str, title: str = "") -> Optional[str]:
         """从文本中查找GitHub链接"""
         # 合并所有可能包含GitHub链接的文本
@@ -159,8 +178,26 @@ class ArxivCrawler:
             self.logger.error(f"获取引用数时出错: {e}")
             return 0, ''
 
+    def _extract_keywords(self, abstract: str, title: str) -> List[str]:
+        """Extract keywords from abstract and title"""
+        keywords = set()  # Use set to avoid duplicates
+        text = (abstract + " " + title).lower()
+        
+        # Check common keywords
+        for keyword in self.common_keywords:
+            if keyword.lower() in text:
+                keywords.add(keyword)
+        
+        # Check category keywords
+        for category_keywords in self.category_keywords.values():
+            for keyword in category_keywords:
+                if keyword.lower() in text:
+                    keywords.add(keyword)
+        
+        return list(keywords)
+
     def search_papers(self, max_results: int = 300) -> List[Paper]:
-        """搜索arXiv上的论文"""
+        """Search papers on arXiv"""
         try:
             client = arxiv.Client()
             search = arxiv.Search(
@@ -176,10 +213,12 @@ class ArxivCrawler:
                     arxiv_id = result.entry_id.split('/')[-1]
                     citations, semantic_url = self._get_citations(arxiv_id) if self.fetch_citations else (0, '')
                     
-                    # 清理摘要文本
+                    # Clean abstract text
                     abstract = result.summary.replace('\n', ' ').strip()
-                    # 在标题和摘要中查找GitHub链接
+                    # Find GitHub link in title and abstract
                     github_url = self._find_github_url(abstract, result.title.strip())
+                    # Extract keywords from title and abstract
+                    keywords = self._extract_keywords(abstract, result.title.strip())
                     
                     paper = Paper(
                         title=result.title.strip(),
@@ -190,35 +229,20 @@ class ArxivCrawler:
                         published_date=result.published.strftime("%Y-%m-%d"),
                         categories=[cat for cat in result.categories],
                         github_url=github_url or "",
-                        keywords=self._extract_keywords(abstract),
+                        keywords=keywords,
                         citations=citations,
                         semantic_url=semantic_url
                     )
                     papers.append(paper)
-                    self.logger.info(f"成功处理论文: {paper.title}")
+                    self.logger.info(f"Successfully processed paper: {paper.title}")
                 except Exception as e:
-                    self.logger.error(f"处理单篇论文时出错: {e}")
+                    self.logger.error(f"Error processing single paper: {e}")
                     continue
             
             return papers
         except Exception as e:
-            self.logger.error(f"搜索论文时出错: {e}")
+            self.logger.error(f"Error searching papers: {e}")
             raise
-
-    def _extract_keywords(self, abstract: str, max_keywords: int = 5) -> List[str]:
-        """从摘要中提取关键词（这里可以使用更复杂的NLP方法）"""
-        # 简单实现，实际项目中可以使用更好的关键词提取算法
-        common_keywords = [
-            "gaussian splatting", "3d gaussian", "neural rendering",
-            "real-time rendering", "3d reconstruction", "nerf"
-        ]
-        keywords = []
-        for keyword in common_keywords:
-            if keyword.lower() in abstract.lower():
-                keywords.append(keyword)
-                if len(keywords) >= max_keywords:
-                    break
-        return keywords
 
     def save_papers(self, papers: List[Paper]):
         """保存论文信息到JSON文件"""
@@ -239,7 +263,7 @@ def main():
     parser = argparse.ArgumentParser(description='arXiv论文爬虫')
     parser.add_argument('--citations', action='store_true', 
                       help='是否获取引用数和Semantic Scholar链接')
-    parser.add_argument('--max-results', type=int, default=1000,
+    parser.add_argument('--max-results', type=int, default=30,
                       help='最大获取论文数量')
     args = parser.parse_args()
 

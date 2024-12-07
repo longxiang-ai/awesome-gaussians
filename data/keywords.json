@@ -1,0 +1,67 @@
+{
+    "common_keywords": {
+        "description": "Common keywords that appear frequently across papers",
+        "keywords": [
+            "gaussian splatting",
+            "3d gaussian",
+            "neural rendering",
+            "real-time rendering",
+            "3d reconstruction",
+            "nerf"
+        ]
+    },
+    "categories": {
+        "3DGS Original": {
+            "keywords": ["original gaussian splatting"],
+            "description": "Original 3D Gaussian Splatting papers"
+        },
+        "3DGS Surveys": {
+            "keywords": ["survey"],
+            "description": "Survey papers and benchmarks about 3D Gaussian Splatting"
+        },
+        "Quality Enhancement": {
+            "keywords": ["quality enhancement", "high quality", "high-fidelity"],
+            "description": "Papers focusing on improving rendering quality"
+        },
+        "Acceleration": {
+            "keywords": ["real-time rendering", "acceleration", "fast", "efficient rendering"],
+            "description": "Papers about speeding up rendering or training"
+        },
+        "Geometry Reconstruction": {
+            "keywords": ["3d reconstruction", "geometry", "shape reconstruction"],
+            "description": "Papers about 3D geometry reconstruction"
+        },
+        "Dynamic Scene": {
+            "keywords": ["dynamic", "4d", "motion", "deformation", "animation"],
+            "description": "Papers about dynamic scene reconstruction and rendering"
+        },
+        "Few-shot": {
+            "keywords": ["few-shot", "sparse view", "sparse-view"],
+            "description": "Papers about few-shot or sparse view reconstruction"
+        },
+        "Large Scene": {
+            "keywords": ["large scene", "urban scene", "outdoor"],
+            "description": "Papers about large-scale scene reconstruction"
+        },
+        "Model Compression": {
+            "keywords": ["compression", "compact", "efficient", "lightweight"],
+            "description": "Papers about model compression and optimization"
+        },
+        "Avatar Generation": {
+            "keywords": ["avatar", "human", "face", "head", "body"],
+            "description": "Papers about human avatar generation"
+        },
+        "Scene Understanding": {
+            "keywords": ["semantic", "segmentation", "understanding", "recognition"],
+            "description": "Papers about scene understanding and semantic analysis"
+        },
+        "SLAM": {
+            "keywords": ["slam", "tracking", "mapping", "localization"],
+            "description": "Papers about SLAM using Gaussian Splatting"
+        },
+        "Applications": {
+            "keywords": ["medical", "robotics", "autonomous driving", "ar", "vr"],
+            "description": "Papers about specific applications"
+        }
+    }
+} 
