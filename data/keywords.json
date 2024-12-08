@@ -11,10 +11,6 @@
         ]
     },
     "categories": {
-        "3DGS Original": {
-            "keywords": ["original gaussian splatting"],
-            "description": "Original 3D Gaussian Splatting papers"
-        },
         "3DGS Surveys": {
             "keywords": ["survey"],
             "description": "Survey papers and benchmarks about 3D Gaussian Splatting"
@@ -26,6 +22,28 @@
         "Acceleration": {
             "keywords": ["real-time rendering", "acceleration", "fast", "efficient rendering"],
             "description": "Papers about speeding up rendering or training"
+        },
+        "Ray Tracing": {
+            "keywords": [
+                "ray tracing",
+                "ray casting",
+                "path tracing",
+                "ray marching",
+                "global illumination"
+            ],
+            "description": "Papers about ray tracing and ray casting in Gaussian Splatting"
+        },
+        "Relighting": {
+            "keywords": [
+                "relighting",
+                "relightable",
+                "illumination",
+                "light transport",
+                "lighting",
+                "shadow",
+                "reflection"
+            ],
+            "description": "Papers about relighting and illumination effects in Gaussian Splatting"
         },
         "Geometry Reconstruction": {
             "keywords": ["3d reconstruction", "geometry", "shape reconstruction"],

@@ -263,7 +263,7 @@ def main():
     parser = argparse.ArgumentParser(description='arXiv论文爬虫')
     parser.add_argument('--citations', action='store_true', 
                       help='是否获取引用数和Semantic Scholar链接')
-    parser.add_argument('--max-results', type=int, default=1000,
+    parser.add_argument('--max-results', type=int, default=10000,
                       help='最大获取论文数量')
     args = parser.parse_args()
 
