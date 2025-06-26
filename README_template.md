@@ -4,6 +4,14 @@ A curated list of latest research papers, projects and resources related to Gaus
 
 > Last Update: {{LAST_UPDATE}}
 
+## 📰 Latest Updates
+
+ **[2025-06-26] HTTP 301 Redirect Issue Completely Resolved!** 
+- Implemented multi-layer fallback strategy to thoroughly solve network compatibility issues
+- View detailed updates: [News.md](News.md) 📋
+
+---
+
 {{NAVIGATION}}
 
 {{TABLE_OF_CONTENTS}}
@@ -27,6 +35,25 @@ A curated list of latest research papers, projects and resources related to Gaus
 
 ## Tutorials & Blogs
 - [Introduction to 3D Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting) - Official Tutorial
+
+## 📋 Project Features
+
+### 🔧 Core Features
+- **Automated Paper Collection**: Daily automatic crawling of latest Gaussian Splatting related papers
+- **Intelligent Classification System**: Automatically categorize papers into different topics (Acceleration, Applications, Dynamic Scenes, etc.)
+- **Configurable Search**: Customize search keywords through JSON configuration files
+- **Cross-Platform Compatibility**: Support for Windows/Linux/macOS with automatic environment detection
+
+### 🛠️ Technical Features
+- **Robust Error Handling**: Multi-layer retry and fallback strategies ensure stable operation
+- **GitHub Actions Integration**: Automated CI/CD workflows
+- **Real-time Update Mechanism**: Daily automatic paper data updates
+- **Detailed Logging**: Comprehensive logging for debugging and monitoring
+
+### 📚 Documentation System
+- **User Guides**: Detailed configuration and usage instructions
+- **Update Logs**: [News.md](News.md) - Records all important updates
+- **Validation Reports**: Automated testing and validation results
 
 ## Contribution Guidelines
 Feel free to submit Pull Requests to improve this list! Please follow these formats:
