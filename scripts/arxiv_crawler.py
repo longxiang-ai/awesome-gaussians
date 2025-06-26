@@ -32,11 +32,10 @@ class Paper:
 class ArxivCrawler:
     def __init__(self, fetch_citations: bool = False):
         self.logger = setup_logger("arxiv_crawler")
-        self.search_query = '(abs:"gaussian splatting" OR ti:"gaussian splatting" OR \
-                            abs:"3d gaussian" OR ti:"3d gaussian" OR \
-                            abs:"gaussian splat" OR ti:"gaussian splat" OR \
-                            abs:"3dgs" OR ti:"3dgs" OR \
-                            abs:"4d gaussian" OR ti:"4d gaussian")'
+        
+        # Load search configuration and generate search query
+        self.search_query = self._load_search_config()
+        
         self.output_dir = Path("data")
         self.output_dir.mkdir(exist_ok=True)
         self.github_token = os.getenv("GITHUB_TOKEN")
@@ -65,6 +64,52 @@ class ArxivCrawler:
         except Exception as e:
             self.logger.error(f"Failed to load keywords configuration: {e}")
             raise
+
+    def _load_search_config(self) -> str:
+        """从配置文件加载搜索配置并生成搜索查询"""
+        try:
+            config_path = Path("data/search_config.json")
+            if not config_path.exists():
+                self.logger.warning(f"Search config file not found: {config_path}, using default query")
+                return '(abs:"gaussian splatting" OR ti:"gaussian splatting" OR abs:"3d gaussian" OR ti:"3d gaussian" OR abs:"gaussian splat" OR ti:"gaussian splat" OR abs:"3dgs" OR ti:"3dgs" OR abs:"4d gaussian" OR ti:"4d gaussian")'
+            
+            with open(config_path, "r", encoding="utf-8") as f:
+                config_data = json.load(f)
+                
+            search_config = config_data.get("search_config", {})
+            
+            # Build query parts
+            query_parts = []
+            
+            # Keywords for both abstract and title
+            both_keywords = search_config.get("both_abstract_and_title", [])
+            for keyword in both_keywords:
+                query_parts.append(f'abs:"{keyword}"')
+                query_parts.append(f'ti:"{keyword}"')
+            
+            # Keywords for abstract only
+            abs_keywords = search_config.get("abstract_only", [])
+            for keyword in abs_keywords:
+                query_parts.append(f'abs:"{keyword}"')
+            
+            # Keywords for title only
+            title_keywords = search_config.get("title_only", [])
+            for keyword in title_keywords:
+                query_parts.append(f'ti:"{keyword}"')
+            
+            if not query_parts:
+                self.logger.warning("No search keywords found in config, using default query")
+                return '(abs:"gaussian splatting" OR ti:"gaussian splatting")'
+            
+            # Join all parts with OR
+            search_query = "(" + " OR ".join(query_parts) + ")"
+            
+            self.logger.info(f"Generated search query from config: {search_query}")
+            return search_query
+            
+        except Exception as e:
+            self.logger.error(f"Error loading search config: {e}, using default query")
+            return '(abs:"gaussian splatting" OR ti:"gaussian splatting")'
 
     def _find_github_url(self, text: str, title: str = "") -> Optional[str]:
         """从文本中查找GitHub链接"""
@@ -208,38 +253,50 @@ class ArxivCrawler:
             )
 
             papers = []
-            for result in client.results(search):
-                try:
-                    arxiv_id = result.entry_id.split('/')[-1]
-                    citations, semantic_url = self._get_citations(arxiv_id) if self.fetch_citations else (0, '')
-                    
-                    # Clean abstract text
-                    abstract = result.summary.replace('\n', ' ').strip()
-                    # Find GitHub link in title and abstract
-                    github_url = self._find_github_url(abstract, result.title.strip())
-                    # Extract keywords from title and abstract
-                    keywords = self._extract_keywords(abstract, result.title.strip())
-                    
-                    paper = Paper(
-                        title=result.title.strip(),
-                        authors=[author.name.strip() for author in result.authors],
-                        abstract=abstract,
-                        arxiv_url=result.entry_id,
-                        pdf_url=result.pdf_url,
-                        published_date=result.published.strftime("%Y-%m-%d"),
-                        categories=[cat for cat in result.categories],
-                        github_url=github_url or "",
-                        keywords=keywords,
-                        citations=citations,
-                        semantic_url=semantic_url
-                    )
-                    papers.append(paper)
-                    self.logger.info(f"Successfully processed paper: {paper.title}")
-                except Exception as e:
-                    self.logger.error(f"Error processing single paper: {e}")
-                    continue
+            processed_count = 0
             
+            try:
+                for result in client.results(search):
+                    try:
+                        arxiv_id = result.entry_id.split('/')[-1]
+                        citations, semantic_url = self._get_citations(arxiv_id) if self.fetch_citations else (0, '')
+                        
+                        # Clean abstract text
+                        abstract = result.summary.replace('\n', ' ').strip()
+                        # Find GitHub link in title and abstract
+                        github_url = self._find_github_url(abstract, result.title.strip())
+                        # Extract keywords from title and abstract
+                        keywords = self._extract_keywords(abstract, result.title.strip())
+                        
+                        paper = Paper(
+                            title=result.title.strip(),
+                            authors=[author.name.strip() for author in result.authors],
+                            abstract=abstract,
+                            arxiv_url=result.entry_id,
+                            pdf_url=result.pdf_url,
+                            published_date=result.published.strftime("%Y-%m-%d"),
+                            categories=[cat for cat in result.categories],
+                            github_url=github_url or "",
+                            keywords=keywords,
+                            citations=citations,
+                            semantic_url=semantic_url
+                        )
+                        papers.append(paper)
+                        processed_count += 1
+                        self.logger.info(f"Successfully processed paper: {paper.title}")
+                    except Exception as e:
+                        self.logger.error(f"Error processing single paper: {e}")
+                        continue
+            except Exception as e:
+                # Check if this is an empty page error, which is normal when we've reached the end
+                if "Page of results was unexpectedly empty" in str(e):
+                    self.logger.info(f"Reached end of available results. Successfully processed {processed_count} papers.")
+                else:
+                    self.logger.warning(f"Search interrupted: {e}. Continuing with {processed_count} papers collected so far.")
+            
+            self.logger.info(f"Total papers collected: {len(papers)}")
             return papers
+            
         except Exception as e:
             self.logger.error(f"Error searching papers: {e}")
             raise
@@ -263,8 +320,8 @@ def main():
     parser = argparse.ArgumentParser(description='arXiv论文爬虫')
     parser.add_argument('--citations', action='store_true', 
                       help='是否获取引用数和Semantic Scholar链接')
-    parser.add_argument('--max-results', type=int, default=10000,
-                      help='最大获取论文数量')
+    parser.add_argument('--max-results', type=int, default=1000,
+                      help='最大获取论文数量（默认500，推荐不超过1000以避免API限制）')
     args = parser.parse_args()
 
     crawler = ArxivCrawler(fetch_citations=args.citations)

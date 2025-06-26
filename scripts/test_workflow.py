@@ -2,9 +2,17 @@ import os
 import sys
 from pathlib import Path
 import re
+import platform
 from utils.logger import setup_logger
 
 logger = setup_logger("test_workflow")
+
+def get_python_command():
+    """Get the appropriate Python command for the current platform"""
+    if platform.system() == "Windows":
+        return "python"
+    else:
+        return "python3"
 
 def check_file_exists(filepath: str) -> bool:
     """Check if file exists"""
@@ -60,9 +68,12 @@ def run_workflow():
         logger.error("README template file does not exist")
         return False
     
+    # Get platform-appropriate Python command
+    python_cmd = get_python_command()
+    
     # Run crawler
     logger.info("Running crawler...")
-    result = os.system("python3 scripts/arxiv_crawler.py")
+    result = os.system(f"{python_cmd} scripts/arxiv_crawler.py")
     if result != 0:
         logger.error("Crawler execution failed")
         return False
@@ -76,7 +87,7 @@ def run_workflow():
         
     # Run README generator
     logger.info("Generating README...")
-    result = os.system("python3 scripts/readme_generator.py")
+    result = os.system(f"{python_cmd} scripts/readme_generator.py")
     if result != 0:
         logger.error("README generation failed")
         return False

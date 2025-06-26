@@ -1,0 +1,28 @@
+{
+  "search_config": {
+    "description": "arXiv搜索配置 - 定义在摘要和/或题目中搜索的关键词",
+    "both_abstract_and_title": [
+      "gaussian splatting",
+      "3d gaussian",
+      "gaussian splat",
+      "3dgs",
+      "4d gaussian",
+      "splat",
+      "3R"
+    ],
+    "abstract_only": [
+      "neural radiance field gaussian",
+      "volumetric rendering gaussian",
+      "point cloud gaussian"
+    ],
+    "title_only": [
+      "3D scene reconstruction",
+      "neural rendering"
+    ],
+    "notes": {
+      "both_abstract_and_title": "这些关键词将在摘要(abs)和题目(ti)中搜索",
+      "abstract_only": "这些关键词只在摘要(abs)中搜索",
+      "title_only": "这些关键词只在题目(ti)中搜索"
+    }
+  }
+} 
