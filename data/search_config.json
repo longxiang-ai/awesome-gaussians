@@ -6,9 +6,7 @@
       "3d gaussian",
       "gaussian splat",
       "3dgs",
-      "4d gaussian",
-      "splat",
-      "3R"
+      "4d gaussian"
     ],
     "abstract_only": [
       "neural radiance field gaussian",

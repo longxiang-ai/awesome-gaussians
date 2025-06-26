@@ -244,7 +244,13 @@ class ArxivCrawler:
     def search_papers(self, max_results: int = 300) -> List[Paper]:
         """Search papers on arXiv"""
         try:
-            client = arxiv.Client()
+            # 配置客户端，处理重定向问题
+            client = arxiv.Client(
+                page_size=100,  # 每页大小
+                delay_seconds=3,  # 请求间隔，避免被限制
+                num_retries=3     # 重试次数
+            )
+            
             search = arxiv.Search(
                 query=self.search_query,
                 max_results=max_results,
@@ -254,52 +260,117 @@ class ArxivCrawler:
 
             papers = []
             processed_count = 0
+            retry_count = 0
+            max_retries = 3
             
-            try:
-                for result in client.results(search):
-                    try:
-                        arxiv_id = result.entry_id.split('/')[-1]
-                        citations, semantic_url = self._get_citations(arxiv_id) if self.fetch_citations else (0, '')
+            while retry_count < max_retries:
+                try:
+                    self.logger.info(f"尝试获取论文，第 {retry_count + 1} 次尝试...")
+                    
+                    for result in client.results(search):
+                        try:
+                            arxiv_id = result.entry_id.split('/')[-1]
+                            citations, semantic_url = self._get_citations(arxiv_id) if self.fetch_citations else (0, '')
+                            
+                            # Clean abstract text
+                            abstract = result.summary.replace('\n', ' ').strip()
+                            # Find GitHub link in title and abstract
+                            github_url = self._find_github_url(abstract, result.title.strip())
+                            # Extract keywords from title and abstract
+                            keywords = self._extract_keywords(abstract, result.title.strip())
+                            
+                            paper = Paper(
+                                title=result.title.strip(),
+                                authors=[author.name.strip() for author in result.authors],
+                                abstract=abstract,
+                                arxiv_url=result.entry_id,
+                                pdf_url=result.pdf_url,
+                                published_date=result.published.strftime("%Y-%m-%d"),
+                                categories=[cat for cat in result.categories],
+                                github_url=github_url or "",
+                                keywords=keywords,
+                                citations=citations,
+                                semantic_url=semantic_url
+                            )
+                            papers.append(paper)
+                            processed_count += 1
+                            self.logger.info(f"Successfully processed paper: {paper.title}")
+                        except Exception as e:
+                            self.logger.error(f"Error processing single paper: {e}")
+                            continue
+                    
+                    # 如果成功处理了一些论文，跳出重试循环
+                    if papers:
+                        break
                         
-                        # Clean abstract text
-                        abstract = result.summary.replace('\n', ' ').strip()
-                        # Find GitHub link in title and abstract
-                        github_url = self._find_github_url(abstract, result.title.strip())
-                        # Extract keywords from title and abstract
-                        keywords = self._extract_keywords(abstract, result.title.strip())
-                        
-                        paper = Paper(
-                            title=result.title.strip(),
-                            authors=[author.name.strip() for author in result.authors],
-                            abstract=abstract,
-                            arxiv_url=result.entry_id,
-                            pdf_url=result.pdf_url,
-                            published_date=result.published.strftime("%Y-%m-%d"),
-                            categories=[cat for cat in result.categories],
-                            github_url=github_url or "",
-                            keywords=keywords,
-                            citations=citations,
-                            semantic_url=semantic_url
-                        )
-                        papers.append(paper)
-                        processed_count += 1
-                        self.logger.info(f"Successfully processed paper: {paper.title}")
-                    except Exception as e:
-                        self.logger.error(f"Error processing single paper: {e}")
+                except Exception as e:
+                    retry_count += 1
+                    error_msg = str(e)
+                    
+                    # 处理不同类型的错误
+                    if "HTTP 301" in error_msg or "301" in error_msg:
+                        self.logger.warning(f"遇到重定向错误，第 {retry_count} 次重试: {e}")
+                        if retry_count < max_retries:
+                            import time
+                            time.sleep(5)  # 等待5秒后重试
+                            continue
+                    elif "Page of results was unexpectedly empty" in error_msg:
+                        self.logger.info(f"Reached end of available results. Successfully processed {processed_count} papers.")
+                        break
+                    elif "HTTP" in error_msg and retry_count < max_retries:
+                        self.logger.warning(f"遇到网络错误，第 {retry_count} 次重试: {e}")
+                        import time
+                        time.sleep(10)  # 网络错误等待更长时间
                         continue
-            except Exception as e:
-                # Check if this is an empty page error, which is normal when we've reached the end
-                if "Page of results was unexpectedly empty" in str(e):
-                    self.logger.info(f"Reached end of available results. Successfully processed {processed_count} papers.")
-                else:
-                    self.logger.warning(f"Search interrupted: {e}. Continuing with {processed_count} papers collected so far.")
+                    else:
+                        self.logger.warning(f"Search interrupted: {e}. Continuing with {processed_count} papers collected so far.")
+                        break
+            
+            # 如果重试后仍然没有论文，尝试降级策略
+            if not papers and retry_count >= max_retries:
+                self.logger.warning("所有重试都失败了，尝试使用更简单的搜索查询...")
+                try:
+                    # 使用更简单的查询作为后备
+                    simple_search = arxiv.Search(
+                        query='abs:"gaussian splatting"',
+                        max_results=min(50, max_results),
+                        sort_by=arxiv.SortCriterion.SubmittedDate,
+                        sort_order=arxiv.SortOrder.Descending
+                    )
+                    
+                    for result in client.results(simple_search):
+                        try:
+                            paper = Paper(
+                                title=result.title.strip(),
+                                authors=[author.name.strip() for author in result.authors],
+                                abstract=result.summary.replace('\n', ' ').strip(),
+                                arxiv_url=result.entry_id,
+                                pdf_url=result.pdf_url,
+                                published_date=result.published.strftime("%Y-%m-%d"),
+                                categories=[cat for cat in result.categories],
+                                github_url="",
+                                keywords=[],
+                                citations=0,
+                                semantic_url=""
+                            )
+                            papers.append(paper)
+                            processed_count += 1
+                            self.logger.info(f"[Fallback] Successfully processed paper: {paper.title}")
+                        except Exception as e:
+                            self.logger.error(f"Error processing fallback paper: {e}")
+                            continue
+                            
+                except Exception as e:
+                    self.logger.error(f"Fallback search also failed: {e}")
             
             self.logger.info(f"Total papers collected: {len(papers)}")
             return papers
             
         except Exception as e:
             self.logger.error(f"Error searching papers: {e}")
-            raise
+            # 不要直接抛出异常，而是返回空列表
+            self.logger.warning("返回空的论文列表以确保程序继续运行")
+            return []
 
     def save_papers(self, papers: List[Paper]):
         """保存论文信息到JSON文件"""
