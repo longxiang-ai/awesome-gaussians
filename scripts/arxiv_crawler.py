@@ -11,6 +11,10 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from utils.logger import setup_logger
 from requests.exceptions import RequestException
+import urllib3
+
+# 禁用 SSL 警告，因为我们会强制使用 HTTP
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 @dataclass
 class Paper:
@@ -241,15 +245,144 @@ class ArxivCrawler:
         
         return list(keywords)
 
+    def _direct_arxiv_search(self, max_results: int = 50) -> List[Paper]:
+        """直接使用requests访问arXiv API的备用搜索方法"""
+        try:
+            import xml.etree.ElementTree as ET
+            import urllib.parse
+            
+            # 使用 HTTP 端点避免重定向问题
+            base_url = "http://export.arxiv.org/api/query"
+            
+            # 构建查询参数
+            params = {
+                'search_query': 'abs:"gaussian splatting"',  # 使用简单查询
+                'start': 0,
+                'max_results': max_results,
+                'sortBy': 'submittedDate',
+                'sortOrder': 'descending'
+            }
+            
+            # 构建完整URL
+            query_string = urllib.parse.urlencode(params)
+            full_url = f"{base_url}?{query_string}"
+            
+            self.logger.info(f"直接访问 arXiv API: {full_url}")
+            
+            # 发送请求
+            response = requests.get(full_url, timeout=30)
+            response.raise_for_status()
+            
+            # 解析XML响应
+            root = ET.fromstring(response.content)
+            
+            # 定义命名空间
+            namespaces = {
+                'atom': 'http://www.w3.org/2005/Atom',
+                'arxiv': 'http://arxiv.org/schemas/atom'
+            }
+            
+            papers = []
+            entries = root.findall('atom:entry', namespaces)
+            
+            for entry in entries:
+                try:
+                    # 提取基本信息
+                    title = entry.find('atom:title', namespaces)
+                    title = title.text.strip() if title is not None else "No title"
+                    
+                    summary = entry.find('atom:summary', namespaces)
+                    abstract = summary.text.strip().replace('\n', ' ') if summary is not None else ""
+                    
+                    # 提取作者
+                    authors = []
+                    for author in entry.findall('atom:author', namespaces):
+                        name = author.find('atom:name', namespaces)
+                        if name is not None:
+                            authors.append(name.text.strip())
+                    
+                    # 提取链接
+                    arxiv_url = ""
+                    pdf_url = ""
+                    for link in entry.findall('atom:link', namespaces):
+                        rel = link.get('rel', '')
+                        href = link.get('href', '')
+                        if rel == 'alternate':
+                            arxiv_url = href
+                        elif link.get('title') == 'pdf':
+                            pdf_url = href
+                    
+                    # 提取日期
+                    published = entry.find('atom:published', namespaces)
+                    published_date = published.text[:10] if published is not None else ""
+                    
+                    # 提取分类
+                    categories = []
+                    for category in entry.findall('atom:category', namespaces):
+                        term = category.get('term', '')
+                        if term:
+                            categories.append(term)
+                    
+                    # 提取关键词
+                    keywords = self._extract_keywords(abstract, title)
+                    
+                    paper = Paper(
+                        title=title,
+                        authors=authors,
+                        abstract=abstract,
+                        arxiv_url=arxiv_url,
+                        pdf_url=pdf_url,
+                        published_date=published_date,
+                        categories=categories,
+                        github_url="",
+                        keywords=keywords,
+                        citations=0,
+                        semantic_url=""
+                    )
+                    papers.append(paper)
+                    self.logger.info(f"[Direct API] Successfully processed paper: {title}")
+                    
+                except Exception as e:
+                    self.logger.error(f"Error processing paper from direct API: {e}")
+                    continue
+            
+            return papers
+            
+        except Exception as e:
+            self.logger.error(f"Direct arXiv API search failed: {e}")
+            return []
+
     def search_papers(self, max_results: int = 300) -> List[Paper]:
         """Search papers on arXiv"""
         try:
-            # 配置客户端，处理重定向问题
+            # 首先尝试直接API方法
+            self.logger.info("尝试直接 API 方法来绕过重定向问题...")
+            papers = self._direct_arxiv_search(max_results)
+            
+            if papers:
+                self.logger.info(f"直接 API 方法成功获取 {len(papers)} 篇论文")
+                return papers
+            
+            # 如果直接API失败，使用原始方法
+            self.logger.info("直接 API 方法失败，尝试使用 arxiv 库...")
+            
+            # 简化客户端配置，避免版本兼容性问题
             client = arxiv.Client(
-                page_size=100,  # 每页大小
-                delay_seconds=3,  # 请求间隔，避免被限制
-                num_retries=3     # 重试次数
+                page_size=100,
+                delay_seconds=3,
+                num_retries=3
             )
+            
+            # 尝试强制使用 HTTP 端点来解决重定向问题
+            try:
+                # 检查是否可以访问 arxiv 模块的内部配置
+                import arxiv.arxiv as arxiv_module
+                original_base_url = getattr(arxiv_module, 'BASE_URL', None)
+                if original_base_url:
+                    arxiv_module.BASE_URL = "http://export.arxiv.org/api/"
+                    self.logger.info("成功切换到 HTTP 端点")
+            except Exception as e:
+                self.logger.warning(f"无法修改 arXiv 端点，使用默认设置: {e}")
             
             search = arxiv.Search(
                 query=self.search_query,
