@@ -6,8 +6,14 @@ A curated list of latest research papers, projects and resources related to Gaus
 
 ## 📰 Latest Updates
 
- **[2025-06-26] HTTP 301 Redirect Issue Completely Resolved!** 
+🔧 **[2025-06-26] HTTP 301 Redirect Issue Completely Resolved!** 
 - Implemented multi-layer fallback strategy to thoroughly solve network compatibility issues
+
+🔧 **[2025-06-26] Configurable Search Keywords Feature Added!**
+- You can now customize search keywords by modifying `data/search_config.json`
+- Support for different search scopes: abstract-only, title-only, or both
+- Flexible keyword configuration for targeted paper collection
+
 - View detailed updates: [News.md](News.md) 📋
 
 ---
@@ -38,10 +44,11 @@ A curated list of latest research papers, projects and resources related to Gaus
 
 ## 📋 Project Features
 
-### 🔧 Core Features
+### 🛠️ Core Features
+- **Configurable Search System**: Customize search keywords through `data/search_config.json` for targeted paper collection
 - **Automated Paper Collection**: Daily automatic crawling of latest Gaussian Splatting related papers
 - **Intelligent Classification System**: Automatically categorize papers into different topics (Acceleration, Applications, Dynamic Scenes, etc.)
-- **Configurable Search**: Customize search keywords through JSON configuration files
+- **Flexible Search Scopes**: Support for abstract-only, title-only, or combined searches
 - **Cross-Platform Compatibility**: Support for Windows/Linux/macOS with automatic environment detection
 
 ### 🛠️ Technical Features
@@ -54,6 +61,43 @@ A curated list of latest research papers, projects and resources related to Gaus
 - **User Guides**: Detailed configuration and usage instructions
 - **Update Logs**: [News.md](News.md) - Records all important updates
 - **Validation Reports**: Automated testing and validation results
+
+## 🚀 Quick Start
+
+### Customize Search Keywords
+Edit `data/search_config.json` to target specific research areas:
+
+```json
+{
+  "search_config": {
+    "both_abstract_and_title": [
+      "gaussian splatting",
+      "3d gaussian",
+      "neural rendering"
+    ],
+    "abstract_only": [
+      "volumetric rendering",
+      "point cloud reconstruction"
+    ],
+    "title_only": [
+      "real-time rendering",
+      "3D reconstruction"
+    ]
+  }
+}
+```
+
+### Run the Crawler
+```bash
+# Basic usage
+python scripts/arxiv_crawler.py
+
+# Custom number of papers
+python scripts/arxiv_crawler.py --max-results 200
+
+# Validate configuration
+python scripts/validate_search_config.py
+```
 
 ## Contribution Guidelines
 Feel free to submit Pull Requests to improve this list! Please follow these formats:
