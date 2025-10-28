@@ -1,0 +1,305 @@
+[
+  {
+    "title": "Towards Physically Executable 3D Gaussian for Embodied Navigation",
+    "authors": [
+      "Bingchen Miao",
+      "Rong Wei",
+      "Zhiqi Ge",
+      "Xiaoquan sun",
+      "Shiqi Gao",
+      "Jingzhe Zhu",
+      "Renhan Wang",
+      "Siliang Tang",
+      "Jun Xiao",
+      "Rui Tang",
+      "Juncheng Li"
+    ],
+    "abstract": "3D Gaussian Splatting (3DGS), a 3D representation method with photorealistic real-time rendering capabilities, is regarded as an effective tool for narrowing the sim-to-real gap. However, it lacks fine-grained semantics and physical executability for Visual-Language Navigation (VLN). To address this, we propose SAGE-3D (Semantically and Physically Aligned Gaussian Environments for 3D Navigation), a new paradigm that upgrades 3DGS into an executable, semantically and physically aligned environment. It comprises two components: (1) Object-Centric Semantic Grounding, which adds object-level fine-grained annotations to 3DGS; and (2) Physics-Aware Execution Jointing, which embeds collision objects into 3DGS and constructs rich physical interfaces. We release InteriorGS, containing 1K object-annotated 3DGS indoor scene data, and introduce SAGE-Bench, the first 3DGS-based VLN benchmark with 2M VLN data. Experiments show that 3DGS scene data is more difficult to converge, while exhibiting strong generalizability, improving baseline performance by 31% on the VLN-CE Unseen task. The data and code will be available soon.",
+    "arxiv_url": "http://arxiv.org/abs/2510.21307v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.21307v1",
+    "published_date": "2025-10-24",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "semantic",
+      "real-time rendering",
+      "gaussian splatting",
+      "ar",
+      "3d gaussian",
+      "face"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "GSWorld: Closed-Loop Photo-Realistic Simulation Suite for Robotic\n  Manipulation",
+    "authors": [
+      "Guangqi Jiang",
+      "Haoran Chang",
+      "Ri-Zhao Qiu",
+      "Yutong Liang",
+      "Mazeyu Ji",
+      "Jiyue Zhu",
+      "Zhao Dong",
+      "Xueyan Zou",
+      "Xiaolong Wang"
+    ],
+    "abstract": "This paper presents GSWorld, a robust, photo-realistic simulator for robotics manipulation that combines 3D Gaussian Splatting with physics engines. Our framework advocates \"closing the loop\" of developing manipulation policies with reproducible evaluation of policies learned from real-robot data and sim2real policy training without using real robots. To enable photo-realistic rendering of diverse scenes, we propose a new asset format, which we term GSDF (Gaussian Scene Description File), that infuses Gaussian-on-Mesh representation with robot URDF and other objects. With a streamlined reconstruction pipeline, we curate a database of GSDF that contains 3 robot embodiments for single-arm and bimanual manipulation, as well as more than 40 objects. Combining GSDF with physics engines, we demonstrate several immediate interesting applications: (1) learning zero-shot sim2real pixel-to-action manipulation policy with photo-realistic rendering, (2) automated high-quality DAgger data collection for adapting policies to deployment environments, (3) reproducible benchmarking of real-robot manipulation policies in simulation, (4) simulation data collection by virtual teleoperation, and (5) zero-shot sim2real visual reinforcement learning. Website: https://3dgsworld.github.io/.",
+    "arxiv_url": "http://arxiv.org/abs/2510.20813v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.20813v1",
+    "published_date": "2025-10-23",
+    "categories": [
+      "cs.RO",
+      "cs.AI",
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "3d gaussian",
+      "gaussian splatting",
+      "ar",
+      "robotics"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Dino-Diffusion Modular Designs Bridge the Cross-Domain Gap in Autonomous\n  Parking",
+    "authors": [
+      "Zixuan Wu",
+      "Hengyuan Zhang",
+      "Ting-Hsuan Chen",
+      "Yuliang Guo",
+      "David Paz",
+      "Xinyu Huang",
+      "Liu Ren"
+    ],
+    "abstract": "Parking is a critical pillar of driving safety. While recent end-to-end (E2E) approaches have achieved promising in-domain results, robustness under domain shifts (e.g., weather and lighting changes) remains a key challenge. Rather than relying on additional data, in this paper, we propose Dino-Diffusion Parking (DDP), a domain-agnostic autonomous parking pipeline that integrates visual foundation models with diffusion-based planning to enable generalized perception and robust motion planning under distribution shifts. We train our pipeline in CARLA at regular setting and transfer it to more adversarial settings in a zero-shot fashion. Our model consistently achieves a parking success rate above 90% across all tested out-of-distribution (OOD) scenarios, with ablation studies confirming that both the network architecture and algorithmic design significantly enhance cross-domain performance over existing baselines. Furthermore, testing in a 3D Gaussian splatting (3DGS) environment reconstructed from a real-world parking lot demonstrates promising sim-to-real transfer.",
+    "arxiv_url": "http://arxiv.org/abs/2510.20335v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.20335v1",
+    "published_date": "2025-10-23",
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "motion",
+      "lighting",
+      "gaussian splatting",
+      "ar",
+      "3d gaussian"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "COS3D: Collaborative Open-Vocabulary 3D Segmentation",
+    "authors": [
+      "Runsong Zhu",
+      "Ka-Hei Hui",
+      "Zhengzhe Liu",
+      "Qianyi Wu",
+      "Weiliang Tang",
+      "Shi Qiu",
+      "Pheng-Ann Heng",
+      "Chi-Wing Fu"
+    ],
+    "abstract": "Open-vocabulary 3D segmentation is a fundamental yet challenging task, requiring a mutual understanding of both segmentation and language. However, existing Gaussian-splatting-based methods rely either on a single 3D language field, leading to inferior segmentation, or on pre-computed class-agnostic segmentations, suffering from error accumulation. To address these limitations, we present COS3D, a new collaborative prompt-segmentation framework that contributes to effectively integrating complementary language and segmentation cues throughout its entire pipeline. We first introduce the new concept of collaborative field, comprising an instance field and a language field, as the cornerstone for collaboration. During training, to effectively construct the collaborative field, our key idea is to capture the intrinsic relationship between the instance field and language field, through a novel instance-to-language feature mapping and designing an efficient two-stage training strategy. During inference, to bridge distinct characteristics of the two fields, we further design an adaptive language-to-instance prompt refinement, promoting high-quality prompt-segmentation inference. Extensive experiments not only demonstrate COS3D's leading performance over existing methods on two widely-used benchmarks but also show its high potential to various applications,~\\ie, novel image-based 3D segmentation, hierarchical segmentation, and robotics. The code is publicly available at \\href{https://github.com/Runsong123/COS3D}{https://github.com/Runsong123/COS3D}.",
+    "arxiv_url": "http://arxiv.org/abs/2510.20238v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.20238v1",
+    "published_date": "2025-10-23",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "understanding",
+      "efficient",
+      "ar",
+      "mapping",
+      "segmentation",
+      "robotics"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Extreme Views: 3DGS Filter for Novel View Synthesis from\n  Out-of-Distribution Camera Poses",
+    "authors": [
+      "Damian Bowness",
+      "Charalambos Poullis"
+    ],
+    "abstract": "When viewing a 3D Gaussian Splatting (3DGS) model from camera positions significantly outside the training data distribution, substantial visual noise commonly occurs. These artifacts result from the lack of training data in these extrapolated regions, leading to uncertain density, color, and geometry predictions from the model.   To address this issue, we propose a novel real-time render-aware filtering method. Our approach leverages sensitivity scores derived from intermediate gradients, explicitly targeting instabilities caused by anisotropic orientations rather than isotropic variance. This filtering method directly addresses the core issue of generative uncertainty, allowing 3D reconstruction systems to maintain high visual fidelity even when users freely navigate outside the original training viewpoints.   Experimental evaluation demonstrates that our method substantially improves visual quality, realism, and consistency compared to existing Neural Radiance Field (NeRF)-based approaches such as BayesRays. Critically, our filter seamlessly integrates into existing 3DGS rendering pipelines in real-time, unlike methods that require extensive post-hoc retraining or fine-tuning.   Code and results at https://damian-bowness.github.io/EV3DGS",
+    "arxiv_url": "http://arxiv.org/abs/2510.20027v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.20027v1",
+    "published_date": "2025-10-22",
+    "categories": [
+      "cs.CV",
+      "cs.GR"
+    ],
+    "github_url": "",
+    "keywords": [
+      "nerf",
+      "geometry",
+      "gaussian splatting",
+      "ar",
+      "3d gaussian",
+      "3d reconstruction"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Advances in 4D Representation: Geometry, Motion, and Interaction",
+    "authors": [
+      "Mingrui Zhao",
+      "Sauradip Nag",
+      "Kai Wang",
+      "Aditya Vora",
+      "Guangda Ji",
+      "Peter Chun",
+      "Ali Mahdavi-Amiri",
+      "Hao Zhang"
+    ],
+    "abstract": "We present a survey on 4D generation and reconstruction, a fast-evolving subfield of computer graphics whose developments have been propelled by recent advances in neural fields, geometric and motion deep learning, as well 3D generative artificial intelligence (GenAI). While our survey is not the first of its kind, we build our coverage of the domain from a unique and distinctive perspective of 4D representations\\/}, to model 3D geometry evolving over time while exhibiting motion and interaction. Specifically, instead of offering an exhaustive enumeration of many works, we take a more selective approach by focusing on representative works to highlight both the desirable properties and ensuing challenges of each representation under different computation, application, and data scenarios. The main take-away message we aim to convey to the readers is on how to select and then customize the appropriate 4D representations for their tasks. Organizationally, we separate the 4D representations based on three key pillars: geometry, motion, and interaction. Our discourse will not only encompass the most popular representations of today, such as neural radiance fields (NeRFs) and 3D Gaussian Splatting (3DGS), but also bring attention to relatively under-explored representations in the 4D context, such as structured models and long-range motions. Throughout our survey, we will reprise the role of large language models (LLMs) and video foundational models (VFMs) in a variety of 4D applications, while steering our discussion towards their current limitations and how they can be addressed. We also provide a dedicated coverage on what 4D datasets are currently available, as well as what is lacking, in driving the subfield forward. Project page:https://mingrui-zhao.github.io/4DRep-GMI/",
+    "arxiv_url": "http://arxiv.org/abs/2510.19255v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.19255v1",
+    "published_date": "2025-10-22",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "nerf",
+      "4d",
+      "geometry",
+      "motion",
+      "gaussian splatting",
+      "survey",
+      "ar",
+      "3d gaussian",
+      "fast"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "MoE-GS: Mixture of Experts for Dynamic Gaussian Splatting",
+    "authors": [
+      "In-Hwan Jin",
+      "Hyeongju Mun",
+      "Joonsoo Kim",
+      "Kugjin Yun",
+      "Kyeongbo Kong"
+    ],
+    "abstract": "Recent advances in dynamic scene reconstruction have significantly benefited from 3D Gaussian Splatting, yet existing methods show inconsistent performance across diverse scenes, indicating no single approach effectively handles all dynamic challenges. To overcome these limitations, we propose Mixture of Experts for Dynamic Gaussian Splatting (MoE-GS), a unified framework integrating multiple specialized experts via a novel Volume-aware Pixel Router. Our router adaptively blends expert outputs by projecting volumetric Gaussian-level weights into pixel space through differentiable weight splatting, ensuring spatially and temporally coherent results. Although MoE-GS improves rendering quality, the increased model capacity and reduced FPS are inherent to the MoE architecture. To mitigate this, we explore two complementary directions: (1) single-pass multi-expert rendering and gate-aware Gaussian pruning, which improve efficiency within the MoE framework, and (2) a distillation strategy that transfers MoE performance to individual experts, enabling lightweight deployment without architectural changes. To the best of our knowledge, MoE-GS is the first approach incorporating Mixture-of-Experts techniques into dynamic Gaussian splatting. Extensive experiments on the N3V and Technicolor datasets demonstrate that MoE-GS consistently outperforms state-of-the-art methods with improved efficiency. Video demonstrations are available at https://anonymous.4open.science/w/MoE-GS-68BA/.",
+    "arxiv_url": "http://arxiv.org/abs/2510.19210v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.19210v1",
+    "published_date": "2025-10-22",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "dynamic",
+      "lightweight",
+      "gaussian splatting",
+      "ar",
+      "3d gaussian"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "GRASPLAT: Enabling dexterous grasping through novel view synthesis",
+    "authors": [
+      "Matteo Bortolon",
+      "Nuno Ferreira Duarte",
+      "Plinio Moreno",
+      "Fabio Poiesi",
+      "José Santos-Victor",
+      "Alessio Del Bue"
+    ],
+    "abstract": "Achieving dexterous robotic grasping with multi-fingered hands remains a significant challenge. While existing methods rely on complete 3D scans to predict grasp poses, these approaches face limitations due to the difficulty of acquiring high-quality 3D data in real-world scenarios. In this paper, we introduce GRASPLAT, a novel grasping framework that leverages consistent 3D information while being trained solely on RGB images. Our key insight is that by synthesizing physically plausible images of a hand grasping an object, we can regress the corresponding hand joints for a successful grasp. To achieve this, we utilize 3D Gaussian Splatting to generate high-fidelity novel views of real hand-object interactions, enabling end-to-end training with RGB data. Unlike prior methods, our approach incorporates a photometric loss that refines grasp predictions by minimizing discrepancies between rendered and real images. We conduct extensive experiments on both synthetic and real-world grasping datasets, demonstrating that GRASPLAT improves grasp success rates up to 36.9% over existing image-based methods. Project page: https://mbortolon97.github.io/grasplat/",
+    "arxiv_url": "http://arxiv.org/abs/2510.19200v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.19200v1",
+    "published_date": "2025-10-22",
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "high-fidelity",
+      "gaussian splatting",
+      "ar",
+      "3d gaussian",
+      "face"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Moving Light Adaptive Colonoscopy Reconstruction via\n  Illumination-Attenuation-Aware 3D Gaussian Splatting",
+    "authors": [
+      "Hao Wang",
+      "Ying Zhou",
+      "Haoyu Zhao",
+      "Rui Wang",
+      "Qiang Hu",
+      "Xing Zhang",
+      "Qiang Li",
+      "Zhiwei Wang"
+    ],
+    "abstract": "3D Gaussian Splatting (3DGS) has emerged as a pivotal technique for real-time view synthesis in colonoscopy, enabling critical applications such as virtual colonoscopy and lesion tracking. However, the vanilla 3DGS assumes static illumination and that observed appearance depends solely on viewing angle, which causes incompatibility with the photometric variations in colonoscopic scenes induced by dynamic light source/camera. This mismatch forces most 3DGS methods to introduce structure-violating vaporous Gaussian blobs between the camera and tissues to compensate for illumination attenuation, ultimately degrading the quality of 3D reconstructions. Previous works only consider the illumination attenuation caused by light distance, ignoring the physical characters of light source and camera. In this paper, we propose ColIAGS, an improved 3DGS framework tailored for colonoscopy. To mimic realistic appearance under varying illumination, we introduce an Improved Appearance Modeling with two types of illumination attenuation factors, which enables Gaussians to adapt to photometric variations while preserving geometry accuracy. To ensure the geometry approximation condition of appearance modeling, we propose an Improved Geometry Modeling using high-dimensional view embedding to enhance Gaussian geometry attribute prediction. Furthermore, another cosine embedding input is leveraged to generate illumination attenuation solutions in an implicit manner. Comprehensive experimental results on standard benchmarks demonstrate that our proposed ColIAGS achieves the dual capabilities of novel view synthesis and accurate geometric reconstruction. It notably outperforms other state-of-the-art methods by achieving superior rendering fidelity while significantly reducing Depth MSE. Code will be available.",
+    "arxiv_url": "http://arxiv.org/abs/2510.18739v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.18739v1",
+    "published_date": "2025-10-21",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "dynamic",
+      "tracking",
+      "illumination",
+      "geometry",
+      "gaussian splatting",
+      "ar",
+      "3d gaussian",
+      "3d reconstruction"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Re-Activating Frozen Primitives for 3D Gaussian Splatting",
+    "authors": [
+      "Yuxin Cheng",
+      "Binxiao Huang",
+      "Wenyong Zhou",
+      "Taiqiang Wu",
+      "Zhengwu Liu",
+      "Graziano Chesi",
+      "Ngai Wong"
+    ],
+    "abstract": "3D Gaussian Splatting (3D-GS) achieves real-time photorealistic novel view synthesis, yet struggles with complex scenes due to over-reconstruction artifacts, manifesting as local blurring and needle-shape distortions. While recent approaches attribute these issues to insufficient splitting of large-scale Gaussians, we identify two fundamental limitations: gradient magnitude dilution during densification and the primitive frozen phenomenon, where essential Gaussian densification is inhibited in complex regions while suboptimally scaled Gaussians become trapped in local optima. To address these challenges, we introduce ReAct-GS, a method founded on the principle of re-activation. Our approach features: (1) an importance-aware densification criterion incorporating $\\alpha$-blending weights from multiple viewpoints to re-activate stalled primitive growth in complex regions, and (2) a re-activation mechanism that revitalizes frozen primitives through adaptive parameter perturbations. Comprehensive experiments across diverse real-world datasets demonstrate that ReAct-GS effectively eliminates over-reconstruction artifacts and achieves state-of-the-art performance on standard novel view synthesis metrics while preserving intricate geometric details. Additionally, our re-activation mechanism yields consistent improvements when integrated with other 3D-GS variants such as Pixel-GS, demonstrating its broad applicability.",
+    "arxiv_url": "http://arxiv.org/abs/2510.19653v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.19653v1",
+    "published_date": "2025-10-21",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "3d gaussian",
+      "gaussian splatting",
+      "ar"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  }
+]
