@@ -1,0 +1,296 @@
+[
+  {
+    "title": "HEIR: Learning Graph-Based Motion Hierarchies",
+    "authors": [
+      "Cheng Zheng",
+      "William Koch",
+      "Baiang Li",
+      "Felix Heide"
+    ],
+    "abstract": "Hierarchical structures of motion exist across research fields, including computer vision, graphics, and robotics, where complex dynamics typically arise from coordinated interactions among simpler motion components. Existing methods to model such dynamics typically rely on manually-defined or heuristic hierarchies with fixed motion primitives, limiting their generalizability across different tasks. In this work, we propose a general hierarchical motion modeling method that learns structured, interpretable motion relationships directly from data. Our method represents observed motions using graph-based hierarchies, explicitly decomposing global absolute motions into parent-inherited patterns and local motion residuals. We formulate hierarchy inference as a differentiable graph learning problem, where vertices represent elemental motions and directed edges capture learned parent-child dependencies through graph neural networks. We evaluate our hierarchical reconstruction approach on three examples: 1D translational motion, 2D rotational motion, and dynamic 3D scene deformation via Gaussian splatting. Experimental results show that our method reconstructs the intrinsic motion hierarchy in 1D and 2D cases, and produces more realistic and interpretable deformations compared to the baseline on dynamic 3D Gaussian splatting scenes. By providing an adaptable, data-driven hierarchical modeling paradigm, our method offers a formulation applicable to a broad range of motion-centric tasks. Project Page: https://light.princeton.edu/HEIR/",
+    "arxiv_url": "http://arxiv.org/abs/2510.26786v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26786v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "cs.CV",
+      "cs.GR",
+      "cs.LG"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "3d gaussian",
+      "motion",
+      "gaussian splatting",
+      "dynamic",
+      "deformation",
+      "robotics"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "The Impact and Outlook of 3D Gaussian Splatting",
+    "authors": [
+      "Bernhard Kerbl"
+    ],
+    "abstract": "Since its introduction, 3D Gaussian Splatting (3DGS) has rapidly transformed the landscape of 3D scene representations, inspiring an extensive body of associated research. Follow-up work includes analyses and contributions that enhance the efficiency, scalability, and real-world applicability of 3DGS. In this summary, we present an overview of several key directions that have emerged in the wake of 3DGS. We highlight advances enabling resource-efficient training and rendering, the evolution toward dynamic (or four-dimensional, 4DGS) representations, and deeper exploration of the mathematical foundations underlying its appearance modeling and rendering process. Furthermore, we examine efforts to bring 3DGS to mobile and virtual reality platforms, its extension to massive-scale environments, and recent progress toward near-instant radiance field reconstruction via feed-forward or distributed computation. Collectively, these developments illustrate how 3DGS has evolved from a breakthrough representation into a versatile and foundational tool for 3D vision and graphics.",
+    "arxiv_url": "http://arxiv.org/abs/2510.26694v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26694v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "cs.CV",
+      "cs.GR"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "3d gaussian",
+      "gaussian splatting",
+      "4d",
+      "dynamic",
+      "body",
+      "efficient"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "AgriGS-SLAM: Orchard Mapping Across Seasons via Multi-View Gaussian\n  Splatting SLAM",
+    "authors": [
+      "Mirko Usuelli",
+      "David Rapado-Rincon",
+      "Gert Kootstra",
+      "Matteo Matteucci"
+    ],
+    "abstract": "Autonomous robots in orchards require real-time 3D scene understanding despite repetitive row geometry, seasonal appearance changes, and wind-driven foliage motion. We present AgriGS-SLAM, a Visual--LiDAR SLAM framework that couples direct LiDAR odometry and loop closures with multi-camera 3D Gaussian Splatting (3DGS) rendering. Batch rasterization across complementary viewpoints recovers orchard structure under occlusions, while a unified gradient-driven map lifecycle executed between keyframes preserves fine details and bounds memory. Pose refinement is guided by a probabilistic LiDAR-based depth consistency term, back-propagated through the camera projection to tighten geometry-appearance coupling. We deploy the system on a field platform in apple and pear orchards across dormancy, flowering, and harvesting, using a standardized trajectory protocol that evaluates both training-view and novel-view synthesis to reduce 3DGS overfitting in evaluation. Across seasons and sites, AgriGS-SLAM delivers sharper, more stable reconstructions and steadier trajectories than recent state-of-the-art 3DGS-SLAM baselines while maintaining real-time performance on-tractor. While demonstrated in orchard monitoring, the approach can be applied to other outdoor domains requiring robust multimodal perception.",
+    "arxiv_url": "http://arxiv.org/abs/2510.26358v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26358v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "understanding",
+      "ar",
+      "geometry",
+      "slam",
+      "3d gaussian",
+      "motion",
+      "gaussian splatting",
+      "outdoor",
+      "mapping"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "6D Channel Knowledge Map Construction via Bidirectional Wireless\n  Gaussian Splatting",
+    "authors": [
+      "Juncong Zhou",
+      "Chao Hu",
+      "Guanlin Wu",
+      "Zixiang Ren",
+      "Han Hu",
+      "Juyong Zhang",
+      "Rui Zhang",
+      "Jie Xu"
+    ],
+    "abstract": "This paper investigates the construction of channel knowledge map (CKM) from sparse channel measurements. Dif ferent from conventional two-/three-dimensional (2D/3D) CKM approaches assuming fixed base station configurations, we present a six-dimensional (6D) CKM framework named bidirectional wireless Gaussian splatting (BiWGS), which is capable of mod eling wireless channels across dynamic transmitter (Tx) and receiver (Rx) positions in 3D space. BiWGS uses Gaussian el lipsoids to represent virtual scatterer clusters and environmental obstacles in the wireless environment. By properly learning the bidirectional scattering patterns and complex attenuation profiles based on channel measurements, these ellipsoids inherently cap ture the electromagnetic transmission characteristics of wireless environments, thereby accurately modeling signal transmission under varying transceiver configurations. Experiment results show that BiWGS significantly outperforms classic multi-layer perception (MLP) for the construction of 6D channel power gain map with varying Tx-Rx positions, and achieves spatial spectrum prediction accuracy comparable to the state-of-the art wireless radiation field Gaussian splatting (WRF-GS) for 3D CKM construction. This validates the capability of the proposed BiWGS in accomplishing dimensional expansion of 6D CKM construction, without compromising fidelity.",
+    "arxiv_url": "http://arxiv.org/abs/2510.26166v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26166v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "eess.SP"
+    ],
+    "github_url": "",
+    "keywords": [
+      "dynamic",
+      "gaussian splatting",
+      "ar"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "$D^2GS$: Dense Depth Regularization for LiDAR-free Urban Scene\n  Reconstruction",
+    "authors": [
+      "Kejing Xia",
+      "Jidong Jia",
+      "Ke Jin",
+      "Yucai Bai",
+      "Li Sun",
+      "Dacheng Tao",
+      "Youjian Zhang"
+    ],
+    "abstract": "Recently, Gaussian Splatting (GS) has shown great potential for urban scene reconstruction in the field of autonomous driving. However, current urban scene reconstruction methods often depend on multimodal sensors as inputs, \\textit{i.e.} LiDAR and images. Though the geometry prior provided by LiDAR point clouds can largely mitigate ill-posedness in reconstruction, acquiring such accurate LiDAR data is still challenging in practice: i) precise spatiotemporal calibration between LiDAR and other sensors is required, as they may not capture data simultaneously; ii) reprojection errors arise from spatial misalignment when LiDAR and cameras are mounted at different locations. To avoid the difficulty of acquiring accurate LiDAR depth, we propose $D^2GS$, a LiDAR-free urban scene reconstruction framework. In this work, we obtain geometry priors that are as effective as LiDAR while being denser and more accurate. $\\textbf{First}$, we initialize a dense point cloud by back-projecting multi-view metric depth predictions. This point cloud is then optimized by a Progressive Pruning strategy to improve the global consistency. $\\textbf{Second}$, we jointly refine Gaussian geometry and predicted dense metric depth via a Depth Enhancer. Specifically, we leverage diffusion priors from a depth foundation model to enhance the depth maps rendered by Gaussians. In turn, the enhanced depths provide stronger geometric constraints during Gaussian training. $\\textbf{Finally}$, we improve the accuracy of ground geometry by constraining the shape and normal attributes of Gaussians within road regions. Extensive experiments on the Waymo dataset demonstrate that our method consistently outperforms state-of-the-art methods, producing more accurate geometry even when compared with those using ground-truth LiDAR data.",
+    "arxiv_url": "http://arxiv.org/abs/2510.25173v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.25173v1",
+    "published_date": "2025-10-29",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "geometry",
+      "autonomous driving",
+      "urban scene",
+      "gaussian splatting"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "AtlasGS: Atlanta-world Guided Surface Reconstruction with Implicit\n  Structured Gaussians",
+    "authors": [
+      "Xiyu Zhang",
+      "Chong Bao",
+      "Yipeng Chen",
+      "Hongjia Zhai",
+      "Yitong Dong",
+      "Hujun Bao",
+      "Zhaopeng Cui",
+      "Guofeng Zhang"
+    ],
+    "abstract": "3D reconstruction of indoor and urban environments is a prominent research topic with various downstream applications. However, existing geometric priors for addressing low-texture regions in indoor and urban settings often lack global consistency. Moreover, Gaussian Splatting and implicit SDF fields often suffer from discontinuities or exhibit computational inefficiencies, resulting in a loss of detail. To address these issues, we propose an Atlanta-world guided implicit-structured Gaussian Splatting that achieves smooth indoor and urban scene reconstruction while preserving high-frequency details and rendering efficiency. By leveraging the Atlanta-world model, we ensure the accurate surface reconstruction for low-texture regions, while the proposed novel implicit-structured GS representations provide smoothness without sacrificing efficiency and high-frequency details. Specifically, we propose a semantic GS representation to predict the probability of all semantic regions and deploy a structure plane regularization with learnable plane indicators for global accurate surface reconstruction. Extensive experiments demonstrate that our method outperforms state-of-the-art approaches in both indoor and urban scenes, delivering superior surface reconstruction quality.",
+    "arxiv_url": "http://arxiv.org/abs/2510.25129v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.25129v1",
+    "published_date": "2025-10-29",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "face",
+      "3d reconstruction",
+      "urban scene",
+      "gaussian splatting",
+      "semantic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "NVSim: Novel View Synthesis Simulator for Large Scale Indoor Navigation",
+    "authors": [
+      "Mingyu Jeong",
+      "Eunsung Kim",
+      "Sehun Park",
+      "Andrew Jaeyong Choi"
+    ],
+    "abstract": "We present NVSim, a framework that automatically constructs large-scale, navigable indoor simulators from only common image sequences, overcoming the cost and scalability limitations of traditional 3D scanning. Our approach adapts 3D Gaussian Splatting to address visual artifacts on sparsely observed floors a common issue in robotic traversal data. We introduce Floor-Aware Gaussian Splatting to ensure a clean, navigable ground plane, and a novel mesh-free traversability checking algorithm that constructs a topological graph by directly analyzing rendered views. We demonstrate our system's ability to generate valid, large-scale navigation graphs from real-world data. A video demonstration is avilable at https://youtu.be/tTiIQt6nXC8",
+    "arxiv_url": "http://arxiv.org/abs/2510.24335v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24335v1",
+    "published_date": "2025-10-28",
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "3d gaussian",
+      "gaussian splatting",
+      "ar"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "LagMemo: Language 3D Gaussian Splatting Memory for Multi-modal\n  Open-vocabulary Multi-goal Visual Navigation",
+    "authors": [
+      "Haotian Zhou",
+      "Xiaole Wang",
+      "He Li",
+      "Fusheng Sun",
+      "Shengyu Guo",
+      "Guolei Qi",
+      "Jianghuan Xu",
+      "Huijing Zhao"
+    ],
+    "abstract": "Navigating to a designated goal using visual information is a fundamental capability for intelligent robots. Most classical visual navigation methods are restricted to single-goal, single-modality, and closed set goal settings. To address the practical demands of multi-modal, open-vocabulary goal queries and multi-goal visual navigation, we propose LagMemo, a navigation system that leverages a language 3D Gaussian Splatting memory. During exploration, LagMemo constructs a unified 3D language memory. With incoming task goals, the system queries the memory, predicts candidate goal locations, and integrates a local perception-based verification mechanism to dynamically match and validate goals during navigation. For fair and rigorous evaluation, we curate GOAT-Core, a high-quality core split distilled from GOAT-Bench tailored to multi-modal open-vocabulary multi-goal visual navigation. Experimental results show that LagMemo's memory module enables effective multi-modal open-vocabulary goal localization, and that LagMemo outperforms state-of-the-art methods in multi-goal visual navigation. Project page: https://weekgoodday.github.io/lagmemo",
+    "arxiv_url": "http://arxiv.org/abs/2510.24118v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24118v1",
+    "published_date": "2025-10-28",
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "3d gaussian",
+      "gaussian splatting",
+      "dynamic",
+      "localization"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "A Survey on Collaborative SLAM with 3D Gaussian Splatting",
+    "authors": [
+      "Phuc Nguyen Xuan",
+      "Thanh Nguyen Canh",
+      "Huu-Hung Nguyen",
+      "Nak Young Chong",
+      "Xiem HoangVan"
+    ],
+    "abstract": "This survey comprehensively reviews the evolving field of multi-robot collaborative Simultaneous Localization and Mapping (SLAM) using 3D Gaussian Splatting (3DGS). As an explicit scene representation, 3DGS has enabled unprecedented real-time, high-fidelity rendering, ideal for robotics. However, its use in multi-robot systems introduces significant challenges in maintaining global consistency, managing communication, and fusing data from heterogeneous sources. We systematically categorize approaches by their architecture -- centralized, distributed -- and analyze core components like multi-agent consistency and alignment, communication-efficient, Gaussian representation, semantic distillation, fusion and pose optimization, and real-time scalability. In addition, a summary of critical datasets and evaluation metrics is provided to contextualize performance. Finally, we identify key open challenges and chart future research directions, including lifelong mapping, semantic association and mapping, multi-model for robustness, and bridging the Sim2Real gap.",
+    "arxiv_url": "http://arxiv.org/abs/2510.23988v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.23988v1",
+    "published_date": "2025-10-28",
+    "categories": [
+      "cs.RO"
+    ],
+    "github_url": "",
+    "keywords": [
+      "localization",
+      "ar",
+      "mapping",
+      "slam",
+      "3d gaussian",
+      "gaussian splatting",
+      "semantic",
+      "survey",
+      "efficient",
+      "high-fidelity",
+      "robotics"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "PlanarGS: High-Fidelity Indoor 3D Gaussian Splatting Guided by\n  Vision-Language Planar Priors",
+    "authors": [
+      "Xirui Jin",
+      "Renbiao Jin",
+      "Boying Li",
+      "Danping Zou",
+      "Wenxian Yu"
+    ],
+    "abstract": "Three-dimensional Gaussian Splatting (3DGS) has recently emerged as an efficient representation for novel-view synthesis, achieving impressive visual quality. However, in scenes dominated by large and low-texture regions, common in indoor environments, the photometric loss used to optimize 3DGS yields ambiguous geometry and fails to recover high-fidelity 3D surfaces. To overcome this limitation, we introduce PlanarGS, a 3DGS-based framework tailored for indoor scene reconstruction. Specifically, we design a pipeline for Language-Prompted Planar Priors (LP3) that employs a pretrained vision-language segmentation model and refines its region proposals via cross-view fusion and inspection with geometric priors. 3D Gaussians in our framework are optimized with two additional terms: a planar prior supervision term that enforces planar consistency, and a geometric prior supervision term that steers the Gaussians toward the depth and normal cues. We have conducted extensive experiments on standard indoor benchmarks. The results show that PlanarGS reconstructs accurate and detailed 3D surfaces, consistently outperforming state-of-the-art methods by a large margin. Project page: https://planargs.github.io",
+    "arxiv_url": "http://arxiv.org/abs/2510.23930v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.23930v1",
+    "published_date": "2025-10-27",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "face",
+      "geometry",
+      "3d gaussian",
+      "gaussian splatting",
+      "segmentation",
+      "efficient",
+      "high-fidelity"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  }
+]
