@@ -1,0 +1,754 @@
+[
+  {
+    "title": "DentalSplat: Dental Occlusion Novel View Synthesis from Sparse\n  Intra-Oral Photographs",
+    "authors": [
+      "Yiyi Miao",
+      "Taoyu Wu",
+      "Tong Chen",
+      "Sihao Li",
+      "Ji Jiang",
+      "Youpeng Yang",
+      "Angelos Stefanidis",
+      "Limin Yu",
+      "Jionglong Su"
+    ],
+    "abstract": "In orthodontic treatment, particularly within telemedicine contexts, observing patients' dental occlusion from multiple viewpoints facilitates timely clinical decision-making. Recent advances in 3D Gaussian Splatting (3DGS) have shown strong potential in 3D reconstruction and novel view synthesis. However, conventional 3DGS pipelines typically rely on densely captured multi-view inputs and precisely initialized camera poses, limiting their practicality. Orthodontic cases, in contrast, often comprise only three sparse images, specifically, the anterior view and bilateral buccal views, rendering the reconstruction task especially challenging. The extreme sparsity of input views severely degrades reconstruction quality, while the absence of camera pose information further complicates the process. To overcome these limitations, we propose DentalSplat, an effective framework for 3D reconstruction from sparse orthodontic imagery. Our method leverages a prior-guided dense stereo reconstruction model to initialize the point cloud, followed by a scale-adaptive pruning strategy to improve the training efficiency and reconstruction quality of 3DGS. In scenarios with extremely sparse viewpoints, we further incorporate optical flow as a geometric constraint, coupled with gradient regularization, to enhance rendering fidelity. We validate our approach on a large-scale dataset comprising 950 clinical cases and an additional video-based test set of 195 cases designed to simulate real-world remote orthodontic imaging conditions. Experimental results demonstrate that our method effectively handles sparse input scenarios and achieves superior novel view synthesis quality for dental occlusion visualization, outperforming state-of-the-art techniques.",
+    "arxiv_url": "http://arxiv.org/abs/2511.03099v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.03099v1",
+    "published_date": "2025-11-05",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "3d reconstruction",
+      "sparse view",
+      "gaussian splatting",
+      "3d gaussian"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "PercHead: Perceptual Head Model for Single-Image 3D Head Reconstruction\n  & Editing",
+    "authors": [
+      "Antonio Oroz",
+      "Matthias Nießner",
+      "Tobias Kirschstein"
+    ],
+    "abstract": "We present PercHead, a method for single-image 3D head reconstruction and semantic 3D editing - two tasks that are inherently challenging due to severe view occlusions, weak perceptual supervision, and the ambiguity of editing in 3D space. We develop a unified base model for reconstructing view-consistent 3D heads from a single input image. The model employs a dual-branch encoder followed by a ViT-based decoder that lifts 2D features into 3D space through iterative cross-attention. Rendering is performed using Gaussian Splatting. At the heart of our approach is a novel perceptual supervision strategy based on DINOv2 and SAM2.1, which provides rich, generalized signals for both geometric and appearance fidelity. Our model achieves state-of-the-art performance in novel-view synthesis and, furthermore, exhibits exceptional robustness to extreme viewing angles compared to established baselines. Furthermore, this base model can be seamlessly extended for semantic 3D editing by swapping the encoder and finetuning the network. In this variant, we disentangle geometry and style through two distinct input modalities: a segmentation map to control geometry and either a text prompt or a reference image to specify appearance. We highlight the intuitive and powerful 3D editing capabilities of our model through a lightweight, interactive GUI, where users can effortlessly sculpt geometry by drawing segmentation maps and stylize appearance via natural language or image prompts.   Project Page: https://antoniooroz.github.io/PercHead Video: https://www.youtube.com/watch?v=4hFybgTk4kE",
+    "arxiv_url": "http://arxiv.org/abs/2511.02777v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.02777v1",
+    "published_date": "2025-11-04",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "geometry",
+      "segmentation",
+      "gaussian splatting",
+      "head",
+      "lightweight",
+      "semantic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Object-Centric 3D Gaussian Splatting for Strawberry Plant Reconstruction\n  and Phenotyping",
+    "authors": [
+      "Jiajia Li",
+      "Keyi Zhu",
+      "Qianwen Zhang",
+      "Dong Chen",
+      "Qi Sun",
+      "Zhaojian Li"
+    ],
+    "abstract": "Strawberries are among the most economically significant fruits in the United States, generating over $2 billion in annual farm-gate sales and accounting for approximately 13% of the total fruit production value. Plant phenotyping plays a vital role in selecting superior cultivars by characterizing plant traits such as morphology, canopy structure, and growth dynamics. However, traditional plant phenotyping methods are time-consuming, labor-intensive, and often destructive. Recently, neural rendering techniques, notably Neural Radiance Fields (NeRF) and 3D Gaussian Splatting (3DGS), have emerged as powerful frameworks for high-fidelity 3D reconstruction. By capturing a sequence of multi-view images or videos around a target plant, these methods enable non-destructive reconstruction of complex plant architectures. Despite their promise, most current applications of 3DGS in agricultural domains reconstruct the entire scene, including background elements, which introduces noise, increases computational costs, and complicates downstream trait analysis. To address this limitation, we propose a novel object-centric 3D reconstruction framework incorporating a preprocessing pipeline that leverages the Segment Anything Model v2 (SAM-2) and alpha channel background masking to achieve clean strawberry plant reconstructions. This approach produces more accurate geometric representations while substantially reducing computational time. With a background-free reconstruction, our algorithm can automatically estimate important plant traits, such as plant height and canopy width, using DBSCAN clustering and Principal Component Analysis (PCA). Experimental results show that our method outperforms conventional pipelines in both accuracy and efficiency, offering a scalable and non-destructive solution for strawberry plant phenotyping.",
+    "arxiv_url": "http://arxiv.org/abs/2511.02207v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.02207v1",
+    "published_date": "2025-11-04",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "3d reconstruction",
+      "dynamic",
+      "gaussian splatting",
+      "3d gaussian",
+      "nerf",
+      "neural rendering",
+      "high-fidelity"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "4D Neural Voxel Splatting: Dynamic Scene Rendering with Voxelized\n  Guassian Splatting",
+    "authors": [
+      "Chun-Tin Wu",
+      "Jun-Cheng Chen"
+    ],
+    "abstract": "Although 3D Gaussian Splatting (3D-GS) achieves efficient rendering for novel view synthesis, extending it to dynamic scenes still results in substantial memory overhead from replicating Gaussians across frames. To address this challenge, we propose 4D Neural Voxel Splatting (4D-NVS), which combines voxel-based representations with neural Gaussian splatting for efficient dynamic scene modeling. Instead of generating separate Gaussian sets per timestamp, our method employs a compact set of neural voxels with learned deformation fields to model temporal dynamics. The design greatly reduces memory consumption and accelerates training while preserving high image quality. We further introduce a novel view refinement stage that selectively improves challenging viewpoints through targeted optimization, maintaining global efficiency while enhancing rendering quality for difficult viewing angles. Experiments demonstrate that our method outperforms state-of-the-art approaches with significant memory reduction and faster training, enabling real-time rendering with superior visual fidelity.",
+    "arxiv_url": "http://arxiv.org/abs/2511.00560v1",
+    "pdf_url": "http://arxiv.org/pdf/2511.00560v1",
+    "published_date": "2025-11-01",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "deformation",
+      "efficient rendering",
+      "compact",
+      "real-time rendering",
+      "efficient",
+      "gaussian splatting",
+      "3d gaussian",
+      "fast",
+      "4d",
+      "head",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "SAGS: Self-Adaptive Alias-Free Gaussian Splatting for Dynamic Surgical\n  Endoscopic Reconstruction",
+    "authors": [
+      "Wenfeng Huang",
+      "Xiangyun Liao",
+      "Yinling Qian",
+      "Hao Liu",
+      "Yongming Yang",
+      "Wenjing Jia",
+      "Qiong Wang"
+    ],
+    "abstract": "Surgical reconstruction of dynamic tissues from endoscopic videos is a crucial technology in robot-assisted surgery. The development of Neural Radiance Fields (NeRFs) has greatly advanced deformable tissue reconstruction, achieving high-quality results from video and image sequences. However, reconstructing deformable endoscopic scenes remains challenging due to aliasing and artifacts caused by tissue movement, which can significantly degrade visualization quality. The introduction of 3D Gaussian Splatting (3DGS) has improved reconstruction efficiency by enabling a faster rendering pipeline. Nevertheless, existing 3DGS methods often prioritize rendering speed while neglecting these critical issues. To address these challenges, we propose SAGS, a self-adaptive alias-free Gaussian splatting framework. We introduce an attention-driven, dynamically weighted 4D deformation decoder, leveraging 3D smoothing filters and 2D Mip filters to mitigate artifacts in deformable tissue reconstruction and better capture the fine details of tissue movement. Experimental results on two public benchmarks, EndoNeRF and SCARED, demonstrate that our method achieves superior performance in all metrics of PSNR, SSIM, and LPIPS compared to the state of the art while also delivering better visualization quality.",
+    "arxiv_url": "http://arxiv.org/abs/2510.27318v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.27318v1",
+    "published_date": "2025-10-31",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "deformation",
+      "gaussian splatting",
+      "3d gaussian",
+      "fast",
+      "4d",
+      "nerf",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "WildfireX-SLAM: A Large-scale Low-altitude RGB-D Dataset for Wildfire\n  SLAM and Beyond",
+    "authors": [
+      "Zhicong Sun",
+      "Jacqueline Lo",
+      "Jinxing Hu"
+    ],
+    "abstract": "3D Gaussian splatting (3DGS) and its subsequent variants have led to remarkable progress in simultaneous localization and mapping (SLAM). While most recent 3DGS-based SLAM works focus on small-scale indoor scenes, developing 3DGS-based SLAM methods for large-scale forest scenes holds great potential for many real-world applications, especially for wildfire emergency response and forest management. However, this line of research is impeded by the absence of a comprehensive and high-quality dataset, and collecting such a dataset over real-world scenes is costly and technically infeasible. To this end, we have built a large-scale, comprehensive, and high-quality synthetic dataset for SLAM in wildfire and forest environments. Leveraging the Unreal Engine 5 Electric Dreams Environment Sample Project, we developed a pipeline to easily collect aerial and ground views, including ground-truth camera poses and a range of additional data modalities from unmanned aerial vehicle. Our pipeline also provides flexible controls on environmental factors such as light, weather, and types and conditions of wildfire, supporting the need for various tasks covering forest mapping, wildfire emergency response, and beyond. The resulting pilot dataset, WildfireX-SLAM, contains 5.5k low-altitude RGB-D aerial images from a large-scale forest map with a total size of 16 km2. On top of WildfireX-SLAM, a thorough benchmark is also conducted, which not only reveals the unique challenges of 3DGS-based SLAM in the forest but also highlights potential improvements for future works. The dataset and code will be publicly available. Project page: https://zhicongsun.github.io/wildfirexslam.",
+    "arxiv_url": "http://arxiv.org/abs/2510.27133v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.27133v1",
+    "published_date": "2025-10-31",
+    "categories": [
+      "cs.CV",
+      "cs.RO"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "slam",
+      "localization",
+      "gaussian splatting",
+      "3d gaussian",
+      "mapping"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "DC4GS: Directional Consistency-Driven Adaptive Density Control for 3D\n  Gaussian Splatting",
+    "authors": [
+      "Moonsoo Jeong",
+      "Dongbeen Kim",
+      "Minseong Kim",
+      "Sungkil Lee"
+    ],
+    "abstract": "We present a Directional Consistency (DC)-driven Adaptive Density Control (ADC) for 3D Gaussian Splatting (DC4GS). Whereas the conventional ADC bases its primitive splitting on the magnitudes of positional gradients, we further incorporate the DC of the gradients into ADC, and realize it through the angular coherence of the gradients. Our DC better captures local structural complexities in ADC, avoiding redundant splitting. When splitting is required, we again utilize the DC to define optimal split positions so that sub-primitives best align with the local structures than the conventional random placement. As a consequence, our DC4GS greatly reduces the number of primitives (up to 30% in our experiments) than the existing ADC, and also enhances reconstruction fidelity greatly.",
+    "arxiv_url": "http://arxiv.org/abs/2510.26921v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26921v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "gaussian splatting",
+      "3d gaussian"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "HEIR: Learning Graph-Based Motion Hierarchies",
+    "authors": [
+      "Cheng Zheng",
+      "William Koch",
+      "Baiang Li",
+      "Felix Heide"
+    ],
+    "abstract": "Hierarchical structures of motion exist across research fields, including computer vision, graphics, and robotics, where complex dynamics typically arise from coordinated interactions among simpler motion components. Existing methods to model such dynamics typically rely on manually-defined or heuristic hierarchies with fixed motion primitives, limiting their generalizability across different tasks. In this work, we propose a general hierarchical motion modeling method that learns structured, interpretable motion relationships directly from data. Our method represents observed motions using graph-based hierarchies, explicitly decomposing global absolute motions into parent-inherited patterns and local motion residuals. We formulate hierarchy inference as a differentiable graph learning problem, where vertices represent elemental motions and directed edges capture learned parent-child dependencies through graph neural networks. We evaluate our hierarchical reconstruction approach on three examples: 1D translational motion, 2D rotational motion, and dynamic 3D scene deformation via Gaussian splatting. Experimental results show that our method reconstructs the intrinsic motion hierarchy in 1D and 2D cases, and produces more realistic and interpretable deformations compared to the baseline on dynamic 3D Gaussian splatting scenes. By providing an adaptable, data-driven hierarchical modeling paradigm, our method offers a formulation applicable to a broad range of motion-centric tasks. Project Page: https://light.princeton.edu/HEIR/",
+    "arxiv_url": "http://arxiv.org/abs/2510.26786v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26786v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "cs.CV",
+      "cs.GR",
+      "cs.LG"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "deformation",
+      "motion",
+      "gaussian splatting",
+      "robotics",
+      "3d gaussian",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "The Impact and Outlook of 3D Gaussian Splatting",
+    "authors": [
+      "Bernhard Kerbl"
+    ],
+    "abstract": "Since its introduction, 3D Gaussian Splatting (3DGS) has rapidly transformed the landscape of 3D scene representations, inspiring an extensive body of associated research. Follow-up work includes analyses and contributions that enhance the efficiency, scalability, and real-world applicability of 3DGS. In this summary, we present an overview of several key directions that have emerged in the wake of 3DGS. We highlight advances enabling resource-efficient training and rendering, the evolution toward dynamic (or four-dimensional, 4DGS) representations, and deeper exploration of the mathematical foundations underlying its appearance modeling and rendering process. Furthermore, we examine efforts to bring 3DGS to mobile and virtual reality platforms, its extension to massive-scale environments, and recent progress toward near-instant radiance field reconstruction via feed-forward or distributed computation. Collectively, these developments illustrate how 3DGS has evolved from a breakthrough representation into a versatile and foundational tool for 3D vision and graphics.",
+    "arxiv_url": "http://arxiv.org/abs/2510.26694v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26694v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "cs.CV",
+      "cs.GR"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "efficient",
+      "body",
+      "gaussian splatting",
+      "3d gaussian",
+      "4d",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "AgriGS-SLAM: Orchard Mapping Across Seasons via Multi-View Gaussian\n  Splatting SLAM",
+    "authors": [
+      "Mirko Usuelli",
+      "David Rapado-Rincon",
+      "Gert Kootstra",
+      "Matteo Matteucci"
+    ],
+    "abstract": "Autonomous robots in orchards require real-time 3D scene understanding despite repetitive row geometry, seasonal appearance changes, and wind-driven foliage motion. We present AgriGS-SLAM, a Visual--LiDAR SLAM framework that couples direct LiDAR odometry and loop closures with multi-camera 3D Gaussian Splatting (3DGS) rendering. Batch rasterization across complementary viewpoints recovers orchard structure under occlusions, while a unified gradient-driven map lifecycle executed between keyframes preserves fine details and bounds memory. Pose refinement is guided by a probabilistic LiDAR-based depth consistency term, back-propagated through the camera projection to tighten geometry-appearance coupling. We deploy the system on a field platform in apple and pear orchards across dormancy, flowering, and harvesting, using a standardized trajectory protocol that evaluates both training-view and novel-view synthesis to reduce 3DGS overfitting in evaluation. Across seasons and sites, AgriGS-SLAM delivers sharper, more stable reconstructions and steadier trajectories than recent state-of-the-art 3DGS-SLAM baselines while maintaining real-time performance on-tractor. While demonstrated in orchard monitoring, the approach can be applied to other outdoor domains requiring robust multimodal perception.",
+    "arxiv_url": "http://arxiv.org/abs/2510.26358v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26358v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "motion",
+      "slam",
+      "geometry",
+      "understanding",
+      "gaussian splatting",
+      "outdoor",
+      "3d gaussian",
+      "mapping"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "6D Channel Knowledge Map Construction via Bidirectional Wireless\n  Gaussian Splatting",
+    "authors": [
+      "Juncong Zhou",
+      "Chao Hu",
+      "Guanlin Wu",
+      "Zixiang Ren",
+      "Han Hu",
+      "Juyong Zhang",
+      "Rui Zhang",
+      "Jie Xu"
+    ],
+    "abstract": "This paper investigates the construction of channel knowledge map (CKM) from sparse channel measurements. Dif ferent from conventional two-/three-dimensional (2D/3D) CKM approaches assuming fixed base station configurations, we present a six-dimensional (6D) CKM framework named bidirectional wireless Gaussian splatting (BiWGS), which is capable of mod eling wireless channels across dynamic transmitter (Tx) and receiver (Rx) positions in 3D space. BiWGS uses Gaussian el lipsoids to represent virtual scatterer clusters and environmental obstacles in the wireless environment. By properly learning the bidirectional scattering patterns and complex attenuation profiles based on channel measurements, these ellipsoids inherently cap ture the electromagnetic transmission characteristics of wireless environments, thereby accurately modeling signal transmission under varying transceiver configurations. Experiment results show that BiWGS significantly outperforms classic multi-layer perception (MLP) for the construction of 6D channel power gain map with varying Tx-Rx positions, and achieves spatial spectrum prediction accuracy comparable to the state-of-the art wireless radiation field Gaussian splatting (WRF-GS) for 3D CKM construction. This validates the capability of the proposed BiWGS in accomplishing dimensional expansion of 6D CKM construction, without compromising fidelity.",
+    "arxiv_url": "http://arxiv.org/abs/2510.26166v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.26166v1",
+    "published_date": "2025-10-30",
+    "categories": [
+      "eess.SP"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "gaussian splatting",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "D$^2$GS: Dense Depth Regularization for LiDAR-free Urban Scene\n  Reconstruction",
+    "authors": [
+      "Kejing Xia",
+      "Jidong Jia",
+      "Ke Jin",
+      "Yucai Bai",
+      "Li Sun",
+      "Dacheng Tao",
+      "Youjian Zhang"
+    ],
+    "abstract": "Recently, Gaussian Splatting (GS) has shown great potential for urban scene reconstruction in the field of autonomous driving. However, current urban scene reconstruction methods often depend on multimodal sensors as inputs, \\textit{i.e.} LiDAR and images. Though the geometry prior provided by LiDAR point clouds can largely mitigate ill-posedness in reconstruction, acquiring such accurate LiDAR data is still challenging in practice: i) precise spatiotemporal calibration between LiDAR and other sensors is required, as they may not capture data simultaneously; ii) reprojection errors arise from spatial misalignment when LiDAR and cameras are mounted at different locations. To avoid the difficulty of acquiring accurate LiDAR depth, we propose D$^2$GS, a LiDAR-free urban scene reconstruction framework. In this work, we obtain geometry priors that are as effective as LiDAR while being denser and more accurate. $\\textbf{First}$, we initialize a dense point cloud by back-projecting multi-view metric depth predictions. This point cloud is then optimized by a Progressive Pruning strategy to improve the global consistency. $\\textbf{Second}$, we jointly refine Gaussian geometry and predicted dense metric depth via a Depth Enhancer. Specifically, we leverage diffusion priors from a depth foundation model to enhance the depth maps rendered by Gaussians. In turn, the enhanced depths provide stronger geometric constraints during Gaussian training. $\\textbf{Finally}$, we improve the accuracy of ground geometry by constraining the shape and normal attributes of Gaussians within road regions. Extensive experiments on the Waymo dataset demonstrate that our method consistently outperforms state-of-the-art methods, producing more accurate geometry even when compared with those using ground-truth LiDAR data.",
+    "arxiv_url": "http://arxiv.org/abs/2510.25173v2",
+    "pdf_url": "http://arxiv.org/pdf/2510.25173v2",
+    "published_date": "2025-10-29",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "geometry",
+      "autonomous driving",
+      "gaussian splatting",
+      "urban scene"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "AtlasGS: Atlanta-world Guided Surface Reconstruction with Implicit\n  Structured Gaussians",
+    "authors": [
+      "Xiyu Zhang",
+      "Chong Bao",
+      "Yipeng Chen",
+      "Hongjia Zhai",
+      "Yitong Dong",
+      "Hujun Bao",
+      "Zhaopeng Cui",
+      "Guofeng Zhang"
+    ],
+    "abstract": "3D reconstruction of indoor and urban environments is a prominent research topic with various downstream applications. However, existing geometric priors for addressing low-texture regions in indoor and urban settings often lack global consistency. Moreover, Gaussian Splatting and implicit SDF fields often suffer from discontinuities or exhibit computational inefficiencies, resulting in a loss of detail. To address these issues, we propose an Atlanta-world guided implicit-structured Gaussian Splatting that achieves smooth indoor and urban scene reconstruction while preserving high-frequency details and rendering efficiency. By leveraging the Atlanta-world model, we ensure the accurate surface reconstruction for low-texture regions, while the proposed novel implicit-structured GS representations provide smoothness without sacrificing efficiency and high-frequency details. Specifically, we propose a semantic GS representation to predict the probability of all semantic regions and deploy a structure plane regularization with learnable plane indicators for global accurate surface reconstruction. Extensive experiments demonstrate that our method outperforms state-of-the-art approaches in both indoor and urban scenes, delivering superior surface reconstruction quality.",
+    "arxiv_url": "http://arxiv.org/abs/2510.25129v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.25129v1",
+    "published_date": "2025-10-29",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "3d reconstruction",
+      "gaussian splatting",
+      "face",
+      "urban scene",
+      "semantic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "NVSim: Novel View Synthesis Simulator for Large Scale Indoor Navigation",
+    "authors": [
+      "Mingyu Jeong",
+      "Eunsung Kim",
+      "Sehun Park",
+      "Andrew Jaeyong Choi"
+    ],
+    "abstract": "We present NVSim, a framework that automatically constructs large-scale, navigable indoor simulators from only common image sequences, overcoming the cost and scalability limitations of traditional 3D scanning. Our approach adapts 3D Gaussian Splatting to address visual artifacts on sparsely observed floors a common issue in robotic traversal data. We introduce Floor-Aware Gaussian Splatting to ensure a clean, navigable ground plane, and a novel mesh-free traversability checking algorithm that constructs a topological graph by directly analyzing rendered views. We demonstrate our system's ability to generate valid, large-scale navigation graphs from real-world data. A video demonstration is avilable at https://youtu.be/tTiIQt6nXC8",
+    "arxiv_url": "http://arxiv.org/abs/2510.24335v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24335v1",
+    "published_date": "2025-10-28",
+    "categories": [
+      "cs.RO",
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "gaussian splatting",
+      "3d gaussian"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "LagMemo: Language 3D Gaussian Splatting Memory for Multi-modal\n  Open-vocabulary Multi-goal Visual Navigation",
+    "authors": [
+      "Haotian Zhou",
+      "Xiaole Wang",
+      "He Li",
+      "Fusheng Sun",
+      "Shengyu Guo",
+      "Guolei Qi",
+      "Jianghuan Xu",
+      "Huijing Zhao"
+    ],
+    "abstract": "Navigating to a designated goal using visual information is a fundamental capability for intelligent robots. Most classical visual navigation methods are restricted to single-goal, single-modality, and closed set goal settings. To address the practical demands of multi-modal, open-vocabulary goal queries and multi-goal visual navigation, we propose LagMemo, a navigation system that leverages a language 3D Gaussian Splatting memory. During exploration, LagMemo constructs a unified 3D language memory. With incoming task goals, the system queries the memory, predicts candidate goal locations, and integrates a local perception-based verification mechanism to dynamically match and validate goals during navigation. For fair and rigorous evaluation, we curate GOAT-Core, a high-quality core split distilled from GOAT-Bench tailored to multi-modal open-vocabulary multi-goal visual navigation. Experimental results show that LagMemo's memory module enables effective multi-modal open-vocabulary goal localization, and that LagMemo outperforms state-of-the-art methods in multi-goal visual navigation. Project page: https://weekgoodday.github.io/lagmemo",
+    "arxiv_url": "http://arxiv.org/abs/2510.24118v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.24118v1",
+    "published_date": "2025-10-28",
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "localization",
+      "gaussian splatting",
+      "3d gaussian",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "A Survey on Collaborative SLAM with 3D Gaussian Splatting",
+    "authors": [
+      "Phuc Nguyen Xuan",
+      "Thanh Nguyen Canh",
+      "Huu-Hung Nguyen",
+      "Nak Young Chong",
+      "Xiem HoangVan"
+    ],
+    "abstract": "This survey comprehensively reviews the evolving field of multi-robot collaborative Simultaneous Localization and Mapping (SLAM) using 3D Gaussian Splatting (3DGS). As an explicit scene representation, 3DGS has enabled unprecedented real-time, high-fidelity rendering, ideal for robotics. However, its use in multi-robot systems introduces significant challenges in maintaining global consistency, managing communication, and fusing data from heterogeneous sources. We systematically categorize approaches by their architecture -- centralized, distributed -- and analyze core components like multi-agent consistency and alignment, communication-efficient, Gaussian representation, semantic distillation, fusion and pose optimization, and real-time scalability. In addition, a summary of critical datasets and evaluation metrics is provided to contextualize performance. Finally, we identify key open challenges and chart future research directions, including lifelong mapping, semantic association and mapping, multi-model for robustness, and bridging the Sim2Real gap.",
+    "arxiv_url": "http://arxiv.org/abs/2510.23988v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.23988v1",
+    "published_date": "2025-10-28",
+    "categories": [
+      "cs.RO"
+    ],
+    "github_url": "",
+    "keywords": [
+      "survey",
+      "ar",
+      "slam",
+      "localization",
+      "efficient",
+      "gaussian splatting",
+      "robotics",
+      "3d gaussian",
+      "mapping",
+      "semantic",
+      "high-fidelity"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "PlanarGS: High-Fidelity Indoor 3D Gaussian Splatting Guided by\n  Vision-Language Planar Priors",
+    "authors": [
+      "Xirui Jin",
+      "Renbiao Jin",
+      "Boying Li",
+      "Danping Zou",
+      "Wenxian Yu"
+    ],
+    "abstract": "Three-dimensional Gaussian Splatting (3DGS) has recently emerged as an efficient representation for novel-view synthesis, achieving impressive visual quality. However, in scenes dominated by large and low-texture regions, common in indoor environments, the photometric loss used to optimize 3DGS yields ambiguous geometry and fails to recover high-fidelity 3D surfaces. To overcome this limitation, we introduce PlanarGS, a 3DGS-based framework tailored for indoor scene reconstruction. Specifically, we design a pipeline for Language-Prompted Planar Priors (LP3) that employs a pretrained vision-language segmentation model and refines its region proposals via cross-view fusion and inspection with geometric priors. 3D Gaussians in our framework are optimized with two additional terms: a planar prior supervision term that enforces planar consistency, and a geometric prior supervision term that steers the Gaussians toward the depth and normal cues. We have conducted extensive experiments on standard indoor benchmarks. The results show that PlanarGS reconstructs accurate and detailed 3D surfaces, consistently outperforming state-of-the-art methods by a large margin. Project page: https://planargs.github.io",
+    "arxiv_url": "http://arxiv.org/abs/2510.23930v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.23930v1",
+    "published_date": "2025-10-27",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "geometry",
+      "segmentation",
+      "efficient",
+      "gaussian splatting",
+      "face",
+      "3d gaussian",
+      "high-fidelity"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Explicit Memory through Online 3D Gaussian Splatting Improves\n  Class-Agnostic Video Segmentation",
+    "authors": [
+      "Anthony Opipari",
+      "Aravindhan K Krishnan",
+      "Shreekant Gayaka",
+      "Min Sun",
+      "Cheng-Hao Kuo",
+      "Arnie Sen",
+      "Odest Chadwicke Jenkins"
+    ],
+    "abstract": "Remembering where object segments were predicted in the past is useful for improving the accuracy and consistency of class-agnostic video segmentation algorithms. Existing video segmentation algorithms typically use either no object-level memory (e.g. FastSAM) or they use implicit memories in the form of recurrent neural network features (e.g. SAM2). In this paper, we augment both types of segmentation models using an explicit 3D memory and show that the resulting models have more accurate and consistent predictions. For this, we develop an online 3D Gaussian Splatting (3DGS) technique to store predicted object-level segments generated throughout the duration of a video. Based on this 3DGS representation, a set of fusion techniques are developed, named FastSAM-Splat and SAM2-Splat, that use the explicit 3DGS memory to improve their respective foundation models' predictions. Ablation experiments are used to validate the proposed techniques' design and hyperparameter settings. Results from both real-world and simulated benchmarking experiments show that models which use explicit 3D memories result in more accurate and consistent predictions than those which use no memory or only implicit neural network memories. Project Page: https://topipari.com/projects/FastSAM-Splat/",
+    "arxiv_url": "http://arxiv.org/abs/2510.23521v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.23521v1",
+    "published_date": "2025-10-27",
+    "categories": [
+      "cs.RO"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "segmentation",
+      "gaussian splatting",
+      "3d gaussian",
+      "fast"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "EndoWave: Rational-Wavelet 4D Gaussian Splatting for Endoscopic\n  Reconstruction",
+    "authors": [
+      "Taoyu Wu",
+      "Yiyi Miao",
+      "Jiaxin Guo",
+      "Ziyan Chen",
+      "Sihang Zhao",
+      "Zhuoxiao Li",
+      "Zhe Tang",
+      "Baoru Huang",
+      "Limin Yu"
+    ],
+    "abstract": "In robot-assisted minimally invasive surgery, accurate 3D reconstruction from endoscopic video is vital for downstream tasks and improved outcomes. However, endoscopic scenarios present unique challenges, including photometric inconsistencies, non-rigid tissue motion, and view-dependent highlights. Most 3DGS-based methods that rely solely on appearance constraints for optimizing 3DGS are often insufficient in this context, as these dynamic visual artifacts can mislead the optimization process and lead to inaccurate reconstructions. To address these limitations, we present EndoWave, a unified spatio-temporal Gaussian Splatting framework by incorporating an optical flow-based geometric constraint and a multi-resolution rational wavelet supervision. First, we adopt a unified spatio-temporal Gaussian representation that directly optimizes primitives in a 4D domain. Second, we propose a geometric constraint derived from optical flow to enhance temporal coherence and effectively constrain the 3D structure of the scene. Third, we propose a multi-resolution rational orthogonal wavelet as a constraint, which can effectively separate the details of the endoscope and enhance the rendering performance. Extensive evaluations on two real surgical datasets, EndoNeRF and StereoMIS, demonstrate that our method EndoWave achieves state-of-the-art reconstruction quality and visual accuracy compared to the baseline method.",
+    "arxiv_url": "http://arxiv.org/abs/2510.23087v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.23087v1",
+    "published_date": "2025-10-27",
+    "categories": [
+      "cs.CV",
+      "cs.RO"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "motion",
+      "3d reconstruction",
+      "gaussian splatting",
+      "4d",
+      "nerf",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Scaling Up Occupancy-centric Driving Scene Generation: Dataset and\n  Method",
+    "authors": [
+      "Bohan Li",
+      "Xin Jin",
+      "Hu Zhu",
+      "Hongsi Liu",
+      "Ruikai Li",
+      "Jiazhe Guo",
+      "Kaiwen Cai",
+      "Chao Ma",
+      "Yueming Jin",
+      "Hao Zhao",
+      "Xiaokang Yang",
+      "Wenjun Zeng"
+    ],
+    "abstract": "Driving scene generation is a critical domain for autonomous driving, enabling downstream applications, including perception and planning evaluation. Occupancy-centric methods have recently achieved state-of-the-art results by offering consistent conditioning across frames and modalities; however, their performance heavily depends on annotated occupancy data, which still remains scarce. To overcome this limitation, we curate Nuplan-Occ, the largest semantic occupancy dataset to date, constructed from the widely used Nuplan benchmark. Its scale and diversity facilitate not only large-scale generative modeling but also autonomous driving downstream applications. Based on this dataset, we develop a unified framework that jointly synthesizes high-quality semantic occupancy, multi-view videos, and LiDAR point clouds. Our approach incorporates a spatio-temporal disentangled architecture to support high-fidelity spatial expansion and temporal forecasting of 4D dynamic occupancy. To bridge modal gaps, we further propose two novel techniques: a Gaussian splatting-based sparse point map rendering strategy that enhances multi-view video generation, and a sensor-aware embedding strategy that explicitly models LiDAR sensor properties for realistic multi-LiDAR simulation. Extensive experiments demonstrate that our method achieves superior generation fidelity and scalability compared to existing approaches, and validates its practical value in downstream tasks. Repo: https://github.com/Arlo0o/UniScene-Unified-Occupancy-centric-Driving-Scene-Generation/tree/v2",
+    "arxiv_url": "http://arxiv.org/abs/2510.22973v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.22973v1",
+    "published_date": "2025-10-27",
+    "categories": [
+      "cs.CV"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "high-fidelity",
+      "autonomous driving",
+      "gaussian splatting",
+      "4d",
+      "semantic",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Gen-LangSplat: Generalized Language Gaussian Splatting with Pre-Trained\n  Feature Compression",
+    "authors": [
+      "Pranav Saxena"
+    ],
+    "abstract": "Modeling open-vocabulary language fields in 3D is essential for intuitive human-AI interaction and querying within physical environments. State-of-the-art approaches, such as LangSplat, leverage 3D Gaussian Splatting to efficiently construct these language fields, encoding features distilled from high-dimensional models like CLIP. However, this efficiency is currently offset by the requirement to train a scene-specific language autoencoder for feature compression, introducing a costly, per-scene optimization bottleneck that hinders deployment scalability. In this work, we introduce Gen-LangSplat, that eliminates this requirement by replacing the scene-wise autoencoder with a generalized autoencoder, pre-trained extensively on the large-scale ScanNet dataset. This architectural shift enables the use of a fixed, compact latent space for language features across any new scene without any scene-specific training. By removing this dependency, our entire language field construction process achieves a efficiency boost while delivering querying performance comparable to, or exceeding, the original LangSplat method. To validate our design choice, we perform a thorough ablation study empirically determining the optimal latent embedding dimension and quantifying representational fidelity using Mean Squared Error and cosine similarity between the original and reprojected 512-dimensional CLIP embeddings. Our results demonstrate that generalized embeddings can efficiently and accurately support open-vocabulary querying in novel 3D scenes, paving the way for scalable, real-time interactive 3D AI applications.",
+    "arxiv_url": "http://arxiv.org/abs/2510.22930v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.22930v1",
+    "published_date": "2025-10-27",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "compact",
+      "efficient",
+      "gaussian splatting",
+      "compression",
+      "3d gaussian",
+      "human"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Region-Adaptive Learned Hierarchical Encoding for 3D Gaussian Splatting\n  Data",
+    "authors": [
+      "Shashank N. Sridhara",
+      "Birendra Kathariya",
+      "Fangjun Pu",
+      "Peng Yin",
+      "Eduardo Pavez",
+      "Antonio Ortega"
+    ],
+    "abstract": "We introduce Region-Adaptive Learned Hierarchical Encoding (RALHE) for 3D Gaussian Splatting (3DGS) data. While 3DGS has recently become popular for novel view synthesis, the size of trained models limits its deployment in bandwidth-constrained applications such as volumetric media streaming. To address this, we propose a learned hierarchical latent representation that builds upon the principles of \"overfitted\" learned image compression (e.g., Cool-Chic and C3) to efficiently encode 3DGS attributes. Unlike images, 3DGS data have irregular spatial distributions of Gaussians (geometry) and consist of multiple attributes (signals) defined on the irregular geometry. Our codec is designed to account for these differences between images and 3DGS. Specifically, we leverage the octree structure of the voxelized 3DGS geometry to obtain a hierarchical multi-resolution representation. Our approach overfits latents to each Gaussian attribute under a global rate constraint. These latents are decoded independently through a lightweight decoder network. To estimate the bitrate during training, we employ an autoregressive probability model that leverages octree-derived contexts from the 3D point structure. The multi-resolution latents, decoder, and autoregressive entropy coding networks are jointly optimized for each Gaussian attribute. Experiments demonstrate that the proposed RALHE compression framework achieves a rendering PSNR gain of up to 2dB at low bitrates (less than 1 MB) compared to the baseline 3DGS compression methods.",
+    "arxiv_url": "http://arxiv.org/abs/2510.22812v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.22812v1",
+    "published_date": "2025-10-26",
+    "categories": [
+      "eess.IV",
+      "cs.MM"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "geometry",
+      "efficient",
+      "gaussian splatting",
+      "compression",
+      "3d gaussian",
+      "lightweight"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "Edge Collaborative Gaussian Splatting with Integrated Rendering and\n  Communication",
+    "authors": [
+      "Yujie Wan",
+      "Chenxuan Liu",
+      "Shuai Wang",
+      "Tong Zhang",
+      "James Jianqiao Yu",
+      "Kejiang Ye",
+      "Dusit Niyato",
+      "Chengzhong Xu"
+    ],
+    "abstract": "Gaussian splatting (GS) struggles with degraded rendering quality on low-cost devices. To address this issue, we present edge collaborative GS (ECO-GS), where each user can switch between a local small GS model to guarantee timeliness and a remote large GS model to guarantee fidelity. However, deciding how to engage the large GS model is nontrivial, due to the interdependency between rendering requirements and resource conditions. To this end, we propose integrated rendering and communication (IRAC), which jointly optimizes collaboration status (i.e., deciding whether to engage large GS) and edge power allocation (i.e., enabling remote rendering) under communication constraints across different users by minimizing a newly-derived GS switching function. Despite the nonconvexity of the problem, we propose an efficient penalty majorization minimization (PMM) algorithm to obtain the critical point solution. Furthermore, we develop an imitation learning optimization (ILO) algorithm, which reduces the computational time by over 100x compared to PMM. Experiments demonstrate the superiority of PMM and the real-time execution capability of ILO.",
+    "arxiv_url": "http://arxiv.org/abs/2510.22718v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.22718v1",
+    "published_date": "2025-10-26",
+    "categories": [
+      "cs.IT",
+      "cs.CV",
+      "math.IT"
+    ],
+    "github_url": "",
+    "keywords": [
+      "efficient",
+      "gaussian splatting",
+      "ar"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "LVD-GS: Gaussian Splatting SLAM for Dynamic Scenes via Hierarchical\n  Explicit-Implicit Representation Collaboration Rendering",
+    "authors": [
+      "Wenkai Zhu",
+      "Xu Li",
+      "Qimin Xu",
+      "Benwu Wang",
+      "Kun Wei",
+      "Yiming Peng",
+      "Zihang Wang"
+    ],
+    "abstract": "3D Gaussian Splatting SLAM has emerged as a widely used technique for high-fidelity mapping in spatial intelligence. However, existing methods often rely on a single representation scheme, which limits their performance in large-scale dynamic outdoor scenes and leads to cumulative pose errors and scale ambiguity. To address these challenges, we propose \\textbf{LVD-GS}, a novel LiDAR-Visual 3D Gaussian Splatting SLAM system. Motivated by the human chain-of-thought process for information seeking, we introduce a hierarchical collaborative representation module that facilitates mutual reinforcement for mapping optimization, effectively mitigating scale drift and enhancing reconstruction robustness. Furthermore, to effectively eliminate the influence of dynamic objects, we propose a joint dynamic modeling module that generates fine-grained dynamic masks by fusing open-world segmentation with implicit residual constraints, guided by uncertainty estimates from DINO-Depth features. Extensive evaluations on KITTI, nuScenes, and self-collected datasets demonstrate that our approach achieves state-of-the-art performance compared to existing methods.",
+    "arxiv_url": "http://arxiv.org/abs/2510.22669v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.22669v1",
+    "published_date": "2025-10-26",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "high-fidelity",
+      "slam",
+      "segmentation",
+      "outdoor",
+      "gaussian splatting",
+      "3d gaussian",
+      "mapping",
+      "human",
+      "dynamic"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  },
+  {
+    "title": "RoGER-SLAM: A Robust Gaussian Splatting SLAM System for Noisy and\n  Low-light Environment Resilience",
+    "authors": [
+      "Huilin Yin",
+      "Zhaolin Yang",
+      "Linchuan Zhang",
+      "Gerhard Rigoll",
+      "Johannes Betz"
+    ],
+    "abstract": "The reliability of Simultaneous Localization and Mapping (SLAM) is severely constrained in environments where visual inputs suffer from noise and low illumination. Although recent 3D Gaussian Splatting (3DGS) based SLAM frameworks achieve high-fidelity mapping under clean conditions, they remain vulnerable to compounded degradations that degrade mapping and tracking performance. A key observation underlying our work is that the original 3DGS rendering pipeline inherently behaves as an implicit low-pass filter, attenuating high-frequency noise but also risking over-smoothing. Building on this insight, we propose RoGER-SLAM, a robust 3DGS SLAM system tailored for noise and low-light resilience. The framework integrates three innovations: a Structure-Preserving Robust Fusion (SP-RoFusion) mechanism that couples rendered appearance, depth, and edge cues; an adaptive tracking objective with residual balancing regularization; and a Contrastive Language-Image Pretraining (CLIP)-based enhancement module, selectively activated under compounded degradations to restore semantic and structural fidelity. Comprehensive experiments on Replica, TUM, and real-world sequences show that RoGER-SLAM consistently improves trajectory accuracy and reconstruction quality compared with other 3DGS-SLAM systems, especially under adverse imaging conditions.",
+    "arxiv_url": "http://arxiv.org/abs/2510.22600v1",
+    "pdf_url": "http://arxiv.org/pdf/2510.22600v1",
+    "published_date": "2025-10-26",
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "github_url": "",
+    "keywords": [
+      "ar",
+      "slam",
+      "tracking",
+      "localization",
+      "mapping",
+      "gaussian splatting",
+      "3d gaussian",
+      "illumination",
+      "semantic",
+      "high-fidelity"
+    ],
+    "citations": 0,
+    "semantic_url": ""
+  }
+]
