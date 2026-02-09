@@ -39,6 +39,12 @@ A curated list of latest research papers, projects and resources related to Gaus
   Code: 🔗 [GitHub](https://github.com/graphdeco-inria/gaussian-splatting)  
   Keywords: Real-time Rendering, Neural Rendering, Point-based Graphics
 
+- **[Instruct-4DGS: Efficient Dynamic Scene Editing via 4D Gaussian-based Static-Dynamic Separation](https://hanbyelcho.info/instruct-4dgs/)** (CVPR 2025)  
+  Authors: Hanbyel Cho, Juhyeon Kwon, et al.  
+  Paper: 📄 [arXiv](https://arxiv.org/abs/2502.02091)  
+  Code: 🔗 [GitHub](https://github.com/juhyeon-kwon/efficient_4d_gaussian_editing)  
+  Keywords: Dynamic Scene Editing, 4D Gaussian Splatting, Static-Dynamic Separation
+
 ## Open Source Projects
 - [gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting) - Original implementation of 3D Gaussian Splatting
 - [taichi-3d-gaussian-splatting](https://github.com/wanmeihuali/taichi-3d-gaussian-splatting) - 3D Gaussian Splatting implemented in Taichi
