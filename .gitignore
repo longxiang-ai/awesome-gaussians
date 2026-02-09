@@ -24,13 +24,18 @@ wheels/
 # Logs
 logs/
 *.log
+tests/
 
 # Environment variables
 .env
 
+# Output directory (BibTeX exports, etc.)
+output/
+
 # IDE
 .idea/
 .vscode/
+.cursor/
 *.swp
 *.swo
 

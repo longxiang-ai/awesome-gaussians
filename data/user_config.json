@@ -1,0 +1,39 @@
+{
+  "search": {
+    "keywords": {
+      "both_abstract_and_title": [
+        "gaussian splatting",
+        "3d gaussian",
+        "gaussian splat",
+        "3dgs",
+        "4d gaussian"
+      ],
+      "abstract_only": [
+        "neural radiance field gaussian",
+        "volumetric rendering gaussian",
+        "point cloud gaussian"
+      ],
+      "title_only": [
+        "3D scene reconstruction",
+        "neural rendering"
+      ]
+    },
+    "domains": [],
+    "time_range": {
+      "mode": "relative",
+      "relative": "1y",
+      "start_date": null,
+      "end_date": null
+    },
+    "max_results": 500
+  },
+  "categories": {
+    "description": "Custom category keywords (merged with data/keywords.json). Leave empty to use defaults only.",
+    "custom_categories": {}
+  },
+  "api_keys": {
+    "openai_api_key": "",
+    "openai_base_url": "https://api.openai.com/v1",
+    "openai_model": "gpt-4o-mini"
+  }
+}

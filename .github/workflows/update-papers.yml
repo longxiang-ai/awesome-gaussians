@@ -33,15 +33,18 @@ jobs:
         echo "📁 检查必要文件..."
         ls -la data/
         test -f data/keywords.json || { echo "❌ keywords.json 文件不存在"; exit 1; }
-        test -f data/search_config.json || { echo "❌ search_config.json 文件不存在"; exit 1; }
+        test -f data/search_config.json || test -f data/user_config.json || { echo "❌ search_config.json 和 user_config.json 都不存在"; exit 1; }
         echo "✅ 所有必要文件存在"
+        if [ -f data/user_config.json ]; then
+          echo "📋 检测到 user_config.json，将优先使用用户自定义配置"
+        fi
         
     - name: 运行爬虫
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "🕷️ 开始运行爬虫..."
-        python3 scripts/arxiv_crawler.py
+        python3 main.py search
         echo "✅ 爬虫运行完成"
         
     - name: 验证爬虫输出
@@ -53,7 +56,7 @@ jobs:
     - name: 更新README
       run: |
         echo "📝 更新 README..."
-        python3 scripts/readme_generator.py
+        python3 main.py readme
         echo "✅ README 更新完成"
         
     - name: 检查是否有更改

@@ -101,30 +101,34 @@ class ReadmeGenerator:
         """Format a single paper entry"""
         try:
             arxiv_id = paper["arxiv_url"].split("/")[-1]
-            
+
             # Basic information
             entry = f'- **[{paper["title"]}](https://arxiv.org/abs/{arxiv_id})**  \n'
-            
+
             # Add authors
             authors = paper["authors"]
             entry += f'  Authors: {", ".join(authors)}  \n'
-            
+
             # Add links with different styles
-            links = []
+            link_badges = []
             # Always add arXiv PDF link
-            links.append(f'[![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/{arxiv_id}.pdf)')
-            
-            # Handle GitHub link with stars count
-            if paper["github_url"]:
-                parts = paper["github_url"].split('github.com/')[-1].split('/')
+            link_badges.append(f'[![PDF](https://img.shields.io/badge/PDF-arXiv-b31b1b.svg)](https://arxiv.org/pdf/{arxiv_id}.pdf)')
+
+            # Use the structured links field if available, otherwise fall back to old logic
+            paper_links = paper.get("links", {})
+
+            # GitHub link
+            github_url = paper_links.get("github") or paper.get("github_url", "")
+            if github_url:
+                parts = github_url.split('github.com/')[-1].split('/')
                 if len(parts) >= 2:
                     owner, repo = parts[0], parts[1]
-                    links.append(f'[![GitHub](https://img.shields.io/github/stars/{owner}/{repo}?style=social)]({paper["github_url"]})')
-            
-            # Extract project URL from abstract if exists
-            project_url = None
-            if paper["abstract"]:
-                # Look for URLs in the abstract
+                    link_badges.append(f'[![GitHub](https://img.shields.io/github/stars/{owner}/{repo}?style=social)]({github_url})')
+
+            # Project page link
+            project_url = paper_links.get("project")
+            if not project_url and paper.get("abstract"):
+                # Fallback: extract from abstract
                 urls = re.findall(r'https?://[^\s<>"]+|www\.[^\s<>"]+', paper["abstract"])
                 for url in urls:
                     if not url.startswith('http'):
@@ -132,19 +136,35 @@ class ReadmeGenerator:
                     if 'arxiv.org' not in url and 'github.com' not in url:
                         project_url = url
                         break
-            
-            # Handle project/demo link
             if project_url:
-                links.append(f'[![Project](https://img.shields.io/badge/-Project-blue)]({project_url})')
-            elif paper.get("project_url"):  # If there's a project URL in metadata
-                links.append(f'[![Project](https://img.shields.io/badge/-Project-blue)]({paper["project_url"]})')
-            
+                link_badges.append(f'[![Project](https://img.shields.io/badge/-Project-blue)]({project_url})')
+
+            # Dataset link
+            dataset_url = paper_links.get("dataset")
+            if dataset_url:
+                link_badges.append(f'[![Dataset](https://img.shields.io/badge/-Dataset-orange)]({dataset_url})')
+
+            # Video link
+            video_url = paper_links.get("video")
+            if video_url:
+                link_badges.append(f'[![Video](https://img.shields.io/badge/-Video-red)]({video_url})')
+
+            # Demo link
+            demo_url = paper_links.get("demo")
+            if demo_url:
+                link_badges.append(f'[![Demo](https://img.shields.io/badge/-Demo-brightgreen)]({demo_url})')
+
+            # HuggingFace link
+            hf_url = paper_links.get("huggingface")
+            if hf_url:
+                link_badges.append(f'[![HuggingFace](https://img.shields.io/badge/-HuggingFace-yellow)]({hf_url})')
+
             # Handle Semantic Scholar citations
-            if paper["semantic_url"]:
-                links.append(f'[![Citations](https://img.shields.io/badge/📚_Citations-{paper["citations"]}-green)]({paper["semantic_url"]})')
-            
-            entry += f'  Links: {" | ".join(links)}  \n'
-            
+            if paper.get("semantic_url"):
+                link_badges.append(f'[![Citations](https://img.shields.io/badge/Citations-{paper.get("citations", 0)}-green)]({paper["semantic_url"]})')
+
+            entry += f'  Links: {" | ".join(link_badges)}  \n'
+
             # Only add abstract if enabled
             if self.show_abstracts:
                 abstract = paper["abstract"]
@@ -152,15 +172,15 @@ class ReadmeGenerator:
                 if len(words) > 150:
                     abstract = ' '.join(words[:150]) + "..."
                 entry += f'  <details><summary>Abstract</summary>\n\n  {abstract}\n  </details>  \n'
-            
+
             # Add keywords (use existing keywords or extract from abstract/title)
-            if paper["keywords"]:
+            if paper.get("keywords"):
                 keywords = paper["keywords"]
             else:
                 keywords = self._extract_keywords(paper["abstract"], paper["title"])
             if keywords:
                 entry += f'  Keywords: {", ".join(keywords)}  \n'
-            
+
             return entry
         except Exception as e:
             self.logger.error(f"Error formatting paper entry: {e}")
