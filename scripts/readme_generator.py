@@ -9,22 +9,34 @@ from utils.logger import setup_logger
 from collections import defaultdict
 import argparse
 
+
+PAPER_FILE_PATTERN = re.compile(r"^papers_(\d{4}-\d{2}-\d{2})\.json$")
+REQUIRED_PAPER_FIELDS = {
+    "title",
+    "authors",
+    "abstract",
+    "arxiv_url",
+    "pdf_url",
+    "published_date",
+    "categories",
+}
+
 class ReadmeGenerator:
     def __init__(self):
         self.logger = setup_logger("readme_generator")
         self.data_dir = Path("data")
         self.template_path = Path("README_template.md")
         self.readme_path = Path("README.md")
-        
+
         # Check necessary directories and files
         if not self.data_dir.exists():
             self.logger.error(f"Data directory not found: {self.data_dir}")
             raise FileNotFoundError(f"Data directory not found: {self.data_dir}")
-            
+
         if not self.template_path.exists():
             self.logger.error(f"Template file not found: {self.template_path}")
             raise FileNotFoundError(f"Template file not found: {self.template_path}")
-            
+
         # Read template file
         try:
             with open(self.template_path, "r", encoding="utf-8") as f:
@@ -40,7 +52,7 @@ class ReadmeGenerator:
             if not keywords_path.exists():
                 self.logger.error(f"Keywords file not found: {keywords_path}")
                 raise FileNotFoundError(f"Keywords file not found: {keywords_path}")
-            
+
             with open(keywords_path, "r", encoding="utf-8") as f:
                 keywords_data = json.load(f)
                 self.keyword_categories = keywords_data["categories"]
@@ -55,24 +67,70 @@ class ReadmeGenerator:
         self.show_latest_papers = False  # Default to not show latest papers section
         self.show_abstracts = False  # Default to not show abstracts
 
-    def load_latest_papers(self) -> List[Dict]:
-        """加载最新的论文数据"""
+    @staticmethod
+    def _is_valid_paper_record(paper: Dict) -> bool:
+        if not isinstance(paper, dict) or REQUIRED_PAPER_FIELDS.difference(paper):
+            return False
+        if not isinstance(paper["title"], str) or not paper["title"].strip():
+            return False
+        if not isinstance(paper["arxiv_url"], str) or not paper["arxiv_url"].strip():
+            return False
+        if not isinstance(paper["authors"], list) or not isinstance(paper["categories"], list):
+            return False
+        if not isinstance(paper["abstract"], str) or not isinstance(paper["pdf_url"], str):
+            return False
+        if "keywords" in paper and not isinstance(paper["keywords"], list):
+            return False
+        if "links" in paper and not isinstance(paper["links"], dict):
+            return False
         try:
-            json_files = list(self.data_dir.glob("papers_*.json"))
-            if not json_files:
-                self.logger.warning("未找到论文数据文件")
-                return []
-            
-            latest_file = max(json_files, key=lambda x: x.stat().st_mtime)
-            self.logger.info(f"找到最新数据文件: {latest_file}")
-            
-            with open(latest_file, "r", encoding="utf-8") as f:
-                papers = json.load(f)
-                self.logger.info(f"成功从{latest_file}加载{len(papers)}篇论文")
+            datetime.datetime.strptime(paper["published_date"], "%Y-%m-%d")
+        except (TypeError, ValueError):
+            return False
+        return True
+
+    def load_latest_papers(self) -> List[Dict]:
+        """Load the newest dated, non-empty, structurally valid paper file."""
+        dated_files = []
+        for json_file in self.data_dir.glob("papers_*.json"):
+            match = PAPER_FILE_PATTERN.fullmatch(json_file.name)
+            if match:
+                dated_files.append((match.group(1), json_file))
+
+        if not dated_files:
+            self.logger.warning("未找到论文数据文件")
+            return []
+
+        for _, candidate in sorted(dated_files, key=lambda item: item[0], reverse=True):
+            try:
+                with open(candidate, "r", encoding="utf-8") as f:
+                    papers = json.load(f)
+                if not isinstance(papers, list) or not papers:
+                    self.logger.warning(f"跳过空论文数据文件: {candidate}")
+                    continue
+                invalid_index = next(
+                    (
+                        index
+                        for index, paper in enumerate(papers)
+                        if not self._is_valid_paper_record(paper)
+                    ),
+                    None,
+                )
+                if invalid_index is not None:
+                    self.logger.warning(
+                        f"跳过结构无效的论文数据文件: {candidate} "
+                        f"(paper index {invalid_index})"
+                    )
+                    continue
+                self.latest_data_file = candidate
+                self.logger.info(f"找到最新有效数据文件: {candidate}")
+                self.logger.info(f"成功从{candidate}加载{len(papers)}篇论文")
                 return papers
-        except Exception as e:
-            self.logger.error(f"加载论文数据时出错: {e}")
-            raise
+            except (OSError, json.JSONDecodeError) as e:
+                self.logger.warning(f"跳过无法读取的论文数据文件 {candidate}: {e}")
+
+        self.logger.error("没有可用的非空论文数据文件")
+        return []
 
     def group_papers_by_month(self, papers: List[Dict]) -> Dict[str, List[Dict]]:
         """Group papers by month"""
@@ -89,12 +147,12 @@ class ReadmeGenerator:
         """Extract keywords from abstract and title"""
         keywords = []
         text = (abstract + " " + title).lower()
-        
+
         # Check each common keyword
         for keyword in self.common_keywords:
             if keyword.lower() in text:
                 keywords.append(keyword)
-                
+
         return keywords
 
     def format_paper_entry(self, paper: Dict) -> str:
@@ -189,18 +247,18 @@ class ReadmeGenerator:
     def categorize_paper(self, paper: Dict) -> List[str]:
         """Categorize paper based on its keywords and title"""
         categories = set()
-        
+
         # Convert paper title and keywords to lowercase for matching
         title = paper["title"].lower()
-        keywords = [k.lower() for k in paper["keywords"]] if paper["keywords"] else []
-        
+        keywords = [k.lower() for k in paper.get("keywords", [])]
+
         # Check each category's keywords
         for category, category_info in self.keyword_categories.items():
             category_keywords = category_info["keywords"]
             for keyword in category_keywords:
                 if keyword.lower() in title or any(keyword.lower() in k for k in keywords):
                     categories.add(category)
-                    
+
         return list(categories)
 
     def generate_navigation(self, categorized_papers: Dict[str, List[Dict]]) -> str:
@@ -216,7 +274,7 @@ class ReadmeGenerator:
     def generate_categorized_sections(self, categorized_papers: Dict[str, List[Dict]]) -> str:
         """Generate sections for each category"""
         sections = "## Categorized Papers\n\n"
-        
+
         # Sort papers by date in each category
         for category in sorted(categorized_papers.keys()):
             if categorized_papers[category]:  # Only show categories with papers
@@ -226,15 +284,15 @@ class ReadmeGenerator:
                     key=lambda x: x["published_date"],
                     reverse=True
                 )
-                
+
                 # Only show the latest 10 papers in each category
                 papers_to_show = sorted_papers[:10]
                 total_papers = len(sorted_papers)
-                
+
                 sections += f"### {category}\n\n"
                 if total_papers > 50:
                     sections += f"*Showing the latest 50 out of {total_papers} papers*\n\n"
-                
+
                 for paper in papers_to_show:
                     sections += self.format_paper_entry(paper)
                 sections += "\n"
@@ -244,29 +302,29 @@ class ReadmeGenerator:
         """Generate README file"""
         try:
             self.logger.info("Starting README generation...")
-            
+
             # Load paper data
             papers = self.load_latest_papers()
             if not papers:
                 self.logger.error("No paper data found, cannot generate README")
                 return False
-                
+
             self.logger.info(f"Loaded {len(papers)} papers")
-            
+
             # Group by month
             papers_by_month = self.group_papers_by_month(papers)
             self.logger.info(f"Grouped by months: {list(papers_by_month.keys())}")
-            
+
             # Categorize papers
             categorized_papers = defaultdict(list)
             for paper in papers:
                 categories = self.categorize_paper(paper)
                 for category in categories:
                     categorized_papers[category].append(paper)
-            
+
             # Generate sections
             navigation = self.generate_navigation(categorized_papers)
-            
+
             # Only generate latest papers section if enabled
             latest_papers_section = ""
             if self.show_latest_papers:
@@ -278,9 +336,9 @@ class ReadmeGenerator:
                         paper_entry = self.format_paper_entry(paper)
                         latest_papers_section += paper_entry
                     latest_papers_section += "\n"
-            
+
             categorized_sections = self.generate_categorized_sections(categorized_papers)
-            
+
             # Generate table of contents based on show_latest_papers
             toc = "## Table of Contents\n\n"
             if self.show_latest_papers:
@@ -290,7 +348,7 @@ class ReadmeGenerator:
             toc += "- [Open Source Projects](#open-source-projects)\n"
             toc += "- [Applications](#applications)\n"
             toc += "- [Tutorials & Blogs](#tutorials--blogs)\n\n"
-            
+
             # Update README
             readme_content = self.template_content
             readme_content = readme_content.replace("{{NAVIGATION}}", navigation)
@@ -298,24 +356,24 @@ class ReadmeGenerator:
             readme_content = readme_content.replace("{{LATEST_PAPERS}}", latest_papers_section)
             readme_content = readme_content.replace("{{CATEGORIZED_PAPERS}}", categorized_sections)
             readme_content = readme_content.replace(
-                "{{LAST_UPDATE}}", 
+                "{{LAST_UPDATE}}",
                 datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             )
-            
+
             # Ensure parent directory exists
             self.readme_path.parent.mkdir(parents=True, exist_ok=True)
-            
+
             self.logger.info(f"Writing README file: {self.readme_path}")
             with open(self.readme_path, "w", encoding="utf-8") as f:
                 f.write(readme_content)
-            
+
             if self.readme_path.exists():
                 self.logger.info(f"README.md successfully generated, size: {self.readme_path.stat().st_size} bytes")
                 return True
             else:
                 self.logger.error("README.md generation failed")
                 return False
-                
+
         except Exception as e:
             self.logger.error(f"Error generating README: {e}")
             raise
@@ -340,4 +398,4 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
-    main() 
+    main()
