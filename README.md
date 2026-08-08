@@ -2,9 +2,18 @@
 
 A curated list of latest research papers, projects and resources related to Gaussian Splatting. Content is automatically updated daily.
 
-> Last Update: 2026-08-08 19:49:25
+> Last Update: 2026-08-08 20:04:45
 
 ## 📰 Latest Updates
+
+🔧 **[2026-08-08] Resilient arXiv Updates**
+- Switched the crawler to the official HTTPS export API endpoint
+- Added bounded retries for rate limits, server errors, and network timeouts
+- Temporary arXiv outages now preserve existing data and finish scheduled runs with a warning
+- Added atomic, non-empty JSON writes and fallback to the latest valid data when generating README
+
+📚 **[2026-08-08] Community Paper Added**
+- Added the HDR Gaussian Splatting paper suggested in [Issue #3](https://github.com/longxiang-ai/awesome-gaussians/issues/3)
 
 🚀 **[2026-02] Major Feature Update — v2.0**
 - **Unified CLI**: Single entry point `python main.py` with subcommands: `init`, `search`, `suggest`, `export-bib`, `readme`
@@ -15,10 +24,7 @@ A curated list of latest research papers, projects and resources related to Gaus
 - **LLM Keyword Suggestion**: Paste a few paper titles or arXiv IDs, and an LLM automatically generates optimized search keywords
 - **arXiv Domain Filtering**: Restrict searches to specific arXiv categories (e.g., `cs.CV`, `cs.GR`)
 
-🔧 **[2025-06-26] HTTP 301 Redirect Issue Completely Resolved!** 
-- Implemented multi-layer fallback strategy to thoroughly solve network compatibility issues
-
-🔧 **[2025-06-26] Configurable Search Keywords Feature Added!**
+🔧 **[2025-06-26] Configurable Search Keywords Added**
 - You can now customize search keywords by modifying `data/search_config.json`
 
 - View detailed updates: [News.md](News.md) 📋
