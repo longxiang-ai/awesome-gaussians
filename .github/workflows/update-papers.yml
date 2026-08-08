@@ -8,26 +8,26 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: 检出代码
       uses: actions/checkout@v4
-      
+
     - name: 设置Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
-        
+
     - name: 安装依赖
       run: |
         python3 -m pip install --upgrade pip
         pip3 install -r requirements.txt
-        
+
     - name: 验证搜索配置
       run: |
         echo "🔍 验证搜索配置文件..."
         python3 scripts/validate_search_config.py
-        
+
     - name: 验证必要文件
       run: |
         echo "📁 检查必要文件..."
@@ -38,28 +38,86 @@ jobs:
         if [ -f data/user_config.json ]; then
           echo "📋 检测到 user_config.json，将优先使用用户自定义配置"
         fi
-        
+
     - name: 运行爬虫
+      id: crawl
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "🕷️ 开始运行爬虫..."
+        set +e
         python3 main.py search
-        echo "✅ 爬虫运行完成"
-        
+        crawl_exit=$?
+        set -e
+
+        case "$crawl_exit" in
+          0)
+            echo "fresh_data=true" >> "$GITHUB_OUTPUT"
+            echo "crawl_status=updated" >> "$GITHUB_OUTPUT"
+            echo "✅ 爬虫运行完成"
+            ;;
+          3|75)
+            if [ "$crawl_exit" -eq 3 ]; then
+              crawl_status="no_results"
+              reason="arXiv 请求成功，但没有匹配论文"
+            else
+              crawl_status="temporary_failure"
+              reason="arXiv 限流或临时网络故障"
+            fi
+            echo "fresh_data=false" >> "$GITHUB_OUTPUT"
+            echo "crawl_status=$crawl_status" >> "$GITHUB_OUTPUT"
+            echo "::warning::$reason；本次保留已有数据并跳过 README 更新。"
+
+            latest_file=$(find data -maxdepth 1 -type f -name 'papers_????-??-??.json' | sort | tail -n 1)
+            {
+              echo "### ⚠️ 论文更新已跳过"
+              echo ""
+              echo "- 原因：$reason"
+              echo "- 爬虫退出码：\`$crawl_exit\`"
+              if [ -n "$latest_file" ]; then
+                echo "- 保留数据：\`$latest_file\`"
+              else
+                echo "- 保留数据：未找到历史数据文件"
+              fi
+            } >> "$GITHUB_STEP_SUMMARY"
+            ;;
+          *)
+            echo "❌ 爬虫发生非临时性错误，退出码: $crawl_exit"
+            exit "$crawl_exit"
+            ;;
+        esac
+
     - name: 验证爬虫输出
+      if: steps.crawl.outputs.fresh_data == 'true'
       run: |
         echo "📊 验证爬虫输出..."
-        ls -la data/papers_*.json || { echo "❌ 没有生成论文数据文件"; exit 1; }
-        echo "✅ 论文数据文件生成成功"
-        
+        today_file="data/papers_$(date -u +'%Y-%m-%d').json"
+        test -f "$today_file" || { echo "❌ 没有生成当天论文数据文件: $today_file"; exit 1; }
+        jq -e '
+          type == "array" and
+          length > 0 and
+          all(.[];
+            type == "object" and
+            (.title | type == "string" and length > 0) and
+            (.authors | type == "array") and
+            has("abstract") and
+            (.arxiv_url | type == "string" and length > 0) and
+            has("pdf_url") and
+            (.published_date | type == "string" and test("^[0-9]{4}-[0-9]{2}-[0-9]{2}$")) and
+            (.categories | type == "array")
+          )
+        ' "$today_file" > /dev/null
+        echo "✅ 论文数据文件结构有效: $today_file"
+
     - name: 更新README
+      if: steps.crawl.outputs.fresh_data == 'true'
       run: |
         echo "📝 更新 README..."
         python3 main.py readme
         echo "✅ README 更新完成"
-        
+
     - name: 检查是否有更改
+      if: steps.crawl.outputs.fresh_data == 'true'
       id: verify-changed-files
       run: |
         if [ -n "$(git status --porcelain)" ]; then
@@ -69,25 +127,30 @@ jobs:
           echo "has_changes=false" >> $GITHUB_OUTPUT
           echo "📊 没有检测到更改"
         fi
-        
+
     - name: 提交更改
-      if: steps.verify-changed-files.outputs.has_changes == 'true'
+      if: steps.crawl.outputs.fresh_data == 'true' && steps.verify-changed-files.outputs.has_changes == 'true'
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add data/ README.md
         git commit -m "🤖 自动更新: $(date +'%Y-%m-%d %H:%M UTC')"
-        
+
     - name: 推送更改
-      if: steps.verify-changed-files.outputs.has_changes == 'true'
+      if: steps.crawl.outputs.fresh_data == 'true' && steps.verify-changed-files.outputs.has_changes == 'true'
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
-        
+
     - name: 工作流程完成通知
+      if: always() && !cancelled()
       run: |
-        if [ "${{ steps.verify-changed-files.outputs.has_changes }}" == "true" ]; then
+        if [ "${{ job.status }}" = "failure" ]; then
+          echo "❌ 工作流程失败！请检查上方的非临时性错误。"
+        elif [ "${{ steps.crawl.outputs.fresh_data }}" != "true" ]; then
+          echo "⚠️ 工作流程完成！本次没有可用的新数据，已保留现有数据。"
+        elif [ "${{ steps.verify-changed-files.outputs.has_changes }}" == "true" ]; then
           echo "🎉 工作流程完成！已更新并推送更改。"
         else
           echo "✅ 工作流程完成！没有新的更改需要提交。"

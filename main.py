@@ -35,22 +35,38 @@ def cmd_init(args):
 
 def cmd_search(args):
     """Run arXiv paper search."""
-    from arxiv_crawler import ArxivCrawler
-
-    crawler = ArxivCrawler(
-        fetch_citations=args.citations,
-        fetch_bibtex=args.bibtex,
-        date_from=args.date_from,
-        date_to=args.date_to,
-        recent=args.recent
+    from arxiv_crawler import (
+        ArxivCrawler,
+        ArxivTemporaryError,
+        EXIT_NO_RESULTS,
+        EXIT_TEMPORARY_FAILURE,
     )
+
     try:
+        crawler = ArxivCrawler(
+            fetch_citations=args.citations,
+            fetch_bibtex=args.bibtex,
+            date_from=args.date_from,
+            date_to=args.date_to,
+            recent=args.recent
+        )
         papers = crawler.search_papers(max_results=args.max_results)
+        if not papers:
+            print("SEARCH_STATUS=no_results")
+            print("[WARN] arXiv returned no matching papers; existing data was preserved.")
+            return EXIT_NO_RESULTS
         crawler.save_papers(papers)
+        print("SEARCH_STATUS=updated")
         print(f"\n[OK] Saved {len(papers)} papers.")
+        return 0
+    except ArxivTemporaryError as e:
+        print("SEARCH_STATUS=temporary_failure")
+        print(f"[WARN] Temporary arXiv failure; existing data was preserved: {e}")
+        return EXIT_TEMPORARY_FAILURE
     except Exception as e:
+        print("SEARCH_STATUS=error")
         print(f"[ERROR] Search failed: {e}")
-        sys.exit(1)
+        return 1
 
 
 def cmd_suggest(args):
@@ -215,8 +231,9 @@ def main():
         print("\nTip: Run 'python main.py init' to get started!")
         sys.exit(0)
 
-    args.func(args)
+    result = args.func(args)
+    return result if isinstance(result, int) else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
