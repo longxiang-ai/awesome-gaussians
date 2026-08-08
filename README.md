@@ -2,7 +2,7 @@
 
 A curated list of latest research papers, projects and resources related to Gaussian Splatting. Content is automatically updated daily.
 
-> Last Update: 2026-08-08 00:51:04
+> Last Update: 2026-08-08 19:49:25
 
 ## 📰 Latest Updates
 
@@ -659,6 +659,11 @@ A curated list of latest research papers, projects and resources related to Gaus
   Authors: Bernhard Kerbl, Georgios Kopanas, Thomas Leimkühler, George Drettakis  
   Code: 🔗 [GitHub](https://github.com/graphdeco-inria/gaussian-splatting)  
   Keywords: Real-time Rendering, Neural Rendering, Point-based Graphics
+
+- **[A Study on the Use of High Dynamic Range Imaging for Gaussian Splatting Methods: Are 8 Bits Enough?](https://doi.org/10.2312/stag.20241341)** (STAG 2024)  
+  Authors: Valentina Piras, Amedeo F. Bonatti, Carmelo De Maria, Paolo Cignoni, Francesco Banterle  
+  Paper: 📄 [PDF](https://iris.cnr.it/bitstream/20.500.14243/513755/3/Piras-Cignoni-Banterle_STAG20241341.pdf)  
+  Keywords: High Dynamic Range, HDR, Tone Mapping, 3D Gaussian Splatting, Neural Radiance Fields
 
 - **[Instruct-4DGS: Efficient Dynamic Scene Editing via 4D Gaussian-based Static-Dynamic Separation](https://hanbyelcho.info/instruct-4dgs/)** (CVPR 2025)  
   Authors: Hanbyel Cho, Juhyeon Kwon, et al.  
