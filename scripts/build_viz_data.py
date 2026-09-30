@@ -10,6 +10,7 @@ Usage: python scripts/build_viz_data.py [--out _site]
 import argparse
 import datetime
 import glob
+import html
 import json
 import logging
 import os
@@ -29,20 +30,30 @@ DATA_DIR = os.path.join(ROOT, "data")
 SITE_DIR = os.path.join(ROOT, "site")
 SNAPSHOT_PATTERN = re.compile(r"papers_(\d{4}-\d{2}-\d{2})\.json$")
 
-# Words every paper here shares; they carry no signal for the map or cluster labels.
+# Per-repository settings; everything else in this script and in site/ is shared.
+SITE = {
+    "title": "Gaussian Splatting Paper Atlas",
+    "subject": "3D Gaussian Splatting",
+    "search_hint": "e.g. SLAM, avatar, Marc Pollefeys",
+    "repo": "longxiang-ai/awesome-gaussians",
+}
+# Words nearly every paper in this field shares; they carry no signal for the map.
 DOMAIN_STOP_WORDS = {
-    "gaussian", "gaussians", "splatting", "3d", "3dgs", "gs", "method", "methods",
-    "propose", "proposed", "approach", "novel", "paper", "results", "based",
-    "framework", "performance", "state", "art", "existing", "demonstrate", "work",
-    "achieves", "achieve", "introduce", "code", "available", "https", "github",
-    "com", "io", "project", "page", "extensive", "experiments", "show", "model",
-    "models", "representation", "representations", "scene", "scenes", "quality",
-    "rendering", "view", "views", "using", "new", "high", "significantly",
+    "gaussian", "gaussians", "splatting", "3d", "3dgs", "gs", "representation",
+    "representations", "scene", "scenes", "rendering", "view", "views",
+}
+MIN_YEAR = 2023  # 3DGS was published Aug 2023; older hits are keyword noise
+
+GENERIC_STOP_WORDS = {
+    "method", "methods", "propose", "proposed", "approach", "novel", "paper",
+    "results", "based", "framework", "performance", "state", "art", "existing",
+    "demonstrate", "work", "achieves", "achieve", "introduce", "code", "available",
+    "https", "github", "com", "io", "project", "page", "extensive", "experiments",
+    "show", "model", "models", "quality", "using", "new", "high", "significantly",
     "outperforms", "leverages", "leveraging", "furthermore", "specifically",
     "additionally", "comprehensive", "effectively", "enables", "while",
 }
 CLUSTER_COUNT = 18
-MIN_YEAR = 2023  # 3DGS was published Aug 2023; older hits are keyword noise
 
 logger = logging.getLogger("build_viz_data")
 
@@ -103,7 +114,7 @@ def load_topics():
 def embed(texts):
     """TF-IDF -> SVD -> t-SNE 2D coordinates, plus the TF-IDF matrix for labels."""
     vectorizer = TfidfVectorizer(
-        stop_words=list(ENGLISH_STOP_WORDS | DOMAIN_STOP_WORDS),
+        stop_words=list(ENGLISH_STOP_WORDS | GENERIC_STOP_WORDS | DOMAIN_STOP_WORDS),
         token_pattern=r"(?u)\b[a-zA-Z][a-zA-Z0-9\-]{1,}\b",
         ngram_range=(1, 2),
         min_df=3,
@@ -182,6 +193,7 @@ def build_dataset():
         records.append(record)
 
     return {
+        "site": SITE,
         "generated": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "tracking_start": tracking_start,
         "last_update": last_update,
@@ -202,6 +214,18 @@ def main():
     if os.path.exists(args.out):
         shutil.rmtree(args.out)
     shutil.copytree(SITE_DIR, args.out)
+    index_path = os.path.join(args.out, "index.html")
+    with open(index_path, encoding="utf-8") as handle:
+        page = handle.read()
+    for placeholder, value in {
+        "{{TITLE}}": SITE["title"],
+        "{{SUBJECT}}": SITE["subject"],
+        "{{REPO_URL}}": f"https://github.com/{SITE['repo']}",
+        "{{SEARCH_HINT}}": SITE["search_hint"],
+    }.items():
+        page = page.replace(placeholder, html.escape(value))
+    with open(index_path, "w", encoding="utf-8") as handle:
+        handle.write(page)
     with open(os.path.join(args.out, "data.json"), "w", encoding="utf-8") as handle:
         json.dump(dataset, handle, ensure_ascii=False, separators=(",", ":"))
     logger.info(f"Wrote {len(dataset['papers'])} papers to {args.out}/data.json")
