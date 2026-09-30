@@ -1,0 +1,2 @@
+numpy>=1.26,<3
+scikit-learn>=1.5,<2

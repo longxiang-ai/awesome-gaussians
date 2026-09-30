@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gaussian Splatting Paper Atlas</title>
+  <meta name="description" content="Interactive map, trends, topic network and co-author network of 3D Gaussian Splatting papers on arXiv, updated daily.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='5' cy='6' r='3.5' fill='%232a78d6' opacity='.8'/%3E%3Ccircle cx='10.5' cy='9.5' r='4.5' fill='%232a78d6' opacity='.55'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <div class="wrap">
+      <h1>Gaussian Splatting Paper Atlas</h1>
+      <p class="lede" id="lede">Loading papers…</p>
+      <nav class="jump" aria-label="Sections">
+        <a href="#trend">Trend</a><a href="#map">Paper map</a><a href="#topics">Topics</a><a href="#people">Co-authors</a><a href="#papers">Papers</a>
+        <a class="repo" href="https://github.com/longxiang-ai/awesome-gaussians">GitHub repo ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="filters" role="search">
+    <div class="wrap filter-row">
+      <label class="field">
+        <span>Period</span>
+        <select id="f-period"></select>
+      </label>
+      <label class="field">
+        <span>Topic</span>
+        <select id="f-topic"></select>
+      </label>
+      <label class="field grow">
+        <span>Search titles and authors</span>
+        <input id="f-search" type="search" placeholder="e.g. SLAM, avatar, Marc Pollefeys" autocomplete="off">
+      </label>
+      <button id="f-reset" class="reset" type="button">Reset</button>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="tiles" aria-label="Summary">
+      <div class="tile"><span class="tile-label">Papers</span><span class="tile-value" id="s-papers">–</span></div>
+      <div class="tile"><span class="tile-label">Last 30 days</span><span class="tile-value" id="s-recent">–</span></div>
+      <div class="tile"><span class="tile-label">With code</span><span class="tile-value" id="s-code">–</span></div>
+      <div class="tile"><span class="tile-label">Authors</span><span class="tile-value" id="s-authors">–</span></div>
+    </section>
+
+    <section class="card" id="trend">
+      <div class="card-head">
+        <h2>Papers per month</h2>
+        <p class="note" id="trend-note"></p>
+      </div>
+      <div class="chart" id="trend-chart"></div>
+      <details class="table-twin"><summary>Show as table</summary><div id="trend-table"></div></details>
+    </section>
+
+    <section class="card" id="map">
+      <div class="card-head">
+        <h2>Paper map</h2>
+        <p class="note">Each dot is a paper. Papers with similar titles and abstracts sit close together, and labels name each region by its most distinctive terms. Blue dots match your filters. Hover to read a title, click to open it on arXiv.</p>
+      </div>
+      <div class="map-frame" id="map-chart"></div>
+    </section>
+
+    <section class="grid-2" id="topics">
+      <div class="card">
+        <div class="card-head">
+          <h2>Topics</h2>
+          <p class="note">Papers whose title or abstract mentions a topic's keywords, so one paper can count toward several topics. Click a row to filter by it.</p>
+        </div>
+        <div id="topic-bars"></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h2>How topics connect</h2>
+          <p class="note">Lines join topics that appear in the same papers; thicker means more overlap. Circle size is the paper count. Hover a topic to isolate its links.</p>
+        </div>
+        <div class="chart" id="topic-net"></div>
+      </div>
+    </section>
+
+    <section class="card" id="people">
+      <div class="card-head">
+        <h2>Co-author network</h2>
+        <p class="note" id="people-note"></p>
+      </div>
+      <div class="chart" id="author-net"></div>
+      <details class="table-twin"><summary>Show as table</summary><div id="author-table"></div></details>
+    </section>
+
+    <section class="card" id="papers">
+      <div class="card-head">
+        <h2>Papers</h2>
+        <p class="note" id="table-note"></p>
+      </div>
+      <div class="table-scroll">
+        <table class="papers">
+          <thead><tr><th class="c-date">Date</th><th>Title</th><th class="c-authors">Authors</th><th class="c-code">Code</th></tr></thead>
+          <tbody id="paper-rows"></tbody>
+        </table>
+      </div>
+      <button id="more" class="more" type="button">Show more</button>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p id="footer-note"></p>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="status" hidden></div>
+</body>
+</html>
