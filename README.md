@@ -2,9 +2,14 @@
 
 A curated list of latest research papers, projects and resources related to Gaussian Splatting. Content is automatically updated daily.
 
+🗺️ **[Explore the Paper Atlas](https://longxiang-ai.github.io/awesome-gaussians/)**: an interactive paper map, monthly trends, topic network and co-author network of every tracked paper.
+
 > Last Update: 2026-09-30 02:56:26
 
 ## 📰 Latest Updates
+
+🗺️ **[2026-09-30] Paper Atlas on GitHub Pages**
+- New [interactive site](https://longxiang-ai.github.io/awesome-gaussians/) built from all daily snapshots, rebuilt after every update
 
 🔧 **[2026-08-08] Resilient arXiv Updates**
 - Switched the crawler to the official HTTPS export API endpoint

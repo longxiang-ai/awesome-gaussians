@@ -1,0 +1,65 @@
+name: Deploy Paper Atlas
+
+on:
+  # The crawler pushes with GITHUB_TOKEN, which never triggers push events,
+  # so rebuild after every "Update Papers" run instead.
+  workflow_run:
+    workflows: ["Update Papers"]
+    types: [completed]
+  push:
+    branches: [master]
+    paths:
+      - 'site/**'
+      - 'scripts/build_viz_data.py'
+      - 'requirements-viz.txt'
+      - 'data/keywords.json'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v5
+      with:
+        ref: master
+
+    - name: 设置Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: '3.12'
+        cache: pip
+        cache-dependency-path: requirements-viz.txt
+
+    - name: 安装依赖
+      run: pip install -r requirements-viz.txt
+
+    - name: 生成可视化数据
+      run: python scripts/build_viz_data.py --out _site
+
+    - name: 上传页面
+      uses: actions/upload-pages-artifact@v5
+      with:
+        path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: 部署到 GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v5
