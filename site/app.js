@@ -4,7 +4,8 @@
 
   const PAGE_SIZE = 50;
   const AUTHOR_NODES = 80;
-  const state = { period: "all", topic: -1, search: "", shown: PAGE_SIZE };
+  const RANK_PAGE = 20;
+  const state = { period: "all", topic: -1, search: "", shown: PAGE_SIZE, authorSort: "total", authorsShown: RANK_PAGE };
   let DATA, papers, topicLayout;
 
   const $ = (id) => document.getElementById(id);
@@ -453,7 +454,6 @@
       empty.className = "empty";
       empty.textContent = "No author has two or more papers in this selection.";
       el.append(empty);
-      $("author-table").replaceChildren();
       return;
     }
 
@@ -533,22 +533,88 @@
         hideTip();
       })
       .on("click", (_, d) => {
-        $("f-search").value = DATA.authors[d.id];
-        setState({ search: DATA.authors[d.id] });
-        document.getElementById("papers").scrollIntoView();
+        searchAuthor(DATA.authors[d.id]);
       });
+  }
 
-    const table = document.createElement("table");
-    table.innerHTML = "<thead><tr><th>Author</th><th class='num'>Papers</th><th>Most frequent co-author</th></tr></thead>";
-    const body = table.createTBody();
-    nodes.forEach((d) => {
+  /* ---------- author rankings ---------- */
+  function searchAuthor(name) {
+    $("f-search").value = name;
+    setState({ search: name });
+    document.getElementById("papers").scrollIntoView();
+  }
+
+  function renderAuthorRank(rows) {
+    const body = $("rank-rows");
+    body.replaceChildren();
+    document.querySelectorAll("#authors .seg button").forEach((b) =>
+      b.setAttribute("aria-pressed", b.dataset.sort === state.authorSort));
+
+    const [recentFrom] = periodRange("12m");
+    const stats = new Map();
+    rows.forEach((p) => p.a.forEach((a) => {
+      let s = stats.get(a);
+      if (!s) stats.set(a, (s = { id: a, total: 0, recent: 0, latest: "" }));
+      s.total += 1;
+      if (p.d >= recentFrom) s.recent += 1;
+      if (p.d > s.latest) s.latest = p.d;
+    }));
+    const key = state.authorSort;
+    const other = key === "total" ? "recent" : "total";
+    const ranked = [...stats.values()].filter((s) => s[key] > 0)
+      .sort((a, b) => b[key] - a[key] || b[other] - a[other] || DATA.authors[a.id].localeCompare(DATA.authors[b.id]));
+    const shown = ranked.slice(0, state.authorsShown);
+
+    // Co-authors and topics only for the rows on screen.
+    const detail = new Map(shown.map((s) => [s.id, { co: new Map(), topics: new Map() }]));
+    rows.forEach((p) => p.a.forEach((a) => {
+      const d = detail.get(a);
+      if (!d) return;
+      p.a.forEach((b) => { if (b !== a) d.co.set(b, (d.co.get(b) || 0) + 1); });
+      p.k.forEach((k) => d.topics.set(k, (d.topics.get(k) || 0) + 1));
+    }));
+
+    const max = ranked.length ? ranked[0].total : 1;
+    const top = (map, n) => [...map].sort((a, b) => b[1] - a[1]).slice(0, n);
+    shown.forEach((s) => {
+      // Tied authors share a rank.
+      const rank = 1 + ranked.findIndex((o) => o[key] === s[key]);
       const tr = body.insertRow();
-      tr.insertCell().textContent = DATA.authors[d.id];
-      const td = tr.insertCell(); td.className = "num"; td.textContent = fmt(d.n);
-      const best = [...neighbors.get(d.id)].sort((a, b) => b[1] - a[1])[0];
-      tr.insertCell().textContent = best ? `${DATA.authors[best[0]]} (${best[1]})` : "–";
+      const rankCell = tr.insertCell(); rankCell.className = "num c-rank"; rankCell.textContent = rank;
+      const nameCell = tr.insertCell();
+      const name = document.createElement("button");
+      name.type = "button"; name.className = "link"; name.textContent = DATA.authors[s.id];
+      name.title = "Show this author's papers";
+      name.addEventListener("click", () => searchAuthor(DATA.authors[s.id]));
+      nameCell.append(name);
+
+      const barCell = tr.insertCell(); barCell.className = "c-bar";
+      const bar = document.createElement("span"); bar.className = "rank-bar";
+      bar.style.width = `${(s.total / max) * 100}%`;
+      const count = document.createElement("span"); count.className = "rank-count"; count.textContent = fmt(s.total);
+      barCell.append(bar, count);
+
+      const recent = tr.insertCell(); recent.className = "num c-recent"; recent.textContent = fmt(s.recent);
+      const latest = tr.insertCell(); latest.className = "c-latest"; latest.textContent = s.latest;
+      const d = detail.get(s.id);
+      const topics = tr.insertCell(); topics.className = "c-topics";
+      topics.textContent = top(d.topics, 2).map(([k]) => DATA.topics[k].name).join(", ") || "–";
+      const co = tr.insertCell(); co.className = "c-co";
+      co.textContent = top(d.co, 2).map(([id, n]) => `${DATA.authors[id]} (${n})`).join(", ") || "–";
     });
-    $("author-table").replaceChildren(table);
+
+    if (!ranked.length) {
+      const td = body.insertRow().insertCell();
+      td.colSpan = 7; td.className = "empty";
+      td.textContent = state.authorSort === "recent" && rows.length
+        ? "No papers from the last 12 months in this selection."
+        : "No authors in this selection.";
+    }
+    $("rank-note").textContent = ranked.length
+      ? `${fmt(ranked.length)} authors in your selection, ranked by ${key === "total" ? "paper count" : "papers in the last 12 months"}. ` +
+        "Topics and co-authors are counted within your selection; numbers in brackets are joint papers. Click a name to see their papers."
+      : "";
+    $("rank-more").hidden = ranked.length <= state.authorsShown;
   }
 
   /* ---------- paper table ---------- */
@@ -598,11 +664,12 @@
     renderTopicBars(rows);
     renderTopicNet(rows);
     renderAuthors(rows);
+    renderAuthorRank(rows);
     renderTable(rows);
   }
 
   function setState(patch) {
-    Object.assign(state, patch, { shown: PAGE_SIZE });
+    Object.assign(state, { shown: PAGE_SIZE, authorsShown: RANK_PAGE }, patch);
     $("f-period").value = state.period;
     $("f-topic").value = String(state.topic);
     syncUrl();
@@ -636,6 +703,12 @@
     $("f-reset").addEventListener("click", () => {
       $("f-search").value = "";
       setState({ period: "all", topic: -1, search: "" });
+    });
+    document.querySelectorAll("#authors .seg button").forEach((b) =>
+      b.addEventListener("click", () => setState({ authorSort: b.dataset.sort })));
+    $("rank-more").addEventListener("click", () => {
+      state.authorsShown += RANK_PAGE;
+      renderAuthorRank(filtered());
     });
     $("more").addEventListener("click", () => {
       state.shown += PAGE_SIZE;

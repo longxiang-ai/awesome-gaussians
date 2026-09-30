@@ -151,6 +151,21 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .papers td.authors { color: var(--ink-2); }
 .more { margin-top: 12px; }
 
+.head-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 8px; overflow: hidden; flex-shrink: 0; }
+.seg button { border: 0; border-radius: 0; height: 32px; font-size: 13px; color: var(--ink-2); background: var(--surface); }
+.seg button + button { border-left: 1px solid var(--axis); }
+.seg button[aria-pressed="true"] { background: var(--wash); color: var(--ink); font-weight: 600; }
+.rank .c-rank { width: 40px; color: var(--muted); }
+.rank .c-bar { width: 22%; min-width: 120px; white-space: nowrap; }
+.rank-bar { display: inline-block; height: 10px; border-radius: 0 4px 4px 0; background: var(--accent); vertical-align: middle; max-width: calc(100% - 44px); min-width: 2px; }
+.rank-count { display: inline-block; margin-left: 8px; font-variant-numeric: tabular-nums; vertical-align: middle; }
+.rank .c-recent { width: 88px; }
+.rank .c-latest { width: 96px; white-space: nowrap; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.rank td.c-topics, .rank td.c-co { color: var(--ink-2); }
+.link { border: 0; background: none; height: auto; padding: 0; color: var(--ink); font-weight: 500; text-align: left; cursor: pointer; }
+.link:hover { background: none; color: var(--accent); text-decoration: underline; }
+
 .tooltip {
   position: fixed; z-index: 10; pointer-events: none; max-width: 340px;
   background: var(--surface); color: var(--ink); border-radius: 8px;
@@ -175,6 +190,10 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   .field { min-width: calc(50% - 6px); flex: 1 1 calc(50% - 6px); }
   .jump .repo { margin-left: 0; }
   .papers .c-authors, .papers td.authors { display: none; }
+  .rank .c-latest, .rank .c-topics, .rank .c-co { display: none; }
+  .rank .c-bar { min-width: 90px; }
+  .seg { width: 100%; }
+  .seg button { flex: 1; }
   .topic-row, .topic-head { grid-template-columns: minmax(96px, 1fr) 1.4fr 44px; }
   .topic-row .spark, .topic-head span:nth-child(4) { display: none; }
   .map-frame { aspect-ratio: 1 / 1; }
