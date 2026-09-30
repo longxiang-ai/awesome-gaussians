@@ -20,6 +20,8 @@ ARXIV_USER_AGENT = (
     "(+https://github.com/longxiang-ai/awesome-gaussians)"
 )
 ARXIV_RETRY_DELAYS = (10, 30, 60)
+# 4xx codes arXiv's edge has returned transiently; retry them instead of failing the run.
+ARXIV_TRANSIENT_CLIENT_STATUSES = frozenset({406, 408})
 EXIT_NO_RESULTS = 3
 EXIT_TEMPORARY_FAILURE = 75
 REQUIRED_PAPER_FIELDS = {
@@ -600,7 +602,11 @@ class ArxivCrawler:
             if response.status_code == 200:
                 return response.content
 
-            if response.status_code == 429 or 500 <= response.status_code < 600:
+            if (
+                response.status_code == 429
+                or response.status_code in ARXIV_TRANSIENT_CLIENT_STATUSES
+                or 500 <= response.status_code < 600
+            ):
                 if attempt == len(ARXIV_RETRY_DELAYS):
                     raise ArxivTemporaryError(
                         f"arXiv returned HTTP {response.status_code} after "
