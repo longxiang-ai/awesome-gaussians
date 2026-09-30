@@ -160,6 +160,32 @@ class ArxivRequestTests(unittest.TestCase):
                         with self.assertRaises(ArxivTemporaryError):
                             crawler.search_papers(max_results=500)
 
+    def test_transient_406_and_408_are_retried_then_succeed(self):
+        for status in (406, 408):
+            with self.subTest(status=status):
+                crawler = make_crawler()
+                responses = [FakeResponse(status), FakeResponse(200, ATOM_FEED)]
+                with patch.object(arxiv_crawler.requests, "get", side_effect=responses) as request:
+                    with patch.object(arxiv_crawler.time, "sleep"):
+                        papers = crawler.search_papers(max_results=500)
+                self.assertEqual(len(papers), 1)
+                self.assertEqual(request.call_count, 2)
+
+    def test_persistent_406_is_a_temporary_failure_not_a_crash(self):
+        crawler = make_crawler()
+        with patch.object(arxiv_crawler.requests, "get", return_value=FakeResponse(406)) as request:
+            with patch.object(arxiv_crawler.time, "sleep"):
+                with self.assertRaises(ArxivTemporaryError):
+                    crawler.search_papers(max_results=500)
+        self.assertEqual(request.call_count, 4)
+
+    def test_other_4xx_remain_real_errors(self):
+        crawler = make_crawler()
+        with patch.object(arxiv_crawler.requests, "get", return_value=FakeResponse(400)):
+            with patch.object(arxiv_crawler.time, "sleep"):
+                with self.assertRaises(arxiv_crawler.ArxivResponseError):
+                    crawler.search_papers(max_results=500)
+
     def test_malformed_xml_is_a_real_error(self):
         crawler = make_crawler()
         with patch.object(
