@@ -29,7 +29,35 @@ jobs:
   build:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    outputs:
+      pages_ready: ${{ steps.pages.outputs.ready }}
     steps:
+    - name: 检查 GitHub Pages 设置
+      id: pages
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        settings_url="https://github.com/${{ github.repository }}/settings/pages"
+        if response=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type 2>&1); then
+          build_type="$response"
+        else
+          build_type=""
+          echo "Pages API: $response"
+        fi
+        if [ "$build_type" = "workflow" ]; then
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "ready=false" >> "$GITHUB_OUTPUT"
+          if [ -z "$build_type" ]; then reason="GitHub Pages 尚未启用"; else reason="GitHub Pages 来源是 '${build_type}'（从分支部署），不是 GitHub Actions"; fi
+          echo "::warning::${reason}，本次跳过部署。请在 ${settings_url} 将 Source 设置为 GitHub Actions。"
+          {
+            echo "### ⚠️ Paper Atlas 未部署"
+            echo ""
+            echo "- 原因：${reason}"
+            echo "- 修复：打开 [Pages 设置](${settings_url})，把 **Build and deployment → Source** 设为 **GitHub Actions**，然后重新运行本工作流。"
+          } >> "$GITHUB_STEP_SUMMARY"
+        fi
+
     - name: 检出代码
       uses: actions/checkout@v5
       with:
@@ -55,6 +83,7 @@ jobs:
 
   deploy:
     needs: build
+    if: needs.build.outputs.pages_ready == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

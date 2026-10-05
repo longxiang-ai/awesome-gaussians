@@ -100,7 +100,7 @@ main { display: flex; flex-direction: column; gap: 20px; padding-top: 20px; padd
 .card-head { margin-bottom: 12px; }
 h2 { font-size: 17px; margin: 0 0 4px; }
 .note { margin: 0; font-size: 13px; color: var(--ink-2); max-width: 80ch; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.stack { display: flex; flex-direction: column; gap: 20px; }
 .chart { width: 100%; }
 svg { display: block; overflow: visible; }
 svg text { font-family: var(--font); }
@@ -117,7 +117,7 @@ svg text { font-family: var(--font); }
 }
 
 .topic-row {
-  display: grid; grid-template-columns: minmax(120px, 1.1fr) 2fr 52px 84px; align-items: center; gap: 10px;
+  display: grid; grid-template-columns: minmax(120px, 260px) 1fr 52px var(--spark-w, 84px); align-items: center; gap: 10px;
   width: 100%; padding: 5px 6px; border: 0; border-radius: 6px; background: none; height: auto;
   text-align: left; font-size: 13px; color: var(--ink);
 }
@@ -126,8 +126,11 @@ svg text { font-family: var(--font); }
 .topic-row .bar-track { height: 10px; }
 .topic-row .bar { height: 10px; border-radius: 0 4px 4px 0; background: var(--accent); min-width: 2px; }
 .topic-row .count { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
-.topic-head { display: grid; grid-template-columns: minmax(120px, 1.1fr) 2fr 52px 84px; gap: 10px; padding: 0 6px 4px; font-size: 11px; color: var(--muted); }
+.topic-head { display: grid; grid-template-columns: minmax(120px, 260px) 1fr 52px var(--spark-w, 84px); gap: 10px; padding: 0 6px 4px; font-size: 11px; color: var(--muted); }
 .topic-head span:nth-child(3) { text-align: right; }
+.pair-row { display: grid; grid-template-columns: 1.6fr 1fr 44px; align-items: center; gap: 10px; padding: 6px 0; font-size: 13px; border-bottom: 1px solid var(--grid); }
+.pair-row .bar { display: block; height: 10px; border-radius: 0 4px 4px 0; background: var(--accent); min-width: 2px; }
+.pair-row .count { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
 
 .node-label { font-size: 11px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
 .net-link { stroke: var(--axis); stroke-linecap: round; }
@@ -180,7 +183,6 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .empty { color: var(--muted); font-size: 13px; padding: 24px 0; text-align: center; }
 
 @media (max-width: 860px) {
-  .grid-2 { grid-template-columns: 1fr; }
   .tiles { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {

@@ -1,6 +1,12 @@
-/* Gaussian Splatting Paper Atlas: renders data.json built by scripts/build_viz_data.py */
+/* Paper Atlas: renders data.json built by scripts/build_viz_data.py */
 (() => {
   "use strict";
+
+  if (typeof d3 === "undefined") {
+    document.getElementById("lede").textContent =
+      "The chart library did not load, so the charts cannot be drawn. Please reload the page.";
+    return;
+  }
 
   const PAGE_SIZE = 50;
   const AUTHOR_NODES = 80;
@@ -120,7 +126,13 @@
     const last = to && monthKey(to) < lastMonth ? monthKey(to) : lastMonth;
     const months = monthsBetween(first, last);
     const counts = d3.rollup(rows, (v) => v.length, (p) => monthKey(p.d));
-    const series = months.map((m) => ({ m, n: counts.get(m) || 0, partial: m < trackingMonth }));
+    // The latest month is still being collected unless the data runs to its last day.
+    const lastDay = new Date(`${DATA.last_update}T00:00:00Z`);
+    lastDay.setUTCDate(lastDay.getUTCDate() + 1);
+    const lastMonthDone = lastDay.getUTCDate() === 1;
+    const series = months.map((m) => ({
+      m, n: counts.get(m) || 0, partial: m < trackingMonth, inProgress: m === lastMonth && !lastMonthDone,
+    }));
 
     const width = el.clientWidth;
     const height = 240;
@@ -147,7 +159,8 @@
     const bars = svg.append("g");
     bars.selectAll("path").data(series).join("path")
       .attr("d", (d) => roundedTop(x(d.m), y(d.n), x.bandwidth(), y(0) - y(d.n), d.n ? 4 : 0))
-      .attr("fill", (d) => (d.partial ? css("--context") : css("--accent")));
+      .attr("fill", (d) => (d.partial ? css("--context") : css("--accent")))
+      .attr("fill-opacity", (d) => (d.inProgress ? 0.4 : 1));
 
     const lastBar = series[series.length - 1];
     if (lastBar && lastBar.n) {
@@ -155,11 +168,12 @@
         .attr("text-anchor", "end").attr("font-size", 12).attr("font-weight", 600)
         .attr("fill", css("--ink")).text(fmt(lastBar.n));
     }
-    const partialMonths = series.filter((d) => d.partial);
-    if (partialMonths.length) {
+    const notes = [];
+    if (series.some((d) => d.partial)) notes.push(`Gray: before tracking began (${monthLabel(trackingMonth)}), incomplete`);
+    if (lastBar && lastBar.inProgress) notes.push(`Faded: ${monthLabel(lastBar.m)} so far`);
+    if (notes.length) {
       svg.append("text").attr("x", margin.left + 4).attr("y", margin.top - 8)
-        .attr("font-size", 11).attr("fill", css("--muted"))
-        .text(`Gray: before tracking began (${monthLabel(trackingMonth)}), incomplete`);
+        .attr("font-size", 11).attr("fill", css("--muted")).text(notes.join(" · "));
     }
 
     svg.append("g").selectAll("rect").data(series).join("rect")
@@ -170,7 +184,7 @@
         bars.selectAll("path").attr("opacity", (b) => (b === d ? 1 : 0.55));
         const lines = [["strong", `${fmt(d.n)} papers`], ["sub", monthLabel(d.m)]];
         if (d.partial) lines.push(["sub", "Before tracking began, so incomplete"]);
-        if (d.m === lastMonth) lines.push(["sub", `Through ${DATA.last_update}`]);
+        if (d.inProgress) lines.push(["sub", `Month in progress, through ${DATA.last_update}`]);
         showTip(event, lines);
       })
       .on("pointerleave blur", () => { bars.selectAll("path").attr("opacity", 1); hideTip(); });
@@ -297,6 +311,8 @@
     const counts = DATA.topics.map((_, i) => rows.filter((p) => p.k.includes(i)).length);
     const max = d3.max(counts) || 1;
     const sparkMonths = monthsBetween(monthKey(DATA.tracking_start), monthKey(DATA.last_update));
+    const sparkWidth = el.clientWidth > 720 ? 180 : 84;
+    el.style.setProperty("--spark-w", `${sparkWidth}px`);
     const head = document.createElement("div");
     head.className = "topic-head";
     ["Topic", "", "Papers", "Since tracking"].forEach((t) => {
@@ -320,7 +336,7 @@
       track.append(bar);
       const count = document.createElement("span"); count.className = "count"; count.textContent = fmt(counts[i]);
       const byMonth = d3.rollup(rows.filter((p) => p.k.includes(i)), (v) => v.length, (p) => monthKey(p.d));
-      row.append(name, track, count, sparkline(sparkMonths.map((m) => byMonth.get(m) || 0), 84, 22));
+      row.append(name, track, count, sparkline(sparkMonths.map((m) => byMonth.get(m) || 0), sparkWidth, 22));
       row.addEventListener("click", () => setState({ topic: state.topic === i ? -1 : i }));
       el.append(row);
     });
@@ -354,9 +370,56 @@
       .stop();
     for (let t = 0; t < 400; t++) sim.tick();
     nodes.slice().sort((a, b) => Math.atan2(a.y, a.x) - Math.atan2(b.y, b.x))
-      .forEach((d, slot) => { d.angle = (slot / n) * Math.PI * 2 - Math.PI / 2; });
+      .forEach((d, slot) => { d.angle = ((slot + 0.5) / n) * Math.PI * 2 - Math.PI / 2; });
     const order = d3.range(n).sort((a, b) => counts[b] - counts[a]);
     return { nodes, links, order };
+  }
+
+  // Word-wrap a topic name to lines of at most maxChars (a single long word keeps its own line).
+  function wrapLabel(name, maxChars) {
+    const lines = [];
+    let current = "";
+    name.split(" ").forEach((word) => {
+      if (current && `${current} ${word}`.length > maxChars) {
+        lines.push(current);
+        current = word;
+      } else {
+        current = current ? `${current} ${word}` : word;
+      }
+    });
+    lines.push(current);
+    return lines;
+  }
+
+  function renderTopicPairs(el, both) {
+    const pairs = [];
+    DATA.topics.forEach((_, a) => DATA.topics.forEach((__, b) => {
+      if (a < b) pairs.push({ a, b, n: both(a, b) });
+    }));
+    const top = pairs.filter((p) => p.n).sort((x, y) => y.n - x.n).slice(0, 10);
+    if (!top.length) {
+      const empty = document.createElement("p");
+      empty.className = "empty";
+      empty.textContent = "No papers in this selection mention two topics.";
+      return el.append(empty);
+    }
+    const max = top[0].n;
+    top.forEach((p) => {
+      const row = document.createElement("div");
+      row.className = "pair-row";
+      const name = document.createElement("span");
+      name.textContent = `${DATA.topics[p.a].name} + ${DATA.topics[p.b].name}`;
+      const track = document.createElement("span");
+      const bar = document.createElement("span");
+      bar.className = "bar";
+      bar.style.width = `${(p.n / max) * 100}%`;
+      track.append(bar);
+      const count = document.createElement("span");
+      count.className = "count";
+      count.textContent = fmt(p.n);
+      row.append(name, track, count);
+      el.append(row);
+    });
   }
 
   function renderTopicNet(rows) {
@@ -368,9 +431,17 @@
     const links = topicLayout.links.map((l) => ({ ...l, n: both(l.source, l.target) }));
     const maxCount = d3.max(counts) || 1;
     const narrow = width < 520;
-    const labelRoom = narrow ? 84 : 140;
-    const radius = Math.max(60, Math.min(width / 2 - labelRoom, 170));
-    const height = radius * 2 + 80;
+    $("topic-net-note").textContent = narrow
+      ? "The topic pairs that appear together in the most papers."
+      : "Lines join topics that appear in the same papers; thicker means more overlap. Circle size is the paper count. Hover a topic to isolate its links.";
+    // A circle of long topic names cannot fit on a phone, so list the strongest pairs instead.
+    if (narrow) return renderTopicPairs(el, both);
+    const labels = DATA.topics.map((t) => wrapLabel(t.name, narrow ? 10 : 18));
+    const longestLine = d3.max(labels.flat(), (line) => line.length);
+    const labelRoom = Math.min(width * 0.32, 16 + longestLine * 6.4);
+    const maxLines = d3.max(labels, (lines) => lines.length);
+    const radius = Math.max(60, Math.min(width / 2 - labelRoom, 150 + DATA.topics.length * 4));
+    const height = radius * 2 + 50 + maxLines * 26;
     const cx = width / 2;
     const cy = height / 2;
     const r = d3.scaleSqrt().domain([0, maxCount]).range([3, Math.min(22, radius / 6)]);
@@ -400,12 +471,11 @@
       .attr("stroke", (_, i) => (state.topic === i ? css("--ink") : css("--surface")));
     const labelSel = svg.append("g").selectAll("text").data(DATA.topics).join("text")
       .attr("class", "node-label")
-      .attr("text-anchor", (_, i) => (pos[i].cos > 0.2 ? "start" : pos[i].cos < -0.2 ? "end" : "middle"))
+      .attr("text-anchor", (_, i) => (pos[i].cos > 0.05 ? "start" : pos[i].cos < -0.05 ? "end" : "middle"))
       .attr("x", (_, i) => pos[i].x + pos[i].cos * (r(counts[i]) + 6))
       .each(function (t, i) {
-        // On narrow screens, break two-word names onto two lines so they fit beside the circle.
-        const words = t.name.split(" ");
-        const lines = narrow && words.length > 1 ? [words.slice(0, -1).join(" "), words[words.length - 1]] : [t.name];
+        // Long names wrap onto two lines so they fit beside the circle.
+        const lines = labels[i];
         const base = pos[i].y + pos[i].sin * (r(counts[i]) + 6);
         const shift = pos[i].sin > 0.5 ? 10 : pos[i].sin < -0.5 ? -2 - (lines.length - 1) * 13 : 4 - (lines.length - 1) * 6.5;
         d3.select(this).attr("y", base + shift).selectAll("tspan").data(lines).join("tspan")
@@ -468,9 +538,12 @@
         }
       }
     });
-    const nodes = top.map(([a, n]) => ({ id: a, n }));
+    const nodes = top.map(([a, n]) => ({ id: a, n, degree: 0 }));
+    const byId = new Map(nodes.map((d) => [d.id, d]));
     const links = [...edgeMap].map(([key, n]) => {
       const [s, t] = key.split("|").map(Number);
+      byId.get(s).degree += 1;
+      byId.get(t).degree += 1;
       return { source: s, target: t, n };
     });
     const r = d3.scaleSqrt().domain([2, d3.max(nodes, (d) => d.n)]).range([4, width < 560 ? 11 : 16]);
@@ -478,8 +551,8 @@
       .force("link", d3.forceLink(links).id((d) => d.id).distance(34).strength((l) => Math.min(1, 0.15 + l.n * 0.1)))
       .force("charge", d3.forceManyBody().strength(-70))
       .force("collide", d3.forceCollide((d) => r(d.n) + 3))
-      .force("x", d3.forceX(0).strength(0.07 * (height / width)))
-      .force("y", d3.forceY(0).strength(0.07))
+      .force("x", d3.forceX(0).strength((d) => (d.degree ? 0.07 : 0.3) * (height / width)))
+      .force("y", d3.forceY(0).strength((d) => (d.degree ? 0.07 : 0.3)))
       .stop();
     for (let t = 0; t < 320; t++) sim.tick();
 
@@ -738,10 +811,10 @@
     }));
     topicLayout = buildTopicLayout();
     $("lede").textContent =
-      `${fmt(papers.length)} arXiv papers on 3D Gaussian Splatting, collected daily since ${DATA.tracking_start} ` +
+      `${fmt(papers.length)} arXiv papers on ${DATA.site.subject}, collected daily since ${DATA.tracking_start} ` +
       `and last updated ${DATA.last_update}. Filter below; every chart follows the same filters.`;
     $("footer-note").textContent =
-      `Data from arXiv via the awesome-gaussians crawler. Topics are keyword matches from data/keywords.json. ` +
+      `Data from arXiv via the ${DATA.site.repo} crawler. Topics are keyword matches from data/keywords.json. ` +
       `Map layout: TF-IDF of titles and abstracts, projected with t-SNE. Built ${DATA.generated}.`;
     initControls();
     renderAll();

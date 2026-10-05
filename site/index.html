@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gaussian Splatting Paper Atlas</title>
-  <meta name="description" content="Interactive map, trends, topic network and co-author network of 3D Gaussian Splatting papers on arXiv, updated daily.">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="Interactive map, trends, topic network, co-author network and author rankings of {{SUBJECT}} papers on arXiv, updated daily.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='5' cy='6' r='3.5' fill='%232a78d6' opacity='.8'/%3E%3Ccircle cx='10.5' cy='9.5' r='4.5' fill='%232a78d6' opacity='.55'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+  <!-- d3 is bundled with the site: public CDNs are blocked on some networks. -->
+  <script src="vendor/d3.v7.9.0.min.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
   <header class="page-header">
     <div class="wrap">
-      <h1>Gaussian Splatting Paper Atlas</h1>
+      <h1>{{TITLE}}</h1>
       <p class="lede" id="lede">Loading papers…</p>
       <nav class="jump" aria-label="Sections">
         <a href="#trend">Trend</a><a href="#map">Paper map</a><a href="#topics">Topics</a><a href="#people">Co-authors</a><a href="#authors">Author rankings</a><a href="#papers">Papers</a>
-        <a class="repo" href="https://github.com/longxiang-ai/awesome-gaussians">GitHub repo ↗</a>
+        <a class="repo" href="{{REPO_URL}}">GitHub repo ↗</a>
       </nav>
     </div>
   </header>
@@ -34,7 +35,7 @@
       </label>
       <label class="field grow">
         <span>Search titles and authors</span>
-        <input id="f-search" type="search" placeholder="e.g. SLAM, avatar, Marc Pollefeys" autocomplete="off">
+        <input id="f-search" type="search" placeholder="{{SEARCH_HINT}}" autocomplete="off">
       </label>
       <button id="f-reset" class="reset" type="button">Reset</button>
     </div>
@@ -65,7 +66,7 @@
       <div class="map-frame" id="map-chart"></div>
     </section>
 
-    <section class="grid-2" id="topics">
+    <section class="stack" id="topics">
       <div class="card">
         <div class="card-head">
           <h2>Topics</h2>
@@ -76,7 +77,7 @@
       <div class="card">
         <div class="card-head">
           <h2>How topics connect</h2>
-          <p class="note">Lines join topics that appear in the same papers; thicker means more overlap. Circle size is the paper count. Hover a topic to isolate its links.</p>
+          <p class="note" id="topic-net-note"></p>
         </div>
         <div class="chart" id="topic-net"></div>
       </div>
