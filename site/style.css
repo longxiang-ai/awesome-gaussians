@@ -47,6 +47,14 @@
   --wash: rgba(57, 135, 229, 0.14);
 }
 
+/* CJK font stacks: the browser picks glyph shapes by language, so name the right fonts for each. */
+:root:lang(zh) {
+  --font: system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+}
+:root:lang(ja) {
+  --font: system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
@@ -66,6 +74,7 @@ h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.01em
 .jump { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; }
 .jump a { color: var(--ink-2); }
 .jump .repo { margin-left: auto; }
+.lang-select { height: 28px; font-size: 13px; padding: 0 6px; margin-top: -4px; color: var(--ink-2); }
 
 .filters {
   position: sticky; top: 0; z-index: 5;
@@ -102,6 +111,7 @@ h2 { font-size: 17px; margin: 0 0 4px; }
 .note { margin: 0; font-size: 13px; color: var(--ink-2); max-width: 80ch; }
 .stack { display: flex; flex-direction: column; gap: 20px; }
 .chart { width: 100%; }
+.chart-legend { margin: 0 0 2px 40px; font-size: 11px; color: var(--muted); }
 svg { display: block; overflow: visible; }
 svg text { font-family: var(--font); }
 .axis text { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
