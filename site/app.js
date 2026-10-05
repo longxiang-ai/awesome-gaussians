@@ -2,6 +2,12 @@
 (() => {
   "use strict";
 
+  if (typeof d3 === "undefined") {
+    document.getElementById("lede").textContent =
+      "The chart library did not load, so the charts cannot be drawn. Please reload the page.";
+    return;
+  }
+
   const PAGE_SIZE = 50;
   const AUTHOR_NODES = 80;
   const RANK_PAGE = 20;
@@ -120,7 +126,13 @@
     const last = to && monthKey(to) < lastMonth ? monthKey(to) : lastMonth;
     const months = monthsBetween(first, last);
     const counts = d3.rollup(rows, (v) => v.length, (p) => monthKey(p.d));
-    const series = months.map((m) => ({ m, n: counts.get(m) || 0, partial: m < trackingMonth }));
+    // The latest month is still being collected unless the data runs to its last day.
+    const lastDay = new Date(`${DATA.last_update}T00:00:00Z`);
+    lastDay.setUTCDate(lastDay.getUTCDate() + 1);
+    const lastMonthDone = lastDay.getUTCDate() === 1;
+    const series = months.map((m) => ({
+      m, n: counts.get(m) || 0, partial: m < trackingMonth, inProgress: m === lastMonth && !lastMonthDone,
+    }));
 
     const width = el.clientWidth;
     const height = 240;
@@ -147,7 +159,8 @@
     const bars = svg.append("g");
     bars.selectAll("path").data(series).join("path")
       .attr("d", (d) => roundedTop(x(d.m), y(d.n), x.bandwidth(), y(0) - y(d.n), d.n ? 4 : 0))
-      .attr("fill", (d) => (d.partial ? css("--context") : css("--accent")));
+      .attr("fill", (d) => (d.partial ? css("--context") : css("--accent")))
+      .attr("fill-opacity", (d) => (d.inProgress ? 0.4 : 1));
 
     const lastBar = series[series.length - 1];
     if (lastBar && lastBar.n) {
@@ -155,11 +168,12 @@
         .attr("text-anchor", "end").attr("font-size", 12).attr("font-weight", 600)
         .attr("fill", css("--ink")).text(fmt(lastBar.n));
     }
-    const partialMonths = series.filter((d) => d.partial);
-    if (partialMonths.length) {
+    const notes = [];
+    if (series.some((d) => d.partial)) notes.push(`Gray: before tracking began (${monthLabel(trackingMonth)}), incomplete`);
+    if (lastBar && lastBar.inProgress) notes.push(`Faded: ${monthLabel(lastBar.m)} so far`);
+    if (notes.length) {
       svg.append("text").attr("x", margin.left + 4).attr("y", margin.top - 8)
-        .attr("font-size", 11).attr("fill", css("--muted"))
-        .text(`Gray: before tracking began (${monthLabel(trackingMonth)}), incomplete`);
+        .attr("font-size", 11).attr("fill", css("--muted")).text(notes.join(" · "));
     }
 
     svg.append("g").selectAll("rect").data(series).join("rect")
@@ -170,7 +184,7 @@
         bars.selectAll("path").attr("opacity", (b) => (b === d ? 1 : 0.55));
         const lines = [["strong", `${fmt(d.n)} papers`], ["sub", monthLabel(d.m)]];
         if (d.partial) lines.push(["sub", "Before tracking began, so incomplete"]);
-        if (d.m === lastMonth) lines.push(["sub", `Through ${DATA.last_update}`]);
+        if (d.inProgress) lines.push(["sub", `Month in progress, through ${DATA.last_update}`]);
         showTip(event, lines);
       })
       .on("pointerleave blur", () => { bars.selectAll("path").attr("opacity", 1); hideTip(); });

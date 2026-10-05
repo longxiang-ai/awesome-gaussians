@@ -7,7 +7,8 @@
   <meta name="description" content="Interactive map, trends, topic network, co-author network and author rankings of {{SUBJECT}} papers on arXiv, updated daily.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='5' cy='6' r='3.5' fill='%232a78d6' opacity='.8'/%3E%3Ccircle cx='10.5' cy='9.5' r='4.5' fill='%232a78d6' opacity='.55'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+  <!-- d3 is bundled with the site: public CDNs are blocked on some networks. -->
+  <script src="vendor/d3.v7.9.0.min.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
