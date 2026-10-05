@@ -36,6 +36,19 @@ SITE = {
     "subject": "3D Gaussian Splatting",
     "search_hint": "e.g. SLAM, avatar, Marc Pollefeys",
     "repo": "longxiang-ai/awesome-gaussians",
+    # Translations of the fields above for the page's language menu (site/i18n.js holds the rest of the UI).
+    "i18n": {
+        "zh": {
+            "title": "高斯泼溅论文图谱",
+            "subject": "高斯泼溅（3DGS）",
+            "search_hint": "例如 SLAM、avatar、Marc Pollefeys",
+        },
+        "ja": {
+            "title": "Gaussian Splatting 論文アトラス",
+            "subject": "3D Gaussian Splatting",
+            "search_hint": "例：SLAM、avatar、Marc Pollefeys",
+        },
+    },
 }
 # Words nearly every paper in this field shares; they carry no signal for the map.
 DOMAIN_STOP_WORDS = {

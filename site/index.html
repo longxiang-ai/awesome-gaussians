@@ -9,16 +9,18 @@
   <link rel="stylesheet" href="style.css">
   <!-- d3 is bundled with the site: public CDNs are blocked on some networks. -->
   <script src="vendor/d3.v7.9.0.min.js" defer></script>
+  <script src="i18n.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
   <header class="page-header">
     <div class="wrap">
-      <h1>{{TITLE}}</h1>
-      <p class="lede" id="lede">Loading papers…</p>
-      <nav class="jump" aria-label="Sections">
-        <a href="#trend">Trend</a><a href="#map">Paper map</a><a href="#topics">Topics</a><a href="#people">Co-authors</a><a href="#authors">Author rankings</a><a href="#papers">Papers</a>
-        <a class="repo" href="{{REPO_URL}}">GitHub repo ↗</a>
+      <h1 id="site-title">{{TITLE}}</h1>
+      <p class="lede" id="lede" data-i18n="loading">Loading papers…</p>
+      <nav class="jump" aria-label="Sections" data-i18n-attr="aria-label:nav.aria">
+        <a href="#trend" data-i18n="nav.trend">Trend</a><a href="#map" data-i18n="nav.map">Paper map</a><a href="#topics" data-i18n="nav.topics">Topics</a><a href="#people" data-i18n="nav.coauthors">Co-authors</a><a href="#authors" data-i18n="nav.rankings">Author rankings</a><a href="#papers" data-i18n="nav.papers">Papers</a>
+        <a class="repo" href="{{REPO_URL}}" data-i18n="nav.repo">GitHub repo ↗</a>
+        <select id="f-lang" class="lang-select" aria-label="Language" data-i18n-attr="aria-label:lang.label"></select>
       </nav>
     </div>
   </header>
@@ -26,42 +28,42 @@
   <div class="filters" role="search">
     <div class="wrap filter-row">
       <label class="field">
-        <span>Period</span>
+        <span data-i18n="filter.period">Period</span>
         <select id="f-period"></select>
       </label>
       <label class="field">
-        <span>Topic</span>
+        <span data-i18n="filter.topic">Topic</span>
         <select id="f-topic"></select>
       </label>
       <label class="field grow">
-        <span>Search titles and authors</span>
+        <span data-i18n="filter.search">Search titles and authors</span>
         <input id="f-search" type="search" placeholder="{{SEARCH_HINT}}" autocomplete="off">
       </label>
-      <button id="f-reset" class="reset" type="button">Reset</button>
+      <button id="f-reset" class="reset" type="button" data-i18n="filter.reset">Reset</button>
     </div>
   </div>
 
   <main class="wrap">
-    <section class="tiles" aria-label="Summary">
-      <div class="tile"><span class="tile-label">Papers</span><span class="tile-value" id="s-papers">–</span></div>
-      <div class="tile"><span class="tile-label">Last 30 days</span><span class="tile-value" id="s-recent">–</span></div>
-      <div class="tile"><span class="tile-label">With code</span><span class="tile-value" id="s-code">–</span></div>
-      <div class="tile"><span class="tile-label">Authors</span><span class="tile-value" id="s-authors">–</span></div>
+    <section class="tiles" aria-label="Summary" data-i18n-attr="aria-label:tiles.aria">
+      <div class="tile"><span class="tile-label" data-i18n="tile.papers">Papers</span><span class="tile-value" id="s-papers">–</span></div>
+      <div class="tile"><span class="tile-label" data-i18n="tile.recent">Last 30 days</span><span class="tile-value" id="s-recent">–</span></div>
+      <div class="tile"><span class="tile-label" data-i18n="tile.code">With code</span><span class="tile-value" id="s-code">–</span></div>
+      <div class="tile"><span class="tile-label" data-i18n="tile.authors">Authors</span><span class="tile-value" id="s-authors">–</span></div>
     </section>
 
     <section class="card" id="trend">
       <div class="card-head">
-        <h2>Papers per month</h2>
+        <h2 data-i18n="trend.title">Papers per month</h2>
         <p class="note" id="trend-note"></p>
       </div>
       <div class="chart" id="trend-chart"></div>
-      <details class="table-twin"><summary>Show as table</summary><div id="trend-table"></div></details>
+      <details class="table-twin"><summary data-i18n="table.show">Show as table</summary><div id="trend-table"></div></details>
     </section>
 
     <section class="card" id="map">
       <div class="card-head">
-        <h2>Paper map</h2>
-        <p class="note">Each dot is a paper. Papers with similar titles and abstracts sit close together, and labels name each region by its most distinctive terms. Blue dots match your filters. Hover to read a title, click to open it on arXiv.</p>
+        <h2 data-i18n="map.title">Paper map</h2>
+        <p class="note" data-i18n="map.note">Each dot is a paper. Papers with similar titles and abstracts sit close together, and labels name each region by its most distinctive terms. Blue dots match your filters. Hover to read a title, click to open it on arXiv.</p>
       </div>
       <div class="map-frame" id="map-chart"></div>
     </section>
@@ -69,14 +71,14 @@
     <section class="stack" id="topics">
       <div class="card">
         <div class="card-head">
-          <h2>Topics</h2>
-          <p class="note">Papers whose title or abstract mentions a topic's keywords, so one paper can count toward several topics. Click a row to filter by it.</p>
+          <h2 data-i18n="topics.title">Topics</h2>
+          <p class="note" data-i18n="topics.note">Papers whose title or abstract mentions a topic's keywords, so one paper can count toward several topics. Click a row to filter by it.</p>
         </div>
         <div id="topic-bars"></div>
       </div>
       <div class="card">
         <div class="card-head">
-          <h2>How topics connect</h2>
+          <h2 data-i18n="topicnet.title">How topics connect</h2>
           <p class="note" id="topic-net-note"></p>
         </div>
         <div class="chart" id="topic-net"></div>
@@ -85,7 +87,7 @@
 
     <section class="card" id="people">
       <div class="card-head">
-        <h2>Co-author network</h2>
+        <h2 data-i18n="people.title">Co-author network</h2>
         <p class="note" id="people-note"></p>
       </div>
       <div class="chart" id="author-net"></div>
@@ -94,39 +96,39 @@
     <section class="card" id="authors">
       <div class="card-head head-row">
         <div>
-          <h2>Author rankings</h2>
+          <h2 data-i18n="rank.title">Author rankings</h2>
           <p class="note" id="rank-note"></p>
         </div>
-        <div class="seg" role="group" aria-label="Rank authors by">
-          <button type="button" data-sort="total">Most papers</button>
-          <button type="button" data-sort="recent">Last 12 months</button>
+        <div class="seg" role="group" aria-label="Rank authors by" data-i18n-attr="aria-label:rank.sortAria">
+          <button type="button" data-sort="total" data-i18n="rank.sortTotal">Most papers</button>
+          <button type="button" data-sort="recent" data-i18n="rank.sortRecent">Last 12 months</button>
         </div>
       </div>
       <div class="table-scroll">
         <table class="rank">
           <thead><tr>
-            <th class="num c-rank">#</th><th>Author</th><th class="c-bar">Papers</th>
-            <th class="num c-recent">Last 12 mo</th><th class="c-latest">Latest</th>
-            <th class="c-topics">Main topics</th><th class="c-co">Frequent co-authors</th>
+            <th class="num c-rank">#</th><th data-i18n="rank.colAuthor">Author</th><th class="c-bar" data-i18n="rank.colPapers">Papers</th>
+            <th class="num c-recent" data-i18n="rank.colRecent">Last 12 mo</th><th class="c-latest" data-i18n="rank.colLatest">Latest</th>
+            <th class="c-topics" data-i18n="rank.colTopics">Main topics</th><th class="c-co" data-i18n="rank.colCo">Frequent co-authors</th>
           </tr></thead>
           <tbody id="rank-rows"></tbody>
         </table>
       </div>
-      <button id="rank-more" class="more" type="button">Show more</button>
+      <button id="rank-more" class="more" type="button" data-i18n="more">Show more</button>
     </section>
 
     <section class="card" id="papers">
       <div class="card-head">
-        <h2>Papers</h2>
+        <h2 data-i18n="papers.title">Papers</h2>
         <p class="note" id="table-note"></p>
       </div>
       <div class="table-scroll">
         <table class="papers">
-          <thead><tr><th class="c-date">Date</th><th>Title</th><th class="c-authors">Authors</th><th class="c-code">Code</th></tr></thead>
+          <thead><tr><th class="c-date" data-i18n="col.date">Date</th><th data-i18n="col.title">Title</th><th class="c-authors" data-i18n="col.authors">Authors</th><th class="c-code" data-i18n="col.code">Code</th></tr></thead>
           <tbody id="paper-rows"></tbody>
         </table>
       </div>
-      <button id="more" class="more" type="button">Show more</button>
+      <button id="more" class="more" type="button" data-i18n="more">Show more</button>
     </section>
   </main>
 

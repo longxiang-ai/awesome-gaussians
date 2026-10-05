@@ -2,9 +2,53 @@
 (() => {
   "use strict";
 
+  const $ = (id) => document.getElementById(id);
+
+  /* ---------- language: UI text only, paper data stays as published ---------- */
+  const I18N = window.ATLAS_I18N;
+  const LANGS = new Map(I18N.languages.map((l) => [l.code, l]));
+  const urlHasLang = new URLSearchParams(location.search).has("lang");
+  let lang = detectLang();
+
+  // ?lang= link, then the visitor's last choice, then the browser language, then English.
+  function detectLang() {
+    const fromUrl = new URLSearchParams(location.search).get("lang");
+    if (LANGS.has(fromUrl)) return fromUrl;
+    try {
+      const saved = localStorage.getItem("atlas-lang");
+      if (LANGS.has(saved)) return saved;
+    } catch (err) { /* storage unavailable */ }
+    for (const tag of navigator.languages || [navigator.language || ""]) {
+      const base = String(tag).toLowerCase().split("-")[0];
+      if (LANGS.has(base)) return base;
+    }
+    return "en";
+  }
+
+  // Look up a UI string and fill {placeholders}; numbers get thousands separators.
+  function t(key, vars = {}) {
+    const table = I18N.strings[lang] || I18N.strings.en;
+    const template = (vars.n === 1 && table[`${key}_one`]) || table[key] || I18N.strings.en[key] || key;
+    return template.replace(/\{(\w+)\}/g, (match, name) => {
+      if (!(name in vars)) return match;
+      return typeof vars[name] === "number" ? vars[name].toLocaleString("en-US") : vars[name];
+    });
+  }
+
+  function applyStaticText() {
+    document.documentElement.lang = LANGS.get(lang).locale;
+    document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+      el.dataset.i18nAttr.split(",").forEach((pair) => {
+        const [attr, key] = pair.split(":");
+        el.setAttribute(attr, t(key));
+      });
+    });
+  }
+  applyStaticText();
+
   if (typeof d3 === "undefined") {
-    document.getElementById("lede").textContent =
-      "The chart library did not load, so the charts cannot be drawn. Please reload the page.";
+    $("lede").textContent = t("error.d3");
     return;
   }
 
@@ -14,12 +58,20 @@
   const state = { period: "all", topic: -1, search: "", shown: PAGE_SIZE, authorSort: "total", authorsShown: RANK_PAGE };
   let DATA, papers, topicLayout;
 
-  const $ = (id) => document.getElementById(id);
   const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   const fmt = d3.format(",");
   const monthKey = (date) => date.slice(0, 7);
-  const monthLabel = (key, long = true) =>
-    d3.utcFormat(long ? "%b %Y" : "%b")(new Date(`${key}-01T00:00:00Z`));
+  const monthFormats = new Map();
+  function monthLabel(key, long = true) {
+    const id = `${lang}|${long}`;
+    if (!monthFormats.has(id)) {
+      const options = long ? { year: "numeric", month: "short" } : { month: "short" };
+      monthFormats.set(id, new Intl.DateTimeFormat(LANGS.get(lang).locale, { ...options, timeZone: "UTC" }));
+    }
+    return monthFormats.get(id).format(new Date(`${key}-01T00:00:00Z`));
+  }
+  // Per-repository text (title, subject, search hint) from SITE in build_viz_data.py.
+  const siteText = (field) => (DATA.site.i18n && DATA.site.i18n[lang] && DATA.site.i18n[lang][field]) || DATA.site[field];
   const arxivUrl = (id) => `https://arxiv.org/abs/${id}`;
 
   function monthsBetween(first, last) {
@@ -94,6 +146,7 @@
     if (state.period !== "all") params.set("period", state.period);
     if (state.topic >= 0) params.set("topic", DATA.topics[state.topic].name);
     if (state.search.trim()) params.set("q", state.search.trim());
+    if (urlHasLang) params.set("lang", lang);
     const qs = params.toString();
     history.replaceState(null, "", qs ? `?${qs}${location.hash}` : location.pathname + location.hash);
   }
@@ -136,9 +189,9 @@
 
     const width = el.clientWidth;
     const height = 240;
-    const margin = { top: 22, right: 4, bottom: 28, left: 40 };
+    const margin = { top: 14, right: 4, bottom: 28, left: 40 };
     const svg = d3.select(el).append("svg").attr("width", width).attr("height", height)
-      .attr("role", "img").attr("aria-label", "Papers per month bar chart");
+      .attr("role", "img").attr("aria-label", t("trend.aria"));
     const x = d3.scaleBand().domain(months).range([margin.left, width - margin.right]);
     x.paddingInner(Math.min(0.5, 2 / Math.max(x.step(), 1)));
     const y = d3.scaleLinear().domain([0, d3.max(series, (d) => d.n) || 1]).nice()
@@ -168,34 +221,43 @@
         .attr("text-anchor", "end").attr("font-size", 12).attr("font-weight", 600)
         .attr("fill", css("--ink")).text(fmt(lastBar.n));
     }
+    // Legend as HTML above the chart so long or translated text wraps on narrow screens.
     const notes = [];
-    if (series.some((d) => d.partial)) notes.push(`Gray: before tracking began (${monthLabel(trackingMonth)}), incomplete`);
-    if (lastBar && lastBar.inProgress) notes.push(`Faded: ${monthLabel(lastBar.m)} so far`);
+    if (series.some((d) => d.partial)) notes.push(t("trend.legendPartial", { month: monthLabel(trackingMonth) }));
+    if (lastBar && lastBar.inProgress) notes.push(t("trend.legendProgress", { month: monthLabel(lastBar.m) }));
     if (notes.length) {
-      svg.append("text").attr("x", margin.left + 4).attr("y", margin.top - 8)
-        .attr("font-size", 11).attr("fill", css("--muted")).text(notes.join(" · "));
+      const legend = document.createElement("p");
+      legend.className = "chart-legend";
+      legend.textContent = notes.join(" · ");
+      el.prepend(legend);
     }
 
     svg.append("g").selectAll("rect").data(series).join("rect")
       .attr("x", (d) => x(d.m) - (x.step() - x.bandwidth()) / 2).attr("width", x.step())
       .attr("y", margin.top).attr("height", height - margin.top - margin.bottom)
-      .attr("fill", "transparent").attr("tabindex", 0).attr("aria-label", (d) => `${monthLabel(d.m)}: ${d.n} papers`)
+      .attr("fill", "transparent").attr("tabindex", 0).attr("aria-label", (d) => `${monthLabel(d.m)}: ${t("papers.count", { n: d.n })}`)
       .on("pointermove focus", function (event, d) {
         bars.selectAll("path").attr("opacity", (b) => (b === d ? 1 : 0.55));
-        const lines = [["strong", `${fmt(d.n)} papers`], ["sub", monthLabel(d.m)]];
-        if (d.partial) lines.push(["sub", "Before tracking began, so incomplete"]);
-        if (d.inProgress) lines.push(["sub", `Month in progress, through ${DATA.last_update}`]);
+        const lines = [["strong", t("papers.count", { n: d.n })], ["sub", monthLabel(d.m)]];
+        if (d.partial) lines.push(["sub", t("trend.tipPartial")]);
+        if (d.inProgress) lines.push(["sub", t("trend.tipProgress", { date: DATA.last_update })]);
         showTip(event, lines);
       })
       .on("pointerleave blur", () => { bars.selectAll("path").attr("opacity", 1); hideTip(); });
 
-    $("trend-note").textContent = `Tracking began on ${DATA.tracking_start}; earlier months only include papers that were still in the first snapshot.`;
+    $("trend-note").textContent = t("trend.note", { date: DATA.tracking_start });
     const table = document.createElement("table");
-    table.innerHTML = "<thead><tr><th>Month</th><th class='num'>Papers</th></tr></thead>";
+    const headRow = table.createTHead().insertRow();
+    [[t("trend.colMonth"), ""], [t("trend.colPapers"), "num"]].forEach(([label, cls]) => {
+      const th = document.createElement("th");
+      th.textContent = label;
+      if (cls) th.className = cls;
+      headRow.append(th);
+    });
     const body = table.createTBody();
     series.slice().reverse().forEach((d) => {
       const tr = body.insertRow();
-      tr.insertCell().textContent = monthLabel(d.m) + (d.partial ? " (incomplete)" : "");
+      tr.insertCell().textContent = monthLabel(d.m) + (d.partial ? t("trend.incomplete") : "");
       const td = tr.insertCell(); td.className = "num"; td.textContent = fmt(d.n);
     });
     $("trend-table").replaceChildren(table);
@@ -212,7 +274,7 @@
     const canvas = document.createElement("canvas");
     canvas.width = width * dpr;
     canvas.height = height * dpr;
-    canvas.setAttribute("aria-label", "Scatter map of papers by similarity; use the paper table below for the same data");
+    canvas.setAttribute("aria-label", t("map.aria"));
     frame.append(canvas);
     const ctx = canvas.getContext("2d");
     ctx.scale(dpr, dpr);
@@ -280,10 +342,10 @@
       if (p !== current) { current = p; draw(p); }
       canvas.style.cursor = p ? "pointer" : "crosshair";
       if (!p) return hideTip();
-      const names = p.a.slice(0, 3).map((i) => DATA.authors[i]).join(", ") + (p.a.length > 3 ? " et al." : "");
+      const names = p.a.slice(0, 3).map((i) => DATA.authors[i]).join(", ") + (p.a.length > 3 ? t("etal") : "");
       const lines = [["strong", p.t], ["sub", `${p.d} · ${names}`]];
       if (p.k.length) lines.push(["sub", p.k.map((k) => DATA.topics[k].name).join(", ")]);
-      if (filteredView && !selected.has(p)) lines.push(["sub", "Outside your current filters"]);
+      if (filteredView && !selected.has(p)) lines.push(["sub", t("map.outside")]);
       showTip(event, lines);
     });
     canvas.addEventListener("pointerleave", () => { current = null; draw(null); hideTip(); });
@@ -315,8 +377,8 @@
     el.style.setProperty("--spark-w", `${sparkWidth}px`);
     const head = document.createElement("div");
     head.className = "topic-head";
-    ["Topic", "", "Papers", "Since tracking"].forEach((t) => {
-      const s = document.createElement("span"); s.textContent = t; head.append(s);
+    [t("topics.colTopic"), "", t("topics.colPapers"), t("topics.colTrend")].forEach((label) => {
+      const s = document.createElement("span"); s.textContent = label; head.append(s);
     });
     el.append(head);
 
@@ -362,13 +424,13 @@
     const links = [...keep];
 
     // Place topics on a circle, ordered by a force layout so related topics sit side by side.
-    const nodes = DATA.topics.map((t, i) => ({ i }));
+    const nodes = DATA.topics.map((_, i) => ({ i }));
     const sim = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links.map((l) => ({ ...l }))).strength((l) => 0.1 + l.jaccard * 2))
       .force("charge", d3.forceManyBody().strength(-200))
       .force("center", d3.forceCenter())
       .stop();
-    for (let t = 0; t < 400; t++) sim.tick();
+    for (let tick = 0; tick < 400; tick++) sim.tick();
     nodes.slice().sort((a, b) => Math.atan2(a.y, a.x) - Math.atan2(b.y, b.x))
       .forEach((d, slot) => { d.angle = ((slot + 0.5) / n) * Math.PI * 2 - Math.PI / 2; });
     const order = d3.range(n).sort((a, b) => counts[b] - counts[a]);
@@ -400,7 +462,7 @@
     if (!top.length) {
       const empty = document.createElement("p");
       empty.className = "empty";
-      empty.textContent = "No papers in this selection mention two topics.";
+      empty.textContent = t("topicnet.empty");
       return el.append(empty);
     }
     const max = top[0].n;
@@ -431,12 +493,10 @@
     const links = topicLayout.links.map((l) => ({ ...l, n: both(l.source, l.target) }));
     const maxCount = d3.max(counts) || 1;
     const narrow = width < 520;
-    $("topic-net-note").textContent = narrow
-      ? "The topic pairs that appear together in the most papers."
-      : "Lines join topics that appear in the same papers; thicker means more overlap. Circle size is the paper count. Hover a topic to isolate its links.";
+    $("topic-net-note").textContent = narrow ? t("topicnet.noteNarrow") : t("topicnet.note");
     // A circle of long topic names cannot fit on a phone, so list the strongest pairs instead.
     if (narrow) return renderTopicPairs(el, both);
-    const labels = DATA.topics.map((t) => wrapLabel(t.name, narrow ? 10 : 18));
+    const labels = DATA.topics.map((topic) => wrapLabel(topic.name, narrow ? 10 : 18));
     const longestLine = d3.max(labels.flat(), (line) => line.length);
     const labelRoom = Math.min(width * 0.32, 16 + longestLine * 6.4);
     const maxLines = d3.max(labels, (lines) => lines.length);
@@ -451,7 +511,7 @@
     }));
 
     const svg = d3.select(el).append("svg").attr("width", width).attr("height", height)
-      .attr("role", "img").attr("aria-label", "Network of topics that appear in the same papers");
+      .attr("role", "img").attr("aria-label", t("topicnet.aria"));
     // Chords bow toward the centre so links between neighbours stay readable.
     const chord = (l) => {
       const a = pos[l.source];
@@ -466,14 +526,14 @@
     const nodeSel = svg.append("g").selectAll("circle").data(DATA.topics).join("circle")
       .attr("class", "net-node").attr("cx", (_, i) => pos[i].x).attr("cy", (_, i) => pos[i].y)
       .attr("r", (_, i) => r(counts[i])).attr("tabindex", 0)
-      .attr("aria-label", (t, i) => `${t.name}: ${counts[i]} papers`)
+      .attr("aria-label", (topic, i) => `${topic.name}: ${t("papers.count", { n: counts[i] })}`)
       .attr("stroke-width", (_, i) => (state.topic === i ? 3 : 2))
       .attr("stroke", (_, i) => (state.topic === i ? css("--ink") : css("--surface")));
     const labelSel = svg.append("g").selectAll("text").data(DATA.topics).join("text")
       .attr("class", "node-label")
       .attr("text-anchor", (_, i) => (pos[i].cos > 0.05 ? "start" : pos[i].cos < -0.05 ? "end" : "middle"))
       .attr("x", (_, i) => pos[i].x + pos[i].cos * (r(counts[i]) + 6))
-      .each(function (t, i) {
+      .each(function (topic, i) {
         // Long names wrap onto two lines so they fit beside the circle.
         const lines = labels[i];
         const base = pos[i].y + pos[i].sin * (r(counts[i]) + 6);
@@ -483,8 +543,8 @@
       });
 
     nodeSel
-      .on("pointermove focus", (event, t) => {
-        const i = DATA.topics.indexOf(t);
+      .on("pointermove focus", (event, topic) => {
+        const i = DATA.topics.indexOf(topic);
         const mine = links.filter((l) => l.source === i || l.target === i);
         const near = new Set([i, ...mine.flatMap((l) => [l.source, l.target])]);
         nodeSel.classed("dim", (_, j) => !near.has(j));
@@ -493,15 +553,15 @@
         const partners = DATA.topics.map((_, j) => ({ j, n: j === i ? 0 : both(i, j) }))
           .sort((a, b) => b.n - a.n).slice(0, 3).filter((d) => d.n);
         showTip(event, [
-          ["strong", `${fmt(counts[i])} papers`], ["sub", t.name],
-          ...partners.map((d) => ["key", `${fmt(d.n)} also mention ${DATA.topics[d.j].name}`]),
+          ["strong", t("papers.count", { n: counts[i] })], ["sub", topic.name],
+          ...partners.map((d) => ["key", t("topicnet.also", { n: d.n, topic: DATA.topics[d.j].name })]),
         ]);
       })
       .on("pointerleave blur", () => {
         nodeSel.classed("dim", false); labelSel.classed("dim", false); linkSel.classed("dim", false); hideTip();
       })
-      .on("click", (_, t) => {
-        const i = DATA.topics.indexOf(t);
+      .on("click", (_, topic) => {
+        const i = DATA.topics.indexOf(topic);
         setState({ topic: state.topic === i ? -1 : i });
       });
   }
@@ -515,14 +575,11 @@
     const counts = new Map();
     rows.forEach((p) => p.a.forEach((a) => counts.set(a, (counts.get(a) || 0) + 1)));
     const top = [...counts].filter(([, n]) => n >= 2).sort((a, b) => b[1] - a[1]).slice(0, AUTHOR_NODES);
-    const noteText = top.length
-      ? `The ${top.length} most prolific authors in your selection (2+ papers each). Lines join people who wrote a paper together; thicker means more joint papers. Different people who share a name are merged. Click a person to search their papers.`
-      : "";
-    $("people-note").textContent = noteText;
+    $("people-note").textContent = top.length ? t("people.note", { n: top.length }) : "";
     if (!top.length) {
       const empty = document.createElement("p");
       empty.className = "empty";
-      empty.textContent = "No author has two or more papers in this selection.";
+      empty.textContent = t("people.empty");
       el.append(empty);
       return;
     }
@@ -541,10 +598,10 @@
     const nodes = top.map(([a, n]) => ({ id: a, n, degree: 0 }));
     const byId = new Map(nodes.map((d) => [d.id, d]));
     const links = [...edgeMap].map(([key, n]) => {
-      const [s, t] = key.split("|").map(Number);
-      byId.get(s).degree += 1;
-      byId.get(t).degree += 1;
-      return { source: s, target: t, n };
+      const [source, target] = key.split("|").map(Number);
+      byId.get(source).degree += 1;
+      byId.get(target).degree += 1;
+      return { source, target, n };
     });
     const r = d3.scaleSqrt().domain([2, d3.max(nodes, (d) => d.n)]).range([4, width < 560 ? 11 : 16]);
     const sim = d3.forceSimulation(nodes)
@@ -554,7 +611,7 @@
       .force("x", d3.forceX(0).strength((d) => (d.degree ? 0.07 : 0.3) * (height / width)))
       .force("y", d3.forceY(0).strength((d) => (d.degree ? 0.07 : 0.3)))
       .stop();
-    for (let t = 0; t < 320; t++) sim.tick();
+    for (let tick = 0; tick < 320; tick++) sim.tick();
 
     const pad = 24;
     const xs = d3.extent(nodes, (d) => d.x);
@@ -573,14 +630,14 @@
     const wScale = d3.scaleLinear().domain([1, d3.max(links, (l) => l.n) || 1]).range([1, 5]);
 
     const svg = d3.select(el).append("svg").attr("width", width).attr("height", height)
-      .attr("role", "img").attr("aria-label", "Co-author network of the most prolific authors");
+      .attr("role", "img").attr("aria-label", t("people.aria"));
     const linkSel = svg.append("g").selectAll("line").data(links).join("line").attr("class", "net-link")
       .attr("x1", (l) => l.source.px).attr("y1", (l) => l.source.py)
       .attr("x2", (l) => l.target.px).attr("y2", (l) => l.target.py)
       .attr("stroke-width", (l) => wScale(l.n));
     const nodeSel = svg.append("g").selectAll("circle").data(nodes).join("circle").attr("class", "net-node")
       .attr("cx", (d) => d.px).attr("cy", (d) => d.py).attr("r", (d) => r(d.n)).attr("tabindex", 0)
-      .attr("aria-label", (d) => `${DATA.authors[d.id]}: ${d.n} papers`);
+      .attr("aria-label", (d) => `${DATA.authors[d.id]}: ${t("papers.count", { n: d.n })}`);
     const labelSel = svg.append("g").selectAll("text").data(nodes).join("text").attr("class", "node-label")
       .attr("x", (d) => d.px + r(d.n) + 4).attr("y", (d) => d.py + 4)
       .attr("text-anchor", (d) => (d.px > width - 120 ? "end" : "start"))
@@ -596,8 +653,8 @@
         labelSel.attr("display", (o) => (o.id === d.id || near.has(o.id) ? null : "none"));
         const partners = [...near].sort((a, b) => b[1] - a[1]).slice(0, 3);
         showTip(event, [
-          ["strong", `${fmt(d.n)} papers`], ["sub", DATA.authors[d.id]],
-          ...partners.map(([id, n]) => ["key", `${n} with ${DATA.authors[id]}`]),
+          ["strong", t("papers.count", { n: d.n })], ["sub", DATA.authors[d.id]],
+          ...partners.map(([id, n]) => ["key", t("people.with", { n, name: DATA.authors[id] })]),
         ]);
       })
       .on("pointerleave blur", () => {
@@ -657,7 +714,7 @@
       const nameCell = tr.insertCell();
       const name = document.createElement("button");
       name.type = "button"; name.className = "link"; name.textContent = DATA.authors[s.id];
-      name.title = "Show this author's papers";
+      name.title = t("rank.showPapers");
       name.addEventListener("click", () => searchAuthor(DATA.authors[s.id]));
       nameCell.append(name);
 
@@ -679,13 +736,10 @@
     if (!ranked.length) {
       const td = body.insertRow().insertCell();
       td.colSpan = 7; td.className = "empty";
-      td.textContent = state.authorSort === "recent" && rows.length
-        ? "No papers from the last 12 months in this selection."
-        : "No authors in this selection.";
+      td.textContent = state.authorSort === "recent" && rows.length ? t("rank.emptyRecent") : t("rank.empty");
     }
     $("rank-note").textContent = ranked.length
-      ? `${fmt(ranked.length)} authors in your selection, ranked by ${key === "total" ? "paper count" : "papers in the last 12 months"}. ` +
-        "Topics and co-authors are counted within your selection; numbers in brackets are joint papers. Click a name to see their papers."
+      ? t("rank.note", { n: ranked.length, by: t(key === "total" ? "rank.byTotal" : "rank.byRecent") })
       : "";
     $("rank-more").hidden = ranked.length <= state.authorsShown;
   }
@@ -710,20 +764,20 @@
       }
       const authors = tr.insertCell();
       authors.className = "authors";
-      authors.textContent = p.a.slice(0, 4).map((i) => DATA.authors[i]).join(", ") + (p.a.length > 4 ? " et al." : "");
+      authors.textContent = p.a.slice(0, 4).map((i) => DATA.authors[i]).join(", ") + (p.a.length > 4 ? t("etal") : "");
       const code = tr.insertCell();
       if (p.g) {
         const a = document.createElement("a");
-        a.href = p.g; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Code";
+        a.href = p.g; a.target = "_blank"; a.rel = "noopener"; a.textContent = t("col.code");
         code.append(a);
       }
     });
     if (!rows.length) {
       const td = body.insertRow().insertCell();
-      td.colSpan = 4; td.className = "empty"; td.textContent = "No papers match these filters.";
+      td.colSpan = 4; td.className = "empty"; td.textContent = t("table.empty");
     }
     $("table-note").textContent = rows.length
-      ? `Newest first. Showing ${fmt(Math.min(state.shown, rows.length))} of ${fmt(rows.length)}.`
+      ? t("table.note", { shown: Math.min(state.shown, rows.length), total: rows.length })
       : "";
     $("more").hidden = rows.length <= state.shown;
   }
@@ -750,22 +804,54 @@
     renderAll();
   }
 
-  function initControls() {
+  function fillFilterOptions() {
     const years = [...new Set(papers.map((p) => p.d.slice(0, 4)))].sort().reverse();
-    const periods = [["all", "All time"], ["12m", "Last 12 months"], ...years.map((y) => [y, y])];
-    $("f-period").replaceChildren(...periods.map(([v, t]) => new Option(t, v)));
-    const topicOptions = [[-1, "All topics"], ...topicLayout.order.map((i) => [i, DATA.topics[i].name])];
-    $("f-topic").replaceChildren(...topicOptions.map(([v, t]) => new Option(t, String(v))));
+    const periods = [["all", t("period.all")], ["12m", t("period.12m")], ...years.map((y) => [y, y])];
+    $("f-period").replaceChildren(...periods.map(([value, label]) => new Option(label, value)));
+    const topicOptions = [[-1, t("topic.all")], ...topicLayout.order.map((i) => [i, DATA.topics[i].name])];
+    $("f-topic").replaceChildren(...topicOptions.map(([value, label]) => new Option(label, String(value))));
+    $("f-period").value = state.period;
+    $("f-topic").value = String(state.topic);
+    return periods;
+  }
+
+  function applySiteText() {
+    const title = siteText("title");
+    document.title = title;
+    $("site-title").textContent = title;
+    $("f-search").placeholder = siteText("search_hint");
+    $("lede").textContent = t("lede", {
+      n: papers.length, subject: siteText("subject"), start: DATA.tracking_start, updated: DATA.last_update,
+    });
+    $("footer-note").textContent = t("footer", { repo: DATA.site.repo, built: DATA.generated });
+  }
+
+  function setLang(code) {
+    lang = code;
+    try { localStorage.setItem("atlas-lang", code); } catch (err) { /* storage unavailable */ }
+    applyStaticText();
+    applySiteText();
+    fillFilterOptions();
+    syncUrl();
+    hideTip();
+    renderAll();
+  }
+
+  function initControls() {
+    const periods = fillFilterOptions();
 
     const params = new URLSearchParams(location.search);
     if (periods.some(([v]) => v === params.get("period"))) state.period = params.get("period");
-    const topic = DATA.topics.findIndex((t) => t.name === params.get("topic"));
+    const topic = DATA.topics.findIndex((item) => item.name === params.get("topic"));
     if (topic >= 0) state.topic = topic;
     if (params.get("q")) state.search = params.get("q");
     $("f-search").value = state.search;
     $("f-period").value = state.period;
     $("f-topic").value = String(state.topic);
 
+    $("f-lang").replaceChildren(...I18N.languages.map((l) => new Option(l.label, l.code)));
+    $("f-lang").value = lang;
+    $("f-lang").addEventListener("change", (e) => setLang(e.target.value));
     $("f-period").addEventListener("change", (e) => setState({ period: e.target.value }));
     $("f-topic").addEventListener("change", (e) => setState({ topic: Number(e.target.value) }));
     let timer;
@@ -802,7 +888,7 @@
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       DATA = await response.json();
     } catch (err) {
-      $("lede").textContent = `Could not load paper data (${err.message}).`;
+      $("lede").textContent = t("error.data", { error: err.message });
       return;
     }
     papers = DATA.papers.map((p) => ({
@@ -810,12 +896,7 @@
       search: `${p.t} ${p.a.map((i) => DATA.authors[i]).join(" ")}`.toLowerCase(),
     }));
     topicLayout = buildTopicLayout();
-    $("lede").textContent =
-      `${fmt(papers.length)} arXiv papers on ${DATA.site.subject}, collected daily since ${DATA.tracking_start} ` +
-      `and last updated ${DATA.last_update}. Filter below; every chart follows the same filters.`;
-    $("footer-note").textContent =
-      `Data from arXiv via the ${DATA.site.repo} crawler. Topics are keyword matches from data/keywords.json. ` +
-      `Map layout: TF-IDF of titles and abstracts, projected with t-SNE. Built ${DATA.generated}.`;
+    applySiteText();
     initControls();
     renderAll();
   }
