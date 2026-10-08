@@ -193,7 +193,7 @@ def build_dataset():
         text = f"{paper['title']} {paper.get('abstract') or ''}"
         record = {
             "id": pid,
-            "t": paper["title"].strip(),
+            "t": " ".join(paper["title"].split()),  # arXiv titles can contain line breaks
             "d": paper["published_date"],
             "a": [author_index[a] for a in paper.get("authors") or []],
             "k": [i for i, topic in enumerate(topics) if topic["pattern"].search(text)],

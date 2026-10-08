@@ -85,20 +85,63 @@
     return out;
   }
 
+  /* ---------- LaTeX in paper titles ---------- */
+  // arXiv titles use inline TeX such as G$^2$SR or 360$^{\circ}$; typeset it with the bundled KaTeX.
+  const MATH = /(?<!\\)\$([^$]+?)(?<!\\)\$/g;
+  const TEXT_STYLE = /\\(textit|emph|textbf|texttt)\{([^{}]*)\}/g;
+  const TEXT_TAGS = { textit: "i", emph: "em", textbf: "strong", texttt: "code" };
+  const TEX_SYMBOLS = { "\\times": "×", "\\circ": "°", "\\sim": "~", "\\neq": "≠" };
+
+  // Text outside math: plain text nodes, plus simple commands like \textit{...} as real markup.
+  function appendText(el, text) {
+    let last = 0;
+    for (const m of text.matchAll(TEXT_STYLE)) {
+      el.append(text.slice(last, m.index).replace(/\\\$/g, "$"));
+      const styled = document.createElement(TEXT_TAGS[m[1]]);
+      styled.textContent = m[2];
+      el.append(styled);
+      last = m.index + m[0].length;
+    }
+    el.append(text.slice(last).replace(/\\\$/g, "$"));
+  }
+
+  function renderTitle(el, title) {
+    let last = 0;
+    for (const m of title.matchAll(MATH)) {
+      appendText(el, title.slice(last, m.index));
+      const math = document.createElement("span");
+      try {
+        // trust: false keeps \href and similar commands from injecting links or HTML.
+        katex.render(m[1], math, { throwOnError: true, strict: "ignore", trust: false });
+      } catch (err) {
+        math.textContent = m[0]; // KaTeX missing or the TeX is invalid: show the source
+      }
+      el.append(math);
+      last = m.index + m[0].length;
+    }
+    appendText(el, title.slice(last));
+  }
+
+  // Title with TeX markup removed, for search: "G$^2$SR" -> "G2SR", "360$^{\circ}$" -> "360°".
+  const plainTitle = (title) => title
+    .replace(MATH, (_, tex) => tex.replace(/\\[a-zA-Z]+/g, (cmd) => TEX_SYMBOLS[cmd] || "").replace(/[{}^_\\]/g, ""))
+    .replace(TEXT_STYLE, "$2");
+
   /* ---------- tooltip (DOM built with textContent: titles are untrusted data) ---------- */
   const tip = $("tooltip");
   function showTip(event, lines) {
     tip.replaceChildren();
     lines.forEach(([cls, text]) => {
-      const el = document.createElement(cls === "strong" ? "strong" : "div");
+      const el = document.createElement(cls === "strong" || cls === "title" ? "strong" : "div");
       if (cls === "key") {
         const key = document.createElement("span");
         key.className = "key";
         el.append(key);
-      } else if (cls !== "strong") {
+      } else if (cls !== "strong" && cls !== "title") {
         el.className = cls;
       }
-      el.append(document.createTextNode(text));
+      if (cls === "title") renderTitle(el, text);
+      else el.append(document.createTextNode(text));
       tip.append(el);
     });
     tip.hidden = false;
@@ -198,7 +241,8 @@
       .range([height - margin.bottom, margin.top]);
 
     svg.append("g").attr("class", "axis").attr("transform", `translate(${margin.left},0)`)
-      .call(d3.axisLeft(y).ticks(4).tickSize(-(width - margin.left - margin.right)).tickFormat(d3.format("~s")))
+      // Whole-number ticks only: paper counts are integers ("~s" turned 0.2 into "200m").
+      .call(d3.axisLeft(y).tickValues(y.ticks(4).filter(Number.isInteger)).tickSize(-(width - margin.left - margin.right)).tickFormat(fmt))
       .call((g) => g.select(".domain").remove());
 
     const everyN = Math.ceil(64 / x.step());
@@ -343,7 +387,7 @@
       canvas.style.cursor = p ? "pointer" : "crosshair";
       if (!p) return hideTip();
       const names = p.a.slice(0, 3).map((i) => DATA.authors[i]).join(", ") + (p.a.length > 3 ? t("etal") : "");
-      const lines = [["strong", p.t], ["sub", `${p.d} · ${names}`]];
+      const lines = [["title", p.t], ["sub", `${p.d} · ${names}`]];
       if (p.k.length) lines.push(["sub", p.k.map((k) => DATA.topics[k].name).join(", ")]);
       if (filteredView && !selected.has(p)) lines.push(["sub", t("map.outside")]);
       showTip(event, lines);
@@ -754,7 +798,7 @@
       const cell = tr.insertCell();
       const link = document.createElement("a");
       link.className = "title"; link.href = arxivUrl(p.id); link.target = "_blank"; link.rel = "noopener";
-      link.textContent = p.t;
+      renderTitle(link, p.t);
       cell.append(link);
       if (p.k.length) {
         const topics = document.createElement("span");
@@ -893,7 +937,7 @@
     }
     papers = DATA.papers.map((p) => ({
       ...p,
-      search: `${p.t} ${p.a.map((i) => DATA.authors[i]).join(" ")}`.toLowerCase(),
+      search: `${p.t} ${plainTitle(p.t)} ${p.a.map((i) => DATA.authors[i]).join(" ")}`.toLowerCase(),
     }));
     topicLayout = buildTopicLayout();
     applySiteText();

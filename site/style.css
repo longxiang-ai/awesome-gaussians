@@ -159,6 +159,8 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .papers .c-code { width: 56px; }
 .papers td:first-child { white-space: nowrap; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .papers .title { color: var(--ink); font-weight: 500; }
+/* KaTeX defaults to 1.21em, which towers over the surrounding title text. */
+.papers .title .katex, .tooltip .katex { font-size: 1.05em; }
 .papers .topics { display: block; margin-top: 2px; font-size: 12px; color: var(--muted); }
 .papers .c-authors { width: 32%; }
 .papers td.authors { color: var(--ink-2); }
